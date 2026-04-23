@@ -98,7 +98,7 @@
 							<div class="col-12">
 
 								<!-- Interactive 3D Model -->
-									<section id="modelo-3d" class="interactive-model">
+									<section id="modelo-3d-original" class="interactive-model hidden-model">
 										<header class="major">
 											<h2>Experimente em 3D</h2>
 										</header>
@@ -117,6 +117,9 @@
 													src="assets/3d/modelo.glb"
 													alt="Modelo 3D interativo do Estúdio Pequeno Cavaleiro"
 													camera-controls
+													camera-orbit="0deg 75deg 130%"
+													min-camera-orbit="auto auto 60%"
+													max-camera-orbit="auto auto 300%"
 													auto-rotate
 													shadow-intensity="0.8"
 													exposure="1"
@@ -132,7 +135,7 @@
 								<!-- Portfolio -->
 									<section id="portfolio">
 										<header class="major">
-											<h2>Portfolio</h2>
+											<h2>Projetos</h2>
 										</header>
 										<div class="row">
 											<div class="col-4 col-6-medium col-12-small">
@@ -218,6 +221,41 @@
 														</ul>
 													</footer>
 												</section>
+											</div>
+										</div>
+									</section>
+
+								<!-- Interactive 3D Model -->
+									<section id="modelo-3d" class="interactive-model">
+										<header class="major">
+											<h2>Experimente em 3D</h2>
+										</header>
+										<div class="model-showcase">
+											<div class="model-copy">
+												<header>
+													<h3>Gire, aproxime e explore o modelo</h3>
+												</header>
+												<p>Uma pequena vitrine interativa para personagens, props, esculturas ou protótipos. Arraste para rotacionar, use o scroll para zoom e explore os detalhes direto na página.</p>
+												<ul class="actions">
+													<li><a href="#portfolio" class="button alt">Ver projetos</a></li>
+												</ul>
+											</div>
+											<div class="model-stage">
+												<model-viewer
+													src="assets/3d/modelo.glb"
+													alt="Modelo 3D interativo do Estúdio Pequeno Cavaleiro"
+													camera-controls
+													camera-orbit="0deg 75deg 130%"
+													min-camera-orbit="auto auto 60%"
+													max-camera-orbit="auto auto 300%"
+													auto-rotate
+													shadow-intensity="0.8"
+													exposure="1"
+													touch-action="pan-y"
+													interaction-prompt="auto">
+													<p>Seu navegador não conseguiu carregar o visualizador 3D.</p>
+												</model-viewer>
+												<p class="model-hint">Use o mouse ou toque na tela para rotacionar, aproximar e explorar.</p>
 											</div>
 										</div>
 									</section>
