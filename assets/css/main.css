@@ -1757,10 +1757,6 @@ input, select, textarea {
 		margin: 0 0 4em 0;
 	}
 
-	.hidden-model {
-		display: none;
-	}
-
 	.model-showcase {
 		display: flex;
 		flex-wrap: wrap;
