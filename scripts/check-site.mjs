@@ -46,7 +46,7 @@ function checkReference(source, base, reference) {
 
 for (const file of files) {
     const extension = path.extname(file).toLowerCase();
-    if (!['.html', '.css', '.js'].includes(extension)) continue;
+    if (!['.html', '.css', '.js', '.gltf'].includes(extension)) continue;
     const content = fs.readFileSync(file, 'utf8');
     const base = path.dirname(file);
     let match;
@@ -66,6 +66,13 @@ for (const file of files) {
         const pageBase = path.basename(base) === 'js' ? path.dirname(base) : base;
         const media = /["']((?:\.\.\/|\.\/)*(?:images|assets)\/[^"']+\.(?:png|jpe?g|webp|gif|svg|mp4|webm|glb|pdf))["']/gi;
         while ((match = media.exec(content))) checkReference(file, pageBase, match[1]);
+    }
+
+    if (extension === '.gltf') {
+        const model = JSON.parse(content);
+        for (const resource of [...(model.buffers ?? []), ...(model.images ?? [])]) {
+            if (resource.uri) checkReference(file, base, resource.uri);
+        }
     }
 }
 

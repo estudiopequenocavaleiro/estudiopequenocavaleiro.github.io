@@ -5,9 +5,11 @@
 *.mjs text eol=lf
 *.md text eol=lf
 *.svg text eol=lf
+*.gltf text eol=lf
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.mp4 binary
 *.glb binary
+*.bin binary
 *.docx binary

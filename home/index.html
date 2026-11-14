@@ -178,22 +178,24 @@
 
                 <div class="interactive-3d__panel">
                     <div class="interactive-3d__copy">
-                        <h3 class="interactive-3d__subtitle">Explore uma espada em 3D</h3>
+                        <h3 class="interactive-3d__subtitle">Explore uma galinha em 3D</h3>
                         <p class="interactive-3d__text">
-                            Um modelo de teste criado para esta vitrine. Arraste para girar,
-                            use o scroll para aproximar e veja os detalhes direto na página.
+                            Gire a galinha, aproxime a câmera e descubra os detalhes do modelo
+                            direto na página. Use o mouse ou toque na tela para explorar.
                         </p>
                         <a href="#projetos" class="btn btn--primary btn--sm">Ver projetos</a>
                     </div>
 
                     <div class="interactive-3d__stage">
                         <model-viewer
-                            src="assets/3d/espada-demo.glb"
-                            alt="Espada low poly sobre um pedestal, com escudo laranja ao lado"
+                            src="assets/3d/galinha.gltf"
+                            alt="Modelo 3D interativo de uma galinha"
                             camera-controls
-                            camera-orbit="0deg 75deg 130%"
-                            min-camera-orbit="auto auto 60%"
-                            max-camera-orbit="auto auto 300%"
+                            camera-orbit="0deg 75deg 8m"
+                            camera-target="0m 1m 0m"
+                            min-camera-orbit="auto auto 3m"
+                            max-camera-orbit="auto auto 20m"
+                            field-of-view="45deg"
                             auto-rotate
                             shadow-intensity="0.8"
                             exposure="1"

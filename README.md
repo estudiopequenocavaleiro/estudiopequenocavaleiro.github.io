@@ -14,7 +14,7 @@ Portfólio estático do estúdio, com páginas de projetos, cursos, conteúdo e 
 
 ## Conferir localmente
 
-Na pasta do projeto, rode `node scripts/check-site.mjs` para conferir caminhos locais. Para abrir o site com um servidor local, rode `python -m http.server 8000` e acesse `http://localhost:8000/`.
+Na pasta do projeto, rode `node scripts/check-site.mjs` para conferir caminhos locais. Para abrir o site com um servidor local, rode `node scripts/serve.mjs` e acesse `http://127.0.0.1:8765/`.
 
 Os painéis de ajuste de Aprender e Projetos são carregados apenas em `localhost`, `127.0.0.1` ou ao abrir os arquivos diretamente no computador.
 
