@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estúdio Pequeno Cavaleiro · Home</title>
+    <meta name="description" content="Estúdio Pequeno Cavaleiro — criação 3D, animação, impressão 3D, jogos e programação. Cursos, projetos e conteúdo aberto.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/site-shell.css">
+</head>
+<body>
+
+    <!-- ===== NAV ===== -->
+    <header class="nav">
+    <a href="../home/index.html" class="nav__logo" aria-label="Estúdio Pequeno Cavaleiro — início"><img src="../conteudo/images/LogoEstudioSFBranco.png" alt=""></a>
+    <nav class="nav__menu" aria-label="Navegação principal">
+        <a href="../home/index.html" class="is-current" aria-current="page">HOME</a>
+        <a href="../projetos/index.html">PROJETOS</a>
+        <a href="../aprender/index.html">APRENDER</a>
+        <a href="../conteudo/index.html">CONTEÚDO</a>
+        <a href="../recursos/index.html">RECURSOS</a>
+        <a href="#sobre">SOBRE</a>
+    </nav>
+    <div class="nav__actions">
+        <span class="nav__icon" aria-hidden="true">⌕</span>
+        <details class="nav__mobile">
+            <summary class="nav__icon" aria-label="Abrir menu de navegação">☰</summary>
+            <nav class="nav__mobile-menu" aria-label="Navegação móvel">
+                <a href="../home/index.html" class="is-current" aria-current="page">HOME</a>
+                <a href="../projetos/index.html">PROJETOS</a>
+                <a href="../aprender/index.html">APRENDER</a>
+                <a href="../conteudo/index.html">CONTEÚDO</a>
+                <a href="../recursos/index.html">RECURSOS</a>
+                <a href="#sobre">SOBRE</a>
+            </nav>
+        </details>
+    </div>
+</header>
+
+    <!-- Camada do Grid Trail (acompanha o hero + intro ao rolar) -->
+    <div class="grid-trail" aria-hidden="true"></div>
+
+    <main class="page">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero" aria-label="Apresentação">
+            <div class="hero__container">
+                <h1 class="hero__title">ESTÚDIO<br><span class="hero__title-line">PEQUENO CAVALEIRO</span></h1>
+                <p class="hero__subtitle">Onde a arte encontra o caos da criatividade!</p>
+            </div>
+        </section>
+
+        <!-- ===== INTRO — 3 pilares ===== -->
+        <section class="intro" aria-label="Pilares do estúdio">
+            <div class="intro__container">
+                <div class="intro__grid">
+                    <article class="intro-card">
+                        <span class="intro-card__icon" aria-hidden="true">⚙</span>
+                        <h2 class="intro-card__title">Criar</h2>
+                        <p class="intro-card__text">
+                            3D com modelagem, animação e jogos, ideias que saem do papel para virar coisa real.
+                        </p>
+                    </article>
+
+                    <article class="intro-card">
+                        <span class="intro-card__icon" aria-hidden="true">⚡</span>
+                        <h2 class="intro-card__title">Experimentar</h2>
+                        <p class="intro-card__text">
+                            Testes, protótipos, código, impressão 3D e experiências criativas sem manual.
+                        </p>
+                    </article>
+
+                    <article class="intro-card">
+                        <span class="intro-card__icon" aria-hidden="true">★</span>
+                        <h2 class="intro-card__title">Compartilhar</h2>
+                        <p class="intro-card__text">
+                            Cursos, workshops, conteúdos gratuitos e processos abertos para quem quer aprender junto.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="intro__actions">
+                    <a href="../projetos/index.html" class="btn btn--primary">Projetos</a>
+                    <a href="#" class="btn btn--ghost">Sobre</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJETOS — 6 cards ===== -->
+        <section class="projects" id="projetos" aria-label="Projetos">
+            <div class="projects__container">
+                <header class="section-header">
+                    <h2 class="section-header__title">PROJETOS</h2>
+                </header>
+
+                <div class="projects__grid">
+                    <article class="project-card">
+                        <a href="#" class="project-card__image">
+                            <img src="images/pic02.jpg" alt="Modelagem e Escultura 3D" loading="lazy">
+                        </a>
+                        <h3 class="project-card__title">Modelagem &amp; Escultura 3D</h3>
+                        <p class="project-card__text">
+                            Criação de modelos 3D como ponto de partida para ideias, personagens e mundos. Estudos de forma, estilo e identidade visual, explorando desde o low poly estilizado até peças mais detalhadas.
+                        </p>
+                        <a href="#" class="project-card__link">Saiba mais →</a>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="#" class="project-card__image">
+                            <img src="images/pic03.jpg" alt="Animação" loading="lazy">
+                        </a>
+                        <h3 class="project-card__title">Animação</h3>
+                        <p class="project-card__text">
+                            Animação como ferramenta de narrativa e expressão. Testes de movimento, loops, acting e experimentos visuais que buscam dar vida aos personagens e ideias, mesmo em projetos pequenos e estudos rápidos.
+                        </p>
+                        <a href="#" class="project-card__link">Saiba mais →</a>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="#" class="project-card__image">
+                            <img src="images/pic04.jpg" alt="Impressão 3D" loading="lazy">
+                        </a>
+                        <h3 class="project-card__title">Impressão 3D</h3>
+                        <p class="project-card__text">
+                            Do digital para o físico. Projetos pensados para impressão 3D, prototipagem, testes de peças funcionais ou decorativas. Aqui a ideia é entender limites, com erros, ajustes e aprendizados no caminho.
+                        </p>
+                        <a href="#" class="project-card__link">Saiba mais →</a>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="#" class="project-card__image">
+                            <img src="images/pic05.jpg" alt="Jogos" loading="lazy">
+                        </a>
+                        <h3 class="project-card__title">Jogos</h3>
+                        <p class="project-card__text">
+                            Exploração de jogos como sistemas interativos. Protótipos, ideias, mecânicas e experimentos que misturam arte, design e programação.
+                        </p>
+                        <a href="#" class="project-card__link">Saiba mais →</a>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="#" class="project-card__image">
+                            <img src="images/pic06.jpg" alt="Códigos e Tecnologia" loading="lazy">
+                        </a>
+                        <h3 class="project-card__title">Códigos e Tecnologia</h3>
+                        <p class="project-card__text">
+                            A parte invisível que faz tudo funcionar. Um espaço para testar ideias, criar soluções e entender como unir tecnologia e criação de forma prática.
+                        </p>
+                        <a href="#" class="project-card__link">Saiba mais →</a>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="#" class="project-card__image">
+                            <img src="images/pic07.jpg" alt="Ensino e Conteúdos" loading="lazy">
+                        </a>
+                        <h3 class="project-card__title">Ensino e Conteúdos</h3>
+                        <p class="project-card__text">
+                            Cursos, oficinas, workshops e materiais gratuitos voltados para quem quer aprender 3D, tecnologia e criação digital de forma prática.
+                        </p>
+                        <a href="#" class="project-card__link">Saiba mais →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EXPERIMENTE EM 3D ===== -->
+        <section class="interactive-3d" aria-label="Modelo 3D interativo">
+            <div class="interactive-3d__container">
+                <header class="interactive-3d__header">
+                    <h2 class="interactive-3d__title">EXPERIMENTE EM 3D</h2>
+                </header>
+
+                <div class="interactive-3d__panel">
+                    <div class="interactive-3d__copy">
+                        <h3 class="interactive-3d__subtitle">Explore uma espada em 3D</h3>
+                        <p class="interactive-3d__text">
+                            Um modelo de teste criado para esta vitrine. Arraste para girar,
+                            use o scroll para aproximar e veja os detalhes direto na página.
+                        </p>
+                        <a href="#projetos" class="btn btn--primary btn--sm">Ver projetos</a>
+                    </div>
+
+                    <div class="interactive-3d__stage">
+                        <model-viewer
+                            src="assets/3d/espada-demo.glb"
+                            alt="Espada low poly sobre um pedestal, com escudo laranja ao lado"
+                            camera-controls
+                            camera-orbit="0deg 75deg 130%"
+                            min-camera-orbit="auto auto 60%"
+                            max-camera-orbit="auto auto 300%"
+                            auto-rotate
+                            shadow-intensity="0.8"
+                            exposure="1"
+                            touch-action="pan-y"
+                            interaction-prompt="auto">
+                        </model-viewer>
+                        <p class="interactive-3d__hint">Use o mouse ou toque na tela para rotacionar, aproximar e explorar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PENSANDO EM VOZ ALTA — 2 posts ===== -->
+        <section class="blog" aria-label="Pensando em voz alta">
+            <div class="blog__container">
+                <header class="section-header">
+                    <h2 class="section-header__title">PENSANDO EM VOZ ALTA</h2>
+                </header>
+
+                <div class="blog__grid">
+                    <article class="post-card">
+                        <a href="../conteudo/artigos/processo/index.html" class="post-card__image">
+                            <img src="../conteudo/artigos/processo/pexels-javierdiazg-89625.jpg" alt="Lápis sobre um caderno de esboços" loading="lazy">
+                        </a>
+                        <span class="post-card__meta">Processo criativo</span>
+                        <h3 class="post-card__title">O valor do processo (mesmo quando não dá certo)</h3>
+                        <p class="post-card__text">
+                            Nem todo projeto chega onde a gente imaginou. Alguns travam, outros mudam de rumo, e muitos acabam ensinando mais pelo caminho do que pelo resultado final.
+                            Aqui compartilho reflexões sobre tentativa, erro, ajustes e tudo aquilo que normalmente fica escondido quando só mostramos o que "deu certo".
+                        </p>
+                        <div class="post-card__actions">
+                            <a href="../conteudo/artigos/processo/index.html" class="btn btn--ghost btn--sm">Continue Lendo</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <a href="../conteudo/artigos/jogos-e-design/index.html" class="post-card__image">
+                            <img src="../conteudo/artigos/jogos-e-design/pexels-rivage-31315424.jpg" alt="Imagem do artigo sobre jogos e design" loading="lazy">
+                        </a>
+                        <span class="post-card__meta">Design de interação</span>
+                        <h3 class="post-card__title">O que jogos me ensinaram sobre design</h3>
+                        <p class="post-card__text">
+                            Jogos são mais do que diversão. Eles ensinam sobre clareza, escolhas, feedback e experiência do usuário de um jeito muito direto.
+                            Neste texto, compartilho aprendizados que vieram do game design e acabaram influenciando projetos de 3D, interfaces, sistemas. Design fica mais claro quando alguém precisa interagir com ele.
+                        </p>
+                        <div class="post-card__actions">
+                            <a href="../conteudo/artigos/jogos-e-design/index.html" class="btn btn--ghost btn--sm">Continue Lendo</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="sobre">
+    <div class="footer__container">
+        <section class="footer__top">
+            <section class="footer__col footer__col--wide">
+                <h2 class="footer__title">Acontecendo por aqui</h2>
+                <ul class="updates">
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">📂</span><div><h3 class="updates__title"><a href="../recursos/index.html">Biblioteca de recursos</a></h3><p class="updates__text">Um mapa em construção para encontrar referências, arquivos e ferramentas de criação em um só lugar.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🎲</span><div><h3 class="updates__title"><a href="../projetos/index.html">Jogo em desenvolvimento</a></h3><p class="updates__text">Projeto autoral em andamento de um jogo físico-digital no estilo DIY, explorando regras, sistemas e interações com eletrônica e programação.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🎓</span><div><h3 class="updates__title"><a href="../aprender/index.html">Aulas e treinamentos</a></h3><p class="updates__text">Cursos, oficinas e treinamentos presenciais e online voltados para 3D, tecnologia e criação digital, com foco em prática e processo.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🎥</span><div><h3 class="updates__title"><a href="../conteudo/index.html">Conteúdo publicado</a></h3><p class="updates__text">Textos, vídeos e bastidores compartilhados nas redes, mostrando o processo criativo, reflexões e aprendizados do dia a dia.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🧪</span><div><h3 class="updates__title"><a href="../projetos/index.html">Projetos e experimentos em andamento</a></h3><p class="updates__text">Testes e explorações criativas utilizando ferramentas open source como Blender, Godot e Arduino IDE.</p></div></li>
+                </ul>
+            </section>
+            <section class="footer__col">
+                <h2 class="footer__title">Sobre o que é tudo isso?</h2>
+                <div class="footer__image"><img src="../home/images/pic10.jpg" alt="Estúdio Pequeno Cavaleiro" loading="lazy"></div>
+                <p class="footer__text">Esse é o <strong>Estúdio Pequeno Cavaleiro</strong>, um espaço de criação, experimentação e aprendizado. Aqui projetos nascem da curiosidade, passam por tentativa e erro, e evoluem entre arte, tecnologia e experiências criativas. Parte do processo vira conteúdo no <a href="https://www.youtube.com/@estudiopequenocavaleiro/streams">YouTube</a>, parte vira produto, e tudo vira aprendizado compartilhado. Além dos projetos autorais, o estúdio está aberto a trabalhos freelance, parcerias e participação em eventos, atuando com 3D, animação, impressão 3D, jogos, programação criativa e projetos experimentais.</p>
+                <a href="mailto:estudiopequenocavaleiro@gmail.com" class="btn btn--primary btn--sm">Fale com a gente</a>
+            </section>
+        </section>
+        <section class="footer__social-block">
+            <h2 class="footer__title footer__title--center">Onde encontrar</h2>
+            <ul class="social">
+                    <li><a href="https://github.com/estudiopequenocavaleiro" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.07c-3.2.7-3.88-1.37-3.88-1.37-.52-1.34-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a></li>
+                    <li><a href="https://instagram.com/estudiopequenocavaleiro" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.5" r="1.2"/></svg></a></li>
+                    <li><a href="https://pinterest.com/estudiopequenocavaleiro" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a11 11 0 0 0-3 21c-.1-1.2 0-2.7.3-4l1.5-6.2s-.4-.8-.4-1.9c0-1.8 1-3.1 2.3-3.1 1.1 0 1.6.8 1.6 1.8 0 1.1-.7 2.8-1.1 4.3-.3 1.3.7 2.4 2 2.4 2.4 0 4.1-2.5 4.1-5.9 0-3.1-2.2-5.2-5.4-5.2-3.7 0-5.9 2.8-5.9 5.6 0 1.1.4 2.3 1 3-.1.4-.3 1.1-.5 1.7-1.6-.8-2.6-3.1-2.6-5 0-4.1 3-7.9 8.6-7.9 4.5 0 8 3.2 8 7.5 0 4.5-2.8 8.1-6.8 8.1-1.3 0-2.5-.7-3-1.5l-.8 3.1a13 13 0 0 1-1.6 3.4A11 11 0 1 0 12 1z"/></svg></a></li>
+                    <li><a href="https://youtube.com/@estudiopequenocavaleiro" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></a></li>
+                    <li><a href="https://x.com/smallknightstd" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.2 2h3.3l-7.2 8.3L22.8 22h-6.6l-5.2-6.8L5 22H1.7l7.7-8.9L1.2 2h6.8l4.7 6.3zm-1.1 18h1.8L7.1 4.1H5.1z"/></svg></a></li>
+                    <li><a href="https://discord.gg/XewHVRmMsZ" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.8 5.1A18 18 0 0 0 15.5 3.8l-.6 1.3a16 16 0 0 0-5.8 0l-.6-1.3A18 18 0 0 0 4.2 5C1.5 9 .8 13 .9 17.2a18 18 0 0 0 5.4 2.8l1.2-1.9-1.9-.9.5-.4a12.4 12.4 0 0 0 11.8 0l.5.4-1.9.9 1.2 1.9a18 18 0 0 0 5.4-2.8c.2-4.6-.9-8.5-3.3-12.1zM8.5 14.8c-1 0-1.9-1-1.9-2.2s.8-2.2 1.9-2.2 1.9 1 1.9 2.2-.8 2.2-1.9 2.2zm7 0c-1 0-1.9-1-1.9-2.2s.8-2.2 1.9-2.2 1.9 1 1.9 2.2-.8 2.2-1.9 2.2z"/></svg></a></li>
+                    <li><a href="https://estudiopequenocavaleiro.itch.io/" aria-label="itch.io"><img src="../images/brands/itchio-textless-white.svg" alt="" aria-hidden="true"></a></li>
+                    <li><a href="https://cults3d.com/en/users/estudiopequenocavaleiro" aria-label="Cults 3D"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 3 7v10l9 5 9-5V7zm0 2.5L18.5 8 12 11.5 5.5 8zM5 9.3l6 3.4v6.8L5 16zm14 0V16l-6 3.5v-6.8z"/></svg></a></li>
+            </ul>
+            <ul class="contact contact--center">
+                <li><span class="contact__label">Local</span><span class="contact__value">Brasil — Fazenda Rio Grande, PR</span></li>
+                <li><span class="contact__label">Email</span><span class="contact__value"><a href="mailto:estudiopequenocavaleiro@gmail.com">estudiopequenocavaleiro@gmail.com</a></span></li>
+            </ul>
+        </section>
+        <p class="footer__copy">© Estúdio Pequeno Cavaleiro. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+    <!-- Visualizador de modelos 3D (.glb/.gltf) -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- Grid trail: quadradinhos acendem em formas variadas seguindo o mouse -->
+    <script>
+        (() => {
+            const trail = document.querySelector('.grid-trail');
+            const projects = document.querySelector('#projetos') || document.querySelector('.projects');
+            const nav = document.querySelector('.nav');
+            if (!trail || !projects) return;
+
+            const CELL = 56;       // tamanho da célula (maior = menos DOM)
+            const TRAIL_LEN = 14;  // comprimento máximo do rastro
+            const TRAIL_LIFE = 900; // ms que cada forma permanece antes de sumir
+
+            // Pool de formas: cada forma tem no máximo 5 quadradinhos
+            const SHAPES = [
+                // Quadradinho sozinho (vai ser o mais comum)
+                { name: 'dot',  cells: [[0,0]] },
+                { name: 'dot',  cells: [[0,0]] },
+                { name: 'dot',  cells: [[0,0]] },
+                // +
+                { name: 'plus', cells: [[0,-1],[0,0],[0,1],[-1,0],[1,0]] },
+                // L minúsculo (4 rotações)
+                { name: 'L1', cells: [[0,0],[1,0],[2,0],[0,1]] },
+                { name: 'L2', cells: [[0,0],[1,0],[2,0],[0,-1]] },
+                { name: 'L3', cells: [[0,0],[-1,0],[-2,0],[0,1]] },
+                { name: 'L4', cells: [[0,0],[-1,0],[-2,0],[0,-1]] },
+                // T (4 rotações)
+                { name: 'T1', cells: [[0,0],[0,-1],[1,0],[-1,0]] },
+                { name: 'T2', cells: [[0,0],[0,1],[1,0],[-1,0]] },
+                { name: 'T3', cells: [[0,0],[1,0],[0,-1],[0,1]] },
+                { name: 'T4', cells: [[0,0],[-1,0],[0,-1],[0,1]] },
+                // Diagonal 3
+                { name: 'd1', cells: [[0,0],[1,1],[-1,-1]] },
+                { name: 'd2', cells: [[0,0],[1,-1],[-1,1]] },
+                // Linha de 3 (horizontal/vertical)
+                { name: 'h3', cells: [[-1,0],[0,0],[1,0]] },
+                { name: 'v3', cells: [[0,-1],[0,0],[0,1]] },
+                // Quadrado 2x2
+                { name: 'sq', cells: [[0,0],[1,0],[0,1],[1,1]] },
+                // Z minúsculo
+                { name: 'Z1', cells: [[0,0],[1,0],[1,1],[2,1]] },
+                { name: 'Z2', cells: [[0,0],[1,0],[1,-1],[2,-1]] },
+                // Pequeno L com tail
+                { name: 'tail', cells: [[0,0],[-1,0],[-1,-1],[-1,-2]] },
+            ];
+
+            // Posiciona o grid no documento, do fim do menu até o início dos projetos.
+            const buildGrid = () => {
+                trail.innerHTML = '';
+                const top = nav ? nav.getBoundingClientRect().bottom + window.scrollY : 0;
+                const bottom = projects.getBoundingClientRect().top + window.scrollY;
+                const height = Math.max(0, bottom - top);
+                trail.style.top = `${top}px`;
+                trail.style.height = `${height}px`;
+                const cols = Math.ceil(window.innerWidth / CELL) + 1;
+                const rows = Math.ceil(height / CELL);
+                trail.style.setProperty('--cols', cols);
+                trail.style.setProperty('--rows', rows);
+                const frag = document.createDocumentFragment();
+                for (let i = 0; i < cols * rows; i++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'grid-trail__cell';
+                    frag.appendChild(cell);
+                }
+                trail.appendChild(frag);
+                return { cols, rows };
+            };
+
+            let grid = buildGrid();
+            let mx = -1, my = -1; // -1 indica "ainda sem movimento"
+            let raf = 0;
+            let mouseSeen = false;
+            // Cache das células acesas no último frame: Map<cell, alpha>
+            let lastLit = new Map();
+
+            // Rastro: array de {col, row, shape, age}
+            const trail_history = [];
+            let lastMouseCol = -1, lastMouseRow = -1;
+
+            const paint = () => {
+                const now = performance.now();
+                const bounds = trail.getBoundingClientRect();
+                const inRange = mouseSeen && mx >= bounds.left && mx < bounds.right
+                    && my > bounds.top && my < bounds.bottom;
+
+                // Envelhece: remove entradas muito velhas
+                while (trail_history.length && now - trail_history[trail_history.length - 1].time > TRAIL_LIFE) {
+                    trail_history.pop();
+                }
+
+                if (!inRange) {
+                    if (trail_history.length === 0) {
+                        // Sem rastro: apaga o que sobrou aceso
+                        for (const cell of lastLit.keys()) {
+                            cell.classList.remove('is-on');
+                            cell.style.removeProperty('--cell-alpha');
+                        }
+                        lastLit.clear();
+                        trail.classList.remove('is-active');
+                        lastMouseCol = -1; lastMouseRow = -1;
+                        return;
+                    }
+                } else {
+                    trail.classList.add('is-active');
+
+                    const col = Math.floor((mx - bounds.left) / CELL);
+                    const row = Math.floor((my - bounds.top) / CELL);
+
+                    if (col !== lastMouseCol || row !== lastMouseRow) {
+                        lastMouseCol = col; lastMouseRow = row;
+                        const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)];
+                        trail_history.unshift({ col, row, shape, time: now });
+                        if (trail_history.length > TRAIL_LEN) trail_history.length = TRAIL_LEN;
+                    }
+                }
+
+                // Calcula o que deveria estar aceso neste frame
+                const wantLit = new Map();
+                const cells = trail.children;
+                for (let i = 0; i < trail_history.length; i++) {
+                    const p = trail_history[i];
+                    const age = now - p.time;
+                    const lifeAlpha = Math.max(0, 1 - age / TRAIL_LIFE);
+                    const posAlpha  = 1 - (i / TRAIL_LEN);
+                    const intensity = Math.min(lifeAlpha, posAlpha);
+                    if (intensity <= 0) continue;
+                    for (const [dx, dy] of p.shape.cells) {
+                        const c = p.col + dx;
+                        const r = p.row + dy;
+                        if (c < 0 || r < 0 || c >= grid.cols || r >= grid.rows) continue;
+                        const idx = r * grid.cols + c;
+                        const cell = cells[idx];
+                        if (!cell) continue;
+                        const existing = wantLit.get(cell) || 0;
+                        if (intensity > existing) wantLit.set(cell, intensity);
+                    }
+                }
+
+                // Delta: apaga células que estavam acesas e não estão mais
+                for (const [cell, prevAlpha] of lastLit) {
+                    if (!wantLit.has(cell)) {
+                        cell.classList.remove('is-on');
+                        cell.style.removeProperty('--cell-alpha');
+                    }
+                }
+                // Acende/atualiza alpha das que mudaram
+                for (const [cell, alpha] of wantLit) {
+                    if (!lastLit.has(cell) || Math.abs(lastLit.get(cell) - alpha) > 0.01) {
+                        cell.classList.add('is-on');
+                        cell.style.setProperty('--cell-alpha', alpha.toFixed(2));
+                    }
+                }
+                lastLit = wantLit;
+            };
+
+            const onMove = (e) => {
+                mx = e.clientX;
+                my = e.clientY;
+                mouseSeen = true;
+                if (!raf) raf = requestAnimationFrame(() => { raf = 0; paint(); });
+            };
+            window.addEventListener('mousemove', onMove, { passive: true });
+            document.addEventListener('mousemove', onMove, { passive: true });
+
+            // Tick independente: re-pinta para envelhecer o rastro com mouse parado
+            setInterval(() => {
+                if (!mouseSeen || trail_history.length === 0) return;
+                paint();
+            }, 80);
+
+            window.addEventListener('scroll', () => {
+                if (mouseSeen) requestAnimationFrame(paint);
+            }, { passive: true });
+
+            const resetGrid = () => {
+                grid = buildGrid();
+                lastMouseCol = -1; lastMouseRow = -1;
+                trail_history.length = 0;
+                lastLit.clear();
+                trail.classList.remove('is-active');
+            };
+            window.addEventListener('resize', resetGrid);
+            document.fonts?.ready.then(resetGrid);
+
+            window.addEventListener('touchstart', () => {
+                trail.classList.add('is-active');
+            }, { passive: true });
+        })();
+    </script>
+
+<script src="../js/footer.js" defer></script>
+</body>
+</html>

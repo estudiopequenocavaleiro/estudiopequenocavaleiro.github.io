@@ -1,0 +1,601 @@
+/* =========================================================
+   Portfólio Editorial — Mosaico Infinito
+   style.css
+   ========================================================= */
+
+/* ---------- Tokens ---------- */
+:root {
+    --background:        #111111;
+    --text:              #f5f5f5;
+    --text-muted:        rgba(245, 245, 245, 0.55);
+    --accent:            #ff5a24;
+    --surface:           #1a1a1a;
+    --grid-line:         rgba(245, 245, 245, 0.05);
+
+    --content-width:     1280px;
+
+    --font-display:      'Archivo Black', 'Helvetica Neue', Arial, sans-serif;
+    --font-body:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Mosaico */
+    --marquee-height:    51vh;
+    --marquee-gap:       6px;
+    --marquee-speed:     101s;
+    --tile-w-single:     260px;
+    --tile-w-double-a:   220px;
+    --tile-w-double-b:   220px;
+    --tile-w-wide:       420px;
+
+    /* Editorial — variáveis controladas pelo painel de dev.
+       Cada peça tem 5 eixos: width, height, top, right, bottom, left.
+       left/right positivos afastam da borda; negativos vazam para fora. */
+    --main-aspect:        7 / 5;      /* ratio da main */
+
+    /* Secondary */
+    --secondary-width:    55%;
+    --secondary-height:   54%;
+    --secondary-top:      91%;
+    --secondary-right:    32%;
+    --secondary-bottom:   -41%;
+    --secondary-left:     -13%;
+
+    /* Tertiary */
+    --tertiary-width:     40%;
+    --tertiary-height:    51%;
+    --tertiary-top:       80%;
+    --tertiary-right:     4%;
+    --tertiary-bottom:    -6%;
+    --tertiary-left:      50%;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Grid vertical sutil de fundo ---------- */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px);
+    background-size: 80px 100%;
+    opacity: 0.6;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.nav__logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 0.02em;
+}
+
+.nav__menu { display: flex; gap: clamp(12px, 2.4vw, 36px); }
+
+.nav__menu a {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    transition: color .25s ease;
+}
+
+.nav__menu a:hover { color: var(--accent); }
+.nav__menu a.is-current { color: var(--accent); }
+
+.nav__actions {
+    display: flex;
+    gap: 18px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ---------- Layout ---------- */
+.page {
+    position: relative;
+    z-index: 1;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 48px 120px;
+}
+
+/* =========================================================
+   PROJETOS — 3 imagens sobrepostas num único cluster
+   (composição pôster/editorial, igual à referência)
+   ========================================================= */
+.works {
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+    padding-top: 80px;
+}
+
+.work {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+}
+
+.work--image-left  .work__media   { order: 1; }
+.work--image-left  .work__content { order: 2; }
+.work--image-right .work__content { order: 1; }
+.work--image-right .work__media   { order: 2; }
+
+/* ----- Cluster único das 3 imagens -----
+   O container tem a altura da MAIN e overflow visível,
+   permitindo que secondary e tertiary vazem para fora. */
+.work__media {
+    position: relative;
+    aspect-ratio: var(--main-aspect);
+    /* permite que secondary/tertiary vaze sem cortar */
+}
+
+/* As três peças mantêm a composição enquanto as imagens finais são escolhidas. */
+.work__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    filter: grayscale(15%);
+}
+
+.work__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(245, 245, 245, 0.15);
+    background: var(--background);
+    color: rgba(245, 245, 245, 0.35);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+}
+
+.work__ribbon {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: -3%;
+    width: 106%;
+    padding: 12px 20px;
+    border-block: 1px solid rgba(245, 245, 245, 0.2);
+    background: rgba(255, 90, 36, 0.94);
+    color: var(--background);
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2vw, 24px);
+    letter-spacing: 0.16em;
+    text-align: center;
+    transform: rotate(-5deg);
+    pointer-events: none;
+}
+
+/* MAIN: ocupa o container todo, fica na base do empilhamento */
+.work__img--main {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+/* SECONDARY: tamanho/posição controlados por variáveis.
+   Quando top E bottom estão definidos simultaneamente,
+   o navegador calcula height automaticamente.
+   Quando left E right estão definidos simultaneamente,
+   o navegador calcula width automaticamente.
+   Para isso, deixamos width/height com fallback `auto`. */
+.work__img--secondary {
+    width:   var(--secondary-width,  auto);
+    height:  var(--secondary-height, auto);
+    top:     var(--secondary-top,    auto);
+    right:   var(--secondary-right,  auto);
+    bottom:  var(--secondary-bottom, auto);
+    left:    var(--secondary-left,   auto);
+    z-index: 2;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* TERTIARY: idem secondary */
+.work__img--tertiary {
+    width:   var(--tertiary-width,  auto);
+    height:  var(--tertiary-height, auto);
+    top:     var(--tertiary-top,    auto);
+    right:   var(--tertiary-right,  auto);
+    bottom:  var(--tertiary-bottom, auto);
+    left:    var(--tertiary-left,   auto);
+    z-index: 3;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ----- ESPELHAMENTO (classe aplicada por JS no painel) -----
+   Quando .is-mirrored, secondary e tertiary trocam de lado:
+     - secondary vai para o canto inferior-DIREITO
+     - tertiary  vai para o canto inferior-ESQUERDO
+   As variáveis de width/height continuam as mesmas; só os
+   offsets horizontal (left ↔ right) são invertidos via calc. */
+.work.is-mirrored .work__img--secondary {
+    right: var(--secondary-left);     /* usa o valor de left como right */
+    left:  auto;
+}
+.work.is-mirrored .work__img--tertiary {
+    left: var(--tertiary-right);      /* usa o valor de right como left */
+    right: auto;
+}
+
+/* ----- Conteúdo textual ----- */
+.work__content {
+    position: relative;
+    z-index: 4;
+}
+
+.work__title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.2vw, 42px);
+    line-height: 1.05;
+    letter-spacing: 0.005em;
+    margin: 0 0 14px;
+    text-transform: uppercase;
+}
+
+.work__category {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    position: relative;
+    padding-left: 70px;
+}
+
+.work__category::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 56px;
+    height: 1px;
+    background: var(--text-muted);
+}
+
+.work__text {
+    color: var(--text-muted);
+    font-size: 14px;
+    max-width: 420px;
+    margin: 0 0 32px;
+}
+
+/* Lista de tópicos do curso (ex.: módulos, tópicos) */
+.work__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    max-width: 420px;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.work__list li {
+    padding-left: 18px;
+    position: relative;
+}
+
+.work__list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.work__btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid var(--text);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transition: background .25s ease, color .25s ease;
+}
+
+.work__btn:hover {
+    background: var(--text);
+    color: var(--background);
+}
+
+/* =========================================================
+   MOSAICO INFINITO
+   ========================================================= */
+.marquee {
+    position: relative;
+    margin: 240px -48px 0;
+    height: var(--marquee-height);
+    overflow: hidden;
+    border-top: 1px solid var(--grid-line);
+    border-bottom: 1px solid var(--grid-line);
+}
+
+.marquee::before,
+.marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+}
+.marquee::before { left: 0;  background: linear-gradient(to right, var(--background), transparent); }
+.marquee::after  { right: 0; background: linear-gradient(to left,  var(--background), transparent); }
+
+.marquee__track {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    height: 100%;
+    width: max-content;
+    will-change: transform;
+}
+
+.marquee__sequence {
+    display: flex;
+    flex: none;
+    align-items: stretch;
+    height: 100%;
+    gap: var(--marquee-gap);
+    padding-right: var(--marquee-gap);
+}
+
+.m-block {
+    position: relative;
+    height: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: var(--surface);
+}
+
+button.m-block,
+button.m-tile {
+    padding: 0;
+    border: 0;
+    color: var(--text);
+    font: inherit;
+    text-align: left;
+}
+
+.m-block--single { width: var(--tile-w-wide); }
+.m-block--single.m-block--wide-photo {
+    width: auto;
+    aspect-ratio: 4 / 3;
+}
+.m-block--single img,
+.m-block--single video { width: 100%; height: 100%; object-fit: cover; }
+
+.m-block--double {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: var(--marquee-gap);
+    width: var(--tile-w-single);
+}
+
+.m-block--double .m-tile { height: 100%; min-height: 0; }
+.m-block--double .m-tile img { width: 100%; height: 100%; object-fit: cover; }
+
+.m-block--double.is-wide-a { width: var(--tile-w-double-a); }
+.m-block--double.is-wide-b { width: var(--tile-w-double-b); }
+.m-block--double.m-block--landscape {
+    width: auto;
+    aspect-ratio: 2 / 3;
+}
+
+.m-tile {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    cursor: pointer;
+}
+
+.m-tile img,
+.m-tile video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease, filter .4s ease;
+}
+
+.m-tile:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.45);
+}
+
+.m-block:focus-visible,
+.m-tile:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: -3px;
+    z-index: 3;
+}
+
+.m-tile__video-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.68);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    pointer-events: none;
+}
+
+.m-tile__meta {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0) 60%);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .35s ease, transform .35s ease;
+    pointer-events: none;
+}
+
+.m-tile:hover .m-tile__meta,
+.m-block--single:hover .m-tile__meta,
+.m-tile:focus-visible .m-tile__meta,
+.m-block--single:focus-visible .m-tile__meta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.m-lightbox {
+    width: min(1100px, 94vw);
+    max-width: 94vw;
+    max-height: 92dvh;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    background: var(--background);
+    color: var(--text);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+}
+
+.m-lightbox::backdrop { background: rgba(0, 0, 0, 0.88); }
+
+.m-lightbox__close {
+    display: block;
+    margin: 0 0 12px auto;
+    padding: 0 8px;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.m-lightbox__close:hover,
+.m-lightbox__close:focus-visible { color: var(--accent); }
+
+.m-lightbox__media img,
+.m-lightbox__media video {
+    display: block;
+    max-width: 100%;
+    max-height: calc(92dvh - 110px);
+    margin: auto;
+    object-fit: contain;
+}
+
+.m-lightbox__caption {
+    margin-top: 14px;
+    color: var(--text-muted);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-align: center;
+}
+
+.m-tile__title {
+    font-family: var(--font-display);
+    font-size: clamp(11px, 1.4vw, 13px);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.m-tile__category {
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 4px 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
+}
+
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+@media (max-width: 1024px) {
+    .nav { padding: 20px 24px; }
+    .page { padding: 0 24px 80px; }
+    .marquee { margin: 180px -24px 0; }
+
+    .works { gap: 150px; }
+    .work { gap: 40px; }
+    .work__title { font-size: 28px; }
+}
+
+@media (max-width: 640px) {
+    .nav__menu { display: none; }
+
+    .works { gap: 110px; padding-top: 40px; }
+
+    .work,
+    .work--image-left,
+    .work--image-right {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .work--image-left  .work__media,
+    .work--image-right .work__media   { order: 1; }
+    .work--image-left  .work__content,
+    .work--image-right .work__content { order: 2; }
+
+    .work__title { font-size: 24px; }
+
+    .marquee { margin: 180px -24px 0; --marquee-height: 60vh; }
+    .m-block--single { width: 260px; }
+    .m-block--double,
+    .m-block--double.is-wide-a,
+    .m-block--double.is-wide-b { width: 200px; }
+    .m-block--single.m-block--wide-photo { width: auto; }
+
+    .footer__logo { font-size: 28px; }
+    .footer__nav { gap: 24px; }
+}

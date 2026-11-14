@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101728">
+  <meta name="description" content="Monte um PC para estudar e descubra como cada peça muda sua experiência no Godot, Blender e Krita.">
+  <title>Laboratório do PC — sua bancada de escolhas</title>
+
+
+
+
+<style>
+:root{--ink:#1f1f1f;--muted:#6c625d;--paper:#f6f3f0;--white:#fff;--navy:#111111;--lime:#ff5a24;--violet:#ff5a24;--line:#e8e1dc;--shadow:0 16px 44px rgba(24,33,55,.07)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 system-ui,sans-serif}button,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #ff7547;outline-offset:3px}.shell{max-width:1600px;margin:auto}.topbar{height:82px;display:flex;align-items:center;gap:48px;padding:0 6.4%;background:#fff}.brand{display:flex;align-items:center;gap:11px;font:700 22px/1 Arial,sans-serif;letter-spacing:-1px}.brand-mark{display:grid;place-items:center;width:37px;height:37px;border-radius:11px;background:var(--navy);color:var(--lime);font-size:25px}.brand-accent{color:var(--violet)}.brand small{display:block;font:500 9px/1.5 system-ui,sans-serif;letter-spacing:1.1px;text-transform:uppercase;color:#8c93a0}.topbar nav{display:flex;gap:32px;margin-left:auto;color:#596174;font-size:13px;font-weight:700}.topbar nav a:hover{color:var(--violet)}.top-pill{border:1px solid #e8e1dc;border-radius:99px;padding:8px 14px;color:#737b88;font-size:11px;font-weight:700}.top-pill span{color:var(--violet);margin-left:9px}.hero{min-height:575px;display:grid;grid-template-columns:53% 47%;overflow:hidden;background:var(--navy);color:white}.hero-copy{padding:91px 8% 72px 12.1%;position:relative;z-index:1}.eyebrow,.section-kicker{font-size:11px;font-weight:700;letter-spacing:2px}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--lime)}.eyebrow-dot,.live-indicator,.pulse{width:7px;height:7px;border-radius:50%;background:var(--lime);display:inline-block;box-shadow:0 0 0 5px rgba(255,90,36,.14)}h1,h2,h3,p{margin-top:0}.hero h1{max-width:670px;margin:26px 0 22px;font:600 clamp(44px,4.7vw,74px)/1.08 Arial,sans-serif;letter-spacing:-3.5px}.hero h1 em,.principles h2 em{font-style:normal;color:var(--lime)}.hero-copy>p{max-width:485px;color:#bdb6b1;font-size:16px;line-height:1.8}.primary-button{margin-top:17px;display:inline-flex;align-items:center;gap:34px;border-radius:10px;background:var(--lime);color:var(--navy);padding:15px 20px;font-weight:700}.primary-button:hover{background:#ff7547}.primary-button span{font-size:21px;line-height:1}.hero-note{margin-top:27px;display:flex;gap:10px;align-items:center;color:#aaa19b;font-size:12px}.note-icon{color:var(--lime);font-size:18px}.hero-art{position:relative;min-height:520px;background:radial-gradient(circle at 53% 48%,#30302e 0,#20201f 47%,#171716 72%);overflow:hidden}.art-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,transparent,#000)}.orb{position:absolute;border:1px solid rgba(255,255,255,.12);border-radius:50%;left:50%;top:48%;transform:translate(-50%,-50%)}.orb-one{width:455px;height:455px}.orb-two{width:600px;height:600px}.computer{position:absolute;z-index:1;width:265px;height:335px;left:50%;top:46%;transform:translate(-50%,-50%) rotate(-4deg);border:9px solid #41413e;border-radius:19px;background:linear-gradient(130deg,#292927,#181817);box-shadow:28px 35px 0 rgba(7,12,25,.22),0 0 70px rgba(255,90,36,.13)}.computer-top{position:absolute;inset:-5px 8px auto;height:20px;border-top:1px solid #8b837d}.computer-inner{position:absolute;inset:20px;border:2px solid #625b55;border-radius:8px;background:radial-gradient(circle at 48% 40%,#383431,#211f1e 70%);overflow:hidden}.fan{position:absolute;width:92px;height:92px;border:12px double #9b9189;border-radius:50%;box-shadow:0 0 0 5px #37322f,0 0 24px #ff7547}.fan:after{content:'✳';position:absolute;inset:0;display:grid;place-items:center;color:#ffb193;font-size:30px}.fan-one{top:18px;right:18px}.fan-two{top:125px;right:18px}.gpu{position:absolute;left:-3px;top:129px;width:140px;height:58px;border:5px solid #77706b;border-radius:5px;background:linear-gradient(135deg,#45403d,#706760);box-shadow:0 0 14px #ff7547}.gpu:after{content:'LAB / GPU';font:700 10px Arial;color:#ffb193;position:absolute;top:17px;left:17px;letter-spacing:2px}.ram-stick{position:absolute;left:30px;top:25px;width:11px;height:87px;background:#ff6c38;box-shadow:19px 0 #ff926b,0 0 16px #ffb193}.board-lines{position:absolute;left:17px;bottom:25px;width:96px;height:55px;border:2px solid #6f655e;border-top:0}.computer-foot{position:absolute;bottom:-22px;left:20px;width:84px;height:10px;background:#58514b;border-radius:2px}.art-label{z-index:2;position:absolute;background:#fff;color:var(--ink);border-radius:10px;box-shadow:var(--shadow);padding:12px 15px;font-size:12px}.art-label-top{top:17%;left:8%}.art-label-top span{display:block;color:var(--violet);font-size:9px;font-weight:700;letter-spacing:1.5px;margin-bottom:3px}.art-label-bottom{bottom:15%;right:8%;display:flex;align-items:center;gap:11px}.art-label-bottom .pulse{background:#75c278;box-shadow:0 0 0 5px #e2f3e6}.steps{padding:80px 6.4% 84px}.section-kicker{color:var(--violet)}.steps h2,.workspace h2,.principles h2{font:600 clamp(30px,3vw,43px)/1.15 Arial;letter-spacing:-1.8px}.steps h2{margin:12px 0 36px}.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{position:relative;min-height:202px;padding:25px 28px;background:#fff;border:1px solid #edecea;border-radius:15px}.step-number{color:#a99b94;font:700 11px Arial;letter-spacing:1px}.step-icon{display:block;color:var(--violet);font-size:28px;margin:14px 0 7px}.step h3{font:700 17px Arial;margin-bottom:5px}.step p{max-width:350px;color:var(--muted);font-size:13px;line-height:1.65;margin:0}.workspace{padding:75px 6.4% 90px;background:#efebe7}.workspace-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:27px}.workspace-heading h2{margin:10px 0 5px}.workspace-heading p{color:var(--muted);margin:0}.text-button{background:none;border:0;color:var(--violet);font-size:13px;font-weight:700;padding:10px}.workspace-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr);gap:20px;align-items:start}.builder-panel,.insights-panel{border-radius:18px;background:#fff;box-shadow:var(--shadow)}.builder-panel{padding:31px}.panel-intro{display:flex;gap:15px;align-items:start;margin-bottom:21px}.panel-index{width:30px;height:30px;flex:none;border-radius:8px;background:#f7e8df;color:var(--violet);display:grid;place-items:center;font:700 12px Arial}.panel-intro h3{font:700 18px Arial;margin:1px 0 2px}.panel-intro p{font-size:12px;color:var(--muted);margin:0}.mission-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.mission{border:1px solid var(--line);background:#fff;border-radius:11px;padding:16px 10px;text-align:left;min-height:107px;transition:.2s}.mission:hover{border-color:#ff7547;transform:translateY(-2px)}.mission[aria-pressed=true]{border:2px solid var(--violet);background:#f7e8df;padding:15px 9px}.mission-icon{display:block;font-size:25px;color:var(--violet);margin-bottom:8px;line-height:1}.mission strong{display:block;font:700 12px Arial;line-height:1.2}.mission small{color:var(--muted);font-size:10px}.part-intro{margin-top:36px}.parts{display:grid;gap:9px}.part{border:1px solid var(--line);border-radius:11px;overflow:hidden}.part.open{border-color:#f1d3c4}.part-toggle{width:100%;border:0;background:#fff;display:flex;align-items:center;gap:13px;text-align:left;padding:14px 17px}.part-toggle:hover{background:#fdf5f0}.part-symbol{width:35px;height:35px;border-radius:9px;background:#f3f4f4;color:var(--violet);display:grid;place-items:center;font-size:19px;flex:none}.part-info{min-width:0;flex:1}.part-info strong{display:block;font:700 13px Arial}.part-info small{display:block;color:var(--muted);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.part-chevron{color:#9aa0aa;transition:transform .2s}.part.open .part-chevron{transform:rotate(180deg)}.part-body{padding:0 16px 16px 65px}.part-body p{color:var(--muted);font-size:12px;line-height:1.6}.part-body label{display:block;font-size:11px;font-weight:700;margin-bottom:5px}.part-body select{width:100%;border:1px solid #d9dce0;border-radius:8px;background:#fff;color:var(--ink);padding:10px 12px;font-size:12px}.part-tip{font-size:11px;color:#8a4d36;background:#f7e8df;border-radius:7px;padding:9px 10px;margin-top:10px}.insights-panel{padding:29px;position:sticky;top:18px}.insights-top{color:#65783a;font-size:10px;font-weight:700;letter-spacing:1.2px}.live-indicator{width:6px;height:6px;background:#9ac251;box-shadow:0 0 0 4px #e9f2d7;margin-right:7px}.spark{float:right;font-size:22px;color:#ff9b74;line-height:.8}.insights-panel h2{font-size:26px;letter-spacing:-1px;margin:17px 0 3px}.insights-subtitle{font-size:12px;color:var(--muted);margin-bottom:19px}.status-card{border-radius:10px;padding:15px 16px;background:#eef7ef;color:#315d39;font-size:12px;line-height:1.5}.status-card.warn{background:#fff3df;color:#8a5e20}.status-card.danger{background:#fce9e9;color:#983d45}.status-card strong{display:block;font:700 13px Arial;margin-bottom:2px}.divider{height:1px;background:#e8e1dc;margin:22px 0}.aside-heading{font:700 13px Arial;margin:0 0 13px}.app-results{display:grid;gap:11px}.app-result{display:grid;grid-template-columns:38px 1fr;gap:3px 10px;align-items:center}.app-icon{grid-row:span 2;width:34px;height:34px;display:grid;place-items:center;border-radius:8px;background:#f4eee9;color:var(--violet);font:700 14px Arial}.app-result strong{font-size:12px}.app-result span:last-child{color:var(--muted);font-size:11px;line-height:1.45}.app-result .good{color:#3a8150!important}.app-result .moderate{color:#a46b25!important}.app-result .limited{color:#a2444d!important}.insight-list{display:grid;gap:10px}.insight{display:flex;gap:10px;font-size:11px;color:#6c625d;line-height:1.5}.insight-icon{color:var(--violet);font-size:14px;line-height:1.1}.estimate-note{margin-top:24px;padding:12px;border:1px dashed #d9dce1;border-radius:8px;color:#89909a;font-size:10px;line-height:1.5}.principles{background:var(--navy);color:#fff;padding:75px 6.4%;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}.principles .section-kicker{color:var(--lime)}.principles h2{max-width:530px;margin:13px 0 0}.principles p{max-width:470px;color:#abb7ca;font-size:15px;line-height:1.8;margin:0}footer{padding:26px 6.4%;display:flex;align-items:center;gap:25px;background:#fff;color:#8b93a0;font-size:11px}footer span{font:700 16px Arial;color:var(--ink)}footer p{margin:0;flex:1}footer a{color:var(--violet);font-weight:700}@media(max-width:1050px){.hero-copy{padding-left:9%}.mission-grid{grid-template-columns:repeat(2,1fr)}.workspace-layout{grid-template-columns:minmax(0,1.2fr) minmax(310px,1fr)}}@media(max-width:760px){.topbar{padding:0 5%;height:67px}.topbar nav,.top-pill{display:none}.hero{grid-template-columns:1fr}.hero-copy{padding:65px 6% 48px}.hero h1{letter-spacing:-2.3px}.hero-art{min-height:370px}.computer{transform:translate(-50%,-50%) rotate(-4deg) scale(.78)}.orb-one{width:340px;height:340px}.orb-two{width:450px;height:450px}.art-label-top{top:10%}.art-label-bottom{bottom:9%}.steps,.workspace{padding:58px 5%}.steps-grid{grid-template-columns:1fr}.step{min-height:0}.workspace-layout,.principles{grid-template-columns:1fr}.workspace-heading{align-items:start}.builder-panel,.insights-panel{padding:22px}.insights-panel{position:static}.principles{gap:22px;padding:58px 5%}footer{padding:24px 5%;flex-wrap:wrap}footer p{order:3;flex-basis:100%}}@media(max-width:390px){.mission-grid{grid-template-columns:1fr 1fr}.mission{min-height:103px}.part-body{padding-left:17px}.workspace-heading h2{font-size:30px}}
+
+.mission{min-height:132px;display:flex;flex-direction:column}.mission small{display:block;line-height:1.3}.preset-price{display:block;margin-top:auto;padding-top:10px;color:#e04a18;font:700 11px Arial,sans-serif}.mission[aria-pressed=true] .preset-price{color:#e04a18}.preset-note{margin-top:13px;padding:11px 13px;border-radius:9px;background:#f7e8df;color:#8a4d36;font-size:11px;line-height:1.5}.part-cost{flex:none;color:#e04a18;font:700 12px Arial,sans-serif;margin-left:auto}.part-chevron{margin-left:4px}.source-link{display:inline-block;margin-top:11px;color:#e04a18;text-decoration:underline;text-underline-offset:3px;font-size:11px;font-weight:700}.price-summary{margin-top:14px;padding:16px;border-radius:11px;background:#f7e8df;border:1px solid #f1d3c4}.price-label{font-size:10px;font-weight:700;letter-spacing:1.2px;color:#8a4d36}.price-total{margin-top:3px;color:#30265a;font:700 30px/1.15 Arial,sans-serif;letter-spacing:-1px}.price-meta{margin-top:4px;color:#745d53;font-size:10px}.price-delta{margin-top:9px;color:#e04a18;font-size:11px;font-weight:700}.detail-list{display:grid;gap:9px}.detail{padding:11px 12px;border:1px solid #e8e1dc;border-radius:9px}.detail-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.detail-head strong{font:700 11px Arial,sans-serif}.detail-head span{font-size:10px;font-weight:700;text-align:right}.detail-head .good{color:#3a8150}.detail-head .moderate{color:#a46b25}.detail-head .limited{color:#a2444d}.detail p,.detail-wait{margin:5px 0 0;color:#717987;font-size:11px;line-height:1.5}@media(max-width:1050px){.mission-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.mission-grid{grid-template-columns:repeat(2,1fr)}.mission{min-height:126px}}@media(max-width:390px){.part-cost{font-size:11px}.detail-head{display:block}.detail-head span{display:block;text-align:left;margin-top:3px}}
+
+.tier-intro{margin-top:28px}
+.tier-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.tier{min-width:0;min-height:115px;padding:13px 11px;text-align:left;border:1px solid #e8e1dc;border-radius:10px;background:#fff;color:#1f1f1f;cursor:pointer;display:flex;flex-direction:column;gap:5px}
+.tier:hover,.tier:focus-visible{border-color:#ff7547;outline:none;box-shadow:0 0 0 2px #f7e8df}
+.tier[aria-pressed=true]{border-color:#ff5a24;background:#f7e8df;box-shadow:inset 0 0 0 1px #ff5a24}
+.tier strong{font:700 13px Arial,sans-serif}
+.tier span{color:#e04a18;font:700 13px Arial,sans-serif}
+.tier small{font-size:10px;line-height:1.4;color:#6c625d}
+.part.problem{border-color:#d9666d;background:#fff6f6}
+.part.problem .part-toggle{background:#fff6f6}
+.part.problem .part-info strong,.part.problem .part-symbol{color:#a7333f}
+.part-alert{display:grid;place-items:center;flex:none;width:22px;height:22px;border-radius:50%;background:#b43d49;color:white;font-weight:800;font-size:13px}
+.part-problem-note{padding:0 16px 12px 65px;color:#a7333f;font-size:11px;line-height:1.45;font-weight:650}
+.issue-links{display:grid;gap:6px;margin-top:10px}
+.issue-links button{border:1px solid #e4a9ae;border-radius:8px;background:#fff9f9;color:#862c36;padding:8px 9px;text-align:left;font:600 11px/1.4 inherit;cursor:pointer}
+.issue-links button:hover,.issue-links button:focus-visible{background:#fff;outline:2px solid #b43d49;outline-offset:1px}
+.issue-links b,.insight-problem button{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;background:#b43d49;color:#fff;font-weight:800;margin-right:5px}
+.insight-problem{color:#9d3440;font-weight:650}
+.insight-problem .insight-icon{color:#b43d49}
+.insight-problem button{border:0;cursor:pointer;flex:none;margin-left:auto}
+.extras{padding:72px 6.4% 80px;background:#f6f3f0}
+.extras h2{font:600 clamp(29px,3vw,40px)/1.18 Arial,sans-serif;letter-spacing:-1.4px;max-width:670px;margin:10px 0 14px}
+.extras-lead{color:#6c625d;max-width:720px;line-height:1.6;margin:0 0 27px}
+.extras-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.extras-grid article{background:#fff;border:1px solid #e8e1dc;border-radius:13px;padding:22px;min-height:210px}
+.extras-grid article span{font-size:10px;font-weight:800;letter-spacing:1.1px;color:#ff5a24}
+.extras-grid h3{font:700 17px Arial,sans-serif;margin:17px 0 9px}
+.extras-grid p{font-size:12px;line-height:1.6;color:#6c625d;margin:0}
+.extras-sources{font-size:11px;color:#6c625d;margin:20px 0 0;line-height:1.6}
+.extras-sources a{color:#e04a18;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:1000px){.extras-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.tier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.extras{padding:55px 5%}.part-problem-note{padding-left:16px}}
+@media(max-width:530px){.extras-grid{grid-template-columns:1fr}.extras-grid article{min-height:auto}}
+.extras .extras-lead{max-width:760px;margin-bottom:30px}
+.lesson-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.9fr);gap:22px;align-items:stretch;margin-bottom:49px}
+.lesson-hero figure{margin:0;background:#f4eee9;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.lesson-hero img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain}
+.lesson-hero figcaption{padding:0 20px 16px;color:#6c625d;font-size:11px;line-height:1.45}
+.lesson-steps{background:#fff;border:1px solid #e8e1dc;border-radius:18px;padding:28px 25px;display:grid;align-content:center;gap:18px}
+.lesson-label{font:800 10px Arial,sans-serif;letter-spacing:1.4px;color:#ff5a24}
+.lesson-steps>div{display:flex;gap:13px;align-items:start}
+.lesson-steps b{display:grid;place-items:center;flex:none;width:29px;height:29px;border-radius:9px;background:#f7e8df;color:#e04a18;font:700 13px Arial,sans-serif}
+.lesson-steps p{margin:0;color:#6c625d;font-size:12px;line-height:1.6}
+.lesson-steps strong{color:#1f1f1f;font:700 13px Arial,sans-serif}
+.lesson-heading{margin-bottom:18px}
+.lesson-heading h3{font:600 clamp(23px,2.4vw,30px) Arial,sans-serif;letter-spacing:-.8px;margin:8px 0 0}
+.extras .extras-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.extras .extras-grid article{min-height:236px;padding:23px;display:flex;flex-direction:column}
+.extras-grid h4{font:700 17px Arial,sans-serif;margin:18px 0 9px;color:#1f1f1f}
+.extras-grid article small{display:block;margin-top:auto;padding-top:17px;color:#ff5a24;font-size:11px;line-height:1.45;font-weight:650}
+.extras-grid .peripheral-card{grid-column:span 1;background:#f4eee9;border-color:#dfe5f0}
+.peripheral-card img{display:block;width:100%;height:auto;max-height:155px;object-fit:contain;margin:8px 0 0}
+.peripheral-card h4{margin-top:9px}
+.lesson-check{margin-top:22px;padding:24px 28px;background:#f7e8df;border-radius:15px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.lesson-check h3{font:700 20px Arial,sans-serif;letter-spacing:-.5px;margin:7px 0 0}
+.lesson-check ul{display:flex;gap:13px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.lesson-check li{background:#fff;border-radius:30px;padding:8px 12px;color:#745d53;font-size:11px;font-weight:650}
+.lesson-check li:before{content:'○';color:#ff5a24;font-weight:800;margin-right:7px}
+@media(max-width:1050px){.lesson-hero{grid-template-columns:1fr}.extras .extras-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lesson-check{display:block}.lesson-check ul{margin-top:18px}}
+@media(max-width:600px){.extras .extras-grid{grid-template-columns:1fr}.lesson-steps{padding:23px 19px}.extras .extras-grid article{min-height:auto}.lesson-check{padding:23px 18px}.lesson-check ul{display:grid;gap:8px}.lesson-hero{gap:12px;margin-bottom:40px}}
+.cpu-cooler{margin-top:18px;padding:15px 16px;border:1px solid #f1d3c4;border-radius:10px;background:#f7e8df}
+.cpu-cooler-title{display:flex;align-items:center;gap:8px;color:#e04a18;font:700 12px Arial,sans-serif}
+.cpu-cooler-title span{font-size:17px}
+.cpu-cooler p{margin:7px 0 12px}
+.cpu-cooler .part-tip{background:#f7e8df}
+.extras-grid article p a{color:#e04a18;text-decoration:underline;text-underline-offset:2px;font-weight:700}
+
+@media(max-width:760px){.topbar{gap:10px}.topbar .top-pill{display:inline-flex;margin-left:auto;white-space:nowrap;padding:7px 9px;font-size:10px}}
+.report-button{display:block;width:100%;margin-top:14px;border:0;border-radius:9px;background:var(--navy);color:#fff;padding:13px 16px;font-weight:700;text-align:center}.report-button:hover{background:#293653}.report-help{margin:8px 0 0;color:var(--muted);font-size:11px;line-height:1.45}
+.topbar,footer{background:#111;color:#f5f5f5}
+.topbar .brand,footer span{color:#f5f5f5}
+.topbar nav,footer p{color:#b7afaa}
+.topbar nav a:hover,footer a{color:#ff5a24}
+.top-pill{border-color:#514943;color:#f5f5f5}
+.report-button:hover{background:#302b28}
+.price-total{color:#1f1f1f}
+.principles p{color:#b7afaa}
+@media screen{
+ :root{--ink:#f5f5f5;--muted:#b7afaa;--paper:#111111;--white:#1a1a1a;--line:#3b3937;--shadow:0 16px 44px rgba(0,0,0,.18)}
+ .steps,.extras{background:#111111}
+ .workspace{background:#151515}
+ .step,.builder-panel,.insights-panel,.mission,.tier,.part,.part-toggle,.extras-grid article,.lesson-steps{background:#1d1d1d;color:#f5f5f5;border-color:#3b3937}
+ .art-label,.lesson-check li{background:#292929;color:#f5f5f5}
+ .step p,.workspace-heading p,.panel-intro p,.mission small,.part-info small,.part-body p,.insights-subtitle,.report-help,.extras-lead,.extras-grid p,.extras-sources,.lesson-hero figcaption,.lesson-steps p,.tier small,.detail p,.detail-wait,.insight,.price-meta{color:#b7afaa}
+ .lesson-steps strong,.extras-grid h4,.tier,.price-total{color:#f5f5f5}
+ .mission[aria-pressed=true],.tier[aria-pressed=true]{background:#302019;border-color:#ff5a24}
+ .mission:hover,.tier:hover,.tier:focus-visible,.part.open{border-color:#ff7547}
+ .tier:hover,.tier:focus-visible{box-shadow:0 0 0 2px #553122}
+ .panel-index,.part-symbol,.app-icon,.lesson-steps b{background:#33231d;color:#ff7547}
+ .part-toggle:hover{background:#292522}
+ .part-body select{background:#242424;border-color:#53504e;color:#f5f5f5}
+ .part-tip,.preset-note,.cpu-cooler,.price-summary,.lesson-check,.lesson-hero figure{background:#28211e;border-color:#573627;color:#f5f5f5}
+ .cpu-cooler .part-tip{background:#30251f}
+ .price-label,.cpu-cooler-title{color:#ffae8e}
+ .price-delta,.part-cost,.source-link,.tier span,.preset-price,.mission[aria-pressed=true] .preset-price{color:#ff8157}
+ .divider{background:#3b3937}
+ .status-card{background:#1e2b23;color:#c6e8cf}
+ .status-card.warn{background:#342817;color:#f5d396}
+ .status-card.danger{background:#361f22;color:#ffd0d2}
+ .insights-top{color:#a6d18b}
+ .live-indicator{box-shadow:0 0 0 4px #31422d}
+ .app-result .good,.detail-head .good{color:#a8dfb8!important}
+ .app-result .moderate,.detail-head .moderate{color:#ffcf86!important}
+ .app-result .limited,.detail-head .limited{color:#ff9fa8!important}
+ .detail{border-color:#3b3937}
+ .estimate-note{border-color:#57514d;color:#aaa39e}
+ .part.problem,.part.problem .part-toggle{background:#2f1d20;border-color:#b75b64}
+ .part.problem .part-info strong,.part.problem .part-symbol,.part-problem-note,.insight-problem,.insight-problem .insight-icon{color:#ffafb5}
+ .issue-links button{background:#3a2226;border-color:#aa555e;color:#ffe2e3}
+ .issue-links button:hover,.issue-links button:focus-visible{background:#47292e}
+ .extras-grid .peripheral-card{background:#242424;border-color:#3b3937}
+ .lesson-check li{background:#36302d}
+ .report-button{background:#ff5a24;color:#111111}
+ .report-button:hover{background:#ff7547}
+ .principles{background:#171717}
+}
+#purchase-report{display:none}
+@media print{
+ @page{size:A4;margin:15mm}
+ body{background:#fff;color:#1f1f1f;font:10pt/1.4 Arial,sans-serif}
+ body>.shell{display:none!important}
+ #purchase-report{display:block!important;max-width:none;margin:0}
+ .report-head{border-bottom:2px solid #1f1f1f;padding-bottom:12px;margin-bottom:16px}
+ .report-head small{display:block;color:#ff5a24;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+ .report-head h1{font-size:23pt;letter-spacing:-1px;margin:4px 0 5px}
+ .report-head p,.report-meta{color:#6c625d;margin:0}
+ .report-meta{display:flex;justify-content:space-between;gap:12px;margin:12px 0}
+ .report-total{background:#f7e8df;border-radius:8px;padding:12px 15px;margin:14px 0;font-weight:700;font-size:15pt}
+ .report-total small{display:block;font-size:8pt;font-weight:400;color:#6c625d}
+ .report-section{margin:18px 0;break-inside:avoid-page}
+ .report-section h2{font-size:13pt;margin:0 0 8px}
+ .report-section p{margin:5px 0}
+ .report-parts{width:100%;border-collapse:collapse;font-size:8.5pt}
+ .report-parts th{text-align:left;background:#f4eee9}
+ .report-parts th,.report-parts td{padding:7px 6px;border-bottom:1px solid #e8e1dc;vertical-align:top}
+ .report-parts td:last-child,.report-parts th:last-child{text-align:right;white-space:nowrap}
+ .report-parts a{color:#e04a18;text-decoration:underline}
+ .report-note{border-left:3px solid #ff5a24;background:#f7e8df;padding:8px 11px;margin:9px 0}
+ .report-warning{border-left-color:#b04439;background:#fff1ee}
+ .report-list{margin:6px 0;padding-left:19px}.report-list li{margin:5px 0}
+ .report-foot{border-top:1px solid #e8e1dc;padding-top:9px;color:#6c625d;font-size:8pt}
+ a{color:#e04a18}
+}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Laboratório do PC, início"><span class="brand-mark">◈</span><span>LAB<span class="brand-accent">PC</span><small>laboratório de escolhas</small></span></a>
+      <nav aria-label="Navegação principal"><a href="#como-funciona">Como funciona</a><a href="#bancada">Minha bancada</a><a href="#resultado">Resultado</a><a href="#bem-estar">Dicas extras</a></nav>
+      <a class="top-pill" href="../../index.html" aria-label="Voltar aos recursos do Estúdio Pequeno Cavaleiro">← Voltar aos recursos</a>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> APRENDER MONTANDO • SEM PRESSA</div>
+          <h1 id="hero-title">Seu próximo PC começa com uma <em>boa pergunta.</em></h1>
+          <p>O que você quer criar? Escolha uma missão, teste as peças e veja o que muda na sua rotina de estudos. Aqui, cada decisão vem com uma explicação.</p>
+          <a class="primary-button" href="#bancada">Começar a montagem <span aria-hidden="true">→</span></a>
+          <div class="hero-note"><span class="note-icon">✳</span><span>Você pode experimentar à vontade. Nenhuma escolha vira uma compra.</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="art-label art-label-top"><span>01 / EXPLORAR</span><strong>Peças que fazem sentido</strong></div>
+          <div class="computer"><div class="computer-top"></div><div class="computer-inner"><div class="fan fan-one"></div><div class="fan fan-two"></div><div class="gpu"></div><div class="ram-stick"></div><div class="board-lines"></div></div><div class="computer-foot"></div></div>
+          <div class="art-label art-label-bottom"><span class="pulse"></span><strong>Seu laboratório está pronto</strong></div>
+          <div class="art-grid"></div>
+        </div>
+      </section>
+
+      <section class="steps" id="como-funciona" aria-labelledby="steps-title">
+        <div class="section-kicker">O CAMINHO</div><h2 id="steps-title">Três passos. Muitas descobertas.</h2>
+        <div class="steps-grid">
+          <div class="step"><span class="step-number">01</span><span class="step-icon">◎</span><h3>Escolha sua missão</h3><p>Conte o que você pretende fazer: jogos, arte digital, modelagem ou um pouco de tudo.</p></div>
+          <div class="step"><span class="step-number">02</span><span class="step-icon">▤</span><h3>Escolha o nível</h3><p>Comece no básico ou teste médio, alto e high-end. Depois troque cada peça.</p></div>
+          <div class="step"><span class="step-number">03</span><span class="step-icon">◫</span><h3>Veja sua rotina</h3><p>Receba um retrato explicado de como o conjunto pode se comportar nos estudos.</p></div>
+        </div>
+      </section>
+
+      <section class="workspace" id="bancada" aria-labelledby="workspace-title">
+        <div class="workspace-heading"><div><div class="section-kicker">SUA BANCADA</div><h2 id="workspace-title">Vamos montar?</h2><p>Comece pelo seu objetivo. Depois, experimente cada peça.</p></div><button id="reset-button" class="text-button" type="button">↺ &nbsp; Recomeçar</button></div>
+        <div class="workspace-layout">
+          <div class="builder-panel">
+          <div class="panel-intro"><span class="panel-index">01</span><div><h3>Escolha uma atividade</h3><p>Todas começam com uma configuração básica e preço menor.</p></div></div>
+            <div class="mission-grid" id="mission-grid" role="group" aria-label="Configurações iniciais"></div>
+            <div class="panel-intro tier-intro"><span class="panel-index">02</span><div><h3>Escolha o nível</h3><p>Quatro pontos de partida para a mesma atividade. O básico mostra onde você pode sentir limites.</p></div></div>
+            <div class="tier-grid" id="tier-grid" role="group" aria-label="Nível de desempenho"></div>
+            <div id="preset-note" class="preset-note"></div>
+            <div class="panel-intro part-intro"><span class="panel-index">03</span><div><h3>Personalize as peças</h3><p>Veja o preço de referência e o efeito de cada troca no seu objetivo.</p></div></div>
+            <div class="parts" id="parts"></div>
+          </div>
+          <aside class="insights-panel" id="resultado" aria-labelledby="insights-title">
+            <div class="insights-top"><span class="live-indicator"></span> RESULTADO EM TEMPO REAL <span class="spark">✦</span></div>
+            <h2 id="insights-title">Seu PC na prática</h2>
+            <p class="insights-subtitle">Uma leitura para aprender, não uma promessa de velocidade.</p>
+            <div id="build-status" class="status-card" role="status" aria-live="polite"></div>
+            <div id="price-summary" class="price-summary" aria-live="polite"></div>
+            <button id="report-button" class="report-button" type="button">Gerar relatório em PDF ↓</button>
+            <p class="report-help">Abre a impressão. Escolha “Salvar como PDF” para guardar a lista de compras.</p>
+            <div class="divider"></div>
+            <h3 class="aside-heading">Na sua rotina</h3>
+            <div id="app-results" class="app-results"></div>
+            <div class="divider"></div>
+            <h3 class="aside-heading">Onde você pode sentir o limite</h3>
+            <div id="detail-list" class="detail-list"></div>
+            <div class="divider"></div>
+            <h3 class="aside-heading">O que observar</h3>
+            <div id="insight-list" class="insight-list"></div>
+            <div class="estimate-note">Preços de referência levantados em 09 e 13/11/2026, sujeitos a estoque, frete e forma de pagamento. Gabinetes baratos foram vistos nas capturas de anúncios; confirme preço, medidas e kit do modelo exato. Total sem monitor, periféricos, sistema operacional, frete e ventilação extra. Desempenho qualitativo: depende do projeto, software, drivers e ajustes. Verifique BIOS, conectores e medidas antes da compra.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="extras" id="bem-estar" aria-labelledby="extras-title">
+        <div class="section-kicker">AULINHA RÁPIDA · ALÉM DAS PEÇAS</div><h2 id="extras-title">Um bom PC também precisa de um espaço confortável.</h2>
+        <p class="extras-lead">Mouse, teclado, tela e cadeira fazem parte da experiência. Comece ajustando o que você já tem; compre um acessório quando ele resolver um incômodo concreto.</p>
+        <div class="lesson-hero">
+          <figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NjAgNDEwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+RXN0YcOnw6NvIGRlIGVzdHVkb3MgYWp1c3RhZGE8L3RpdGxlPjxkZXNjIGlkPSJkZXNjIj5Nb25pdG9yIMOgIGZyZW50ZSwgdGVjbGFkbyBlIG1vdXNlIHByw7N4aW1vcywgY2FkZWlyYSBjb20gZW5jb3N0byBlIHDDqXMgYXBvaWFkb3MuPC9kZXNjPgogIDxyZWN0IHdpZHRoPSI3NjAiIGhlaWdodD0iNDEwIiByeD0iMjgiIGZpbGw9IiNlZWYwZmEiLz4KICA8Y2lyY2xlIGN4PSI2MjciIGN5PSI3OSIgcj0iNjciIGZpbGw9IiNkZWQ3ZmEiLz4KICA8Y2lyY2xlIGN4PSIxMDciIGN5PSIzMjMiIHI9IjgzIiBmaWxsPSIjZTRmMGRkIi8+CiAgPHBhdGggZD0iTTc0IDI5OGg1OTYiIHN0cm9rZT0iI2M5YzVkZiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtZGFzaGFycmF5PSI3IDkiLz4KICA8cmVjdCB4PSIyNjkiIHk9IjgwIiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjE1MSIgcng9IjE2IiBmaWxsPSIjMjMyZDQ3Ii8+CiAgPHJlY3QgeD0iMjgxIiB5PSI5MiIgd2lkdGg9IjIzMiIgaGVpZ2h0PSIxMjYiIHJ4PSI4IiBmaWxsPSIjYTZiM2U3Ii8+CiAgPHBhdGggZD0iTTMwMiAxODRjMzQtNTcgNjUtNTEgOTEtMzIgMjQgMTggNDcgOCA5NS0zOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iLjg1Ii8+CiAgPHBhdGggZD0iTTM4MiAyMzJ2NDJtLTU1IDRoMTEwIiBzdHJva2U9IiM1NjUwNmIiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxyZWN0IHg9IjE5MyIgeT0iMjkzIiB3aWR0aD0iNDI0IiBoZWlnaHQ9IjE1IiByeD0iNyIgZmlsbD0iIzZkNWM5OCIvPgogIDxwYXRoIGQ9Ik0yMTggMzA4djc3bTM3MS03N3Y3NyIgc3Ryb2tlPSIjNmQ1Yzk4IiBzdHJva2Utd2lkdGg9IjE0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNMzU4IDI3OGgxMjUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHJlY3QgeD0iMzU3IiB5PSIyNjciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTciIHJ4PSI4IiBmaWxsPSIjNGI1NjgyIi8+CiAgPHJlY3QgeD0iNTE3IiB5PSIyNjciIHdpZHRoPSIzNSIgaGVpZ2h0PSIyNCIgcng9IjE3IiBmaWxsPSIjNGI1NjgyIi8+CiAgPHBhdGggZD0iTTUzMyAyNzN2MTAiIHN0cm9rZT0iI2Q4ZGRmNCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHJlY3QgeD0iODYiIHk9IjIyMyIgd2lkdGg9IjcwIiBoZWlnaHQ9IjkwIiByeD0iMjAiIGZpbGw9IiM3MzU5YjUiLz4KICA8cGF0aCBkPSJNMTIxIDMxMHY2OG0tMzYgMGg3MiIgc3Ryb2tlPSIjNzM1OWI1IiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cmVjdCB4PSIxMDgiIHk9IjI5NCIgd2lkdGg9Ijk4IiBoZWlnaHQ9IjE3IiByeD0iOCIgZmlsbD0iIzczNTliNSIvPgogIDxwYXRoIGQ9Ik02MyAyNTBoMjVtMTE3IDBoMjUiIHN0cm9rZT0iIzczNTliNSIgc3Ryb2tlLXdpZHRoPSI5IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSIxMTkiIGN5PSI3NiIgcj0iMjIiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSIxMTkiIHk9IjgzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIxOSIgZmlsbD0iIzY0NGViMCI+MTwvdGV4dD4KICA8cGF0aCBkPSJNMTQxIDg3aDk3bDQzIDI4IiBzdHJva2U9IiM4ODcyYzgiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIvPgogIDxjaXJjbGUgY3g9IjU4MiIgY3k9IjEzMyIgcj0iMjIiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSI1ODIiIHk9IjE0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMTkiIGZpbGw9IiM2NDRlYjAiPjI8L3RleHQ+CiAgPHBhdGggZD0iTTU2MCAxNDVsLTQ4IDU3IiBzdHJva2U9IiM4ODcyYzgiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIvPgogIDxjaXJjbGUgY3g9IjY2OCIgY3k9IjI3MSIgcj0iMjIiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSI2NjgiIHk9IjI3OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMTkiIGZpbGw9IiM2NDRlYjAiPjM8L3RleHQ+CiAgPHBhdGggZD0iTTY0NSAyNzZoLTc1IiBzdHJva2U9IiM4ODcyYzgiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K" width="760" height="410" loading="lazy" alt="Ilustração de uma mesa com monitor, teclado e mouse próximos e cadeira com apoio."><figcaption>Ilustração didática: ajuste as medidas ao seu corpo e ao seu espaço.</figcaption></figure>
+          <div class="lesson-steps"><span class="lesson-label">COMECE POR TRÊS AJUSTES</span>
+            <div><b>1</b><p><strong>Olhar para frente</strong><br>Deixe o monitor à sua frente, com o topo da tela na altura dos olhos ou um pouco abaixo. Um braço articulado ou suporte pode ajudar.</p></div>
+            <div><b>2</b><p><strong>Braços relaxados</strong><br>Aproxime teclado e mouse. Cotovelos perto do corpo e punhos mais retos costumam ser uma referência melhor que uma posição “perfeita” fixa.</p></div>
+            <div><b>3</b><p><strong>Corpo apoiado</strong><br>Ajuste a cadeira para apoiar as costas e deixar os pés no chão ou em um apoio. Mude de posição durante o estudo.</p></div>
+          </div>
+        </div>
+        <div class="lesson-heading"><div class="section-kicker">ESCOLHAS DO DIA A DIA</div><h3>O que observar antes de comprar</h3></div>
+        <div class="extras-grid">
+          <article class="peripheral-card"><span>01 / TECLADO + MOUSE</span><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NjAgMzAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+VGVjbGFkbyBlIG1vdXNlIGxhZG8gYSBsYWRvPC90aXRsZT48ZGVzYyBpZD0iZGVzYyI+VGVjbGFkbyBjb20gYmxvY28gbnVtw6lyaWNvIGUgbW91c2UgcGVydG8gZGVsZSwgbWFudGVuZG8gb3MgYnJhw6dvcyBwcsOzeGltb3MgYW8gY29ycG8uPC9kZXNjPgogIDxyZWN0IHdpZHRoPSI3NjAiIGhlaWdodD0iMzAwIiByeD0iMjgiIGZpbGw9IiNlZWYzZWUiLz4KICA8cGF0aCBkPSJNMTA1IDc4aDQ2OGMxMyAwIDIzIDEwIDIzIDIzdjEyMGMwIDEzLTEwIDIzLTIzIDIzSDEwNWMtMTMgMC0yMy0xMC0yMy0yM1YxMDFjMC0xMyAxMC0yMyAyMy0yM1oiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2JmY2ZjNSIgc3Ryb2tlLXdpZHRoPSI1Ii8+CiAgPGcgZmlsbD0iI2RiZTVkZCI+CiAgICA8cmVjdCB4PSIxMDUiIHk9IjEwMSIgd2lkdGg9IjM0IiBoZWlnaHQ9IjI4IiByeD0iNSIvPjxyZWN0IHg9IjE0OCIgeT0iMTAxIiB3aWR0aD0iMzQiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+PHJlY3QgeD0iMTkxIiB5PSIxMDEiIHdpZHRoPSIzNCIgaGVpZ2h0PSIyOCIgcng9IjUiLz48cmVjdCB4PSIyMzQiIHk9IjEwMSIgd2lkdGg9IjM0IiBoZWlnaHQ9IjI4IiByeD0iNSIvPjxyZWN0IHg9IjI3NyIgeT0iMTAxIiB3aWR0aD0iMzQiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+PHJlY3QgeD0iMzIwIiB5PSIxMDEiIHdpZHRoPSIzNCIgaGVpZ2h0PSIyOCIgcng9IjUiLz48cmVjdCB4PSIzNjMiIHk9IjEwMSIgd2lkdGg9IjM0IiBoZWlnaHQ9IjI4IiByeD0iNSIvPjxyZWN0IHg9IjQwNiIgeT0iMTAxIiB3aWR0aD0iNzgiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+CiAgICA8cmVjdCB4PSIxMDUiIHk9IjEzOSIgd2lkdGg9IjUxIiBoZWlnaHQ9IjI4IiByeD0iNSIvPjxyZWN0IHg9IjE2NSIgeT0iMTM5IiB3aWR0aD0iMzQiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+PHJlY3QgeD0iMjA4IiB5PSIxMzkiIHdpZHRoPSIzNCIgaGVpZ2h0PSIyOCIgcng9IjUiLz48cmVjdCB4PSIyNTEiIHk9IjEzOSIgd2lkdGg9IjM0IiBoZWlnaHQ9IjI4IiByeD0iNSIvPjxyZWN0IHg9IjI5NCIgeT0iMTM5IiB3aWR0aD0iMzQiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+PHJlY3QgeD0iMzM3IiB5PSIxMzkiIHdpZHRoPSIzNCIgaGVpZ2h0PSIyOCIgcng9IjUiLz48cmVjdCB4PSIzODAiIHk9IjEzOSIgd2lkdGg9IjEwNCIgaGVpZ2h0PSIyOCIgcng9IjUiLz4KICAgIDxyZWN0IHg9IjEwNSIgeT0iMTc3IiB3aWR0aD0iNjUiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+PHJlY3QgeD0iMTc5IiB5PSIxNzciIHdpZHRoPSIzNCIgaGVpZ2h0PSIyOCIgcng9IjUiLz48cmVjdCB4PSIyMjIiIHk9IjE3NyIgd2lkdGg9IjM0IiBoZWlnaHQ9IjI4IiByeD0iNSIvPjxyZWN0IHg9IjI2NSIgeT0iMTc3IiB3aWR0aD0iMzQiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+PHJlY3QgeD0iMzA4IiB5PSIxNzciIHdpZHRoPSIxMTYiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+PHJlY3QgeD0iNDMzIiB5PSIxNzciIHdpZHRoPSI1MSIgaGVpZ2h0PSIyOCIgcng9IjUiLz4KICAgIDxyZWN0IHg9IjUwNSIgeT0iMTAxIiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+PHJlY3QgeD0iNTMxIiB5PSIxMDEiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjUiLz48cmVjdCB4PSI1NTciIHk9IjEwMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiByeD0iNSIvPgogICAgPHJlY3QgeD0iNTA1IiB5PSIxMzkiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjUiLz48cmVjdCB4PSI1MzEiIHk9IjEzOSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiByeD0iNSIvPjxyZWN0IHg9IjU1NyIgeT0iMTM5IiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+CiAgICA8cmVjdCB4PSI1MDUiIHk9IjE3NyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiByeD0iNSIvPjxyZWN0IHg9IjUzMSIgeT0iMTc3IiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIHJ4PSI1Ii8+PHJlY3QgeD0iNTU3IiB5PSIxNzciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjUiLz4KICA8L2c+CiAgPHJlY3QgeD0iNjM1IiB5PSI4OSIgd2lkdGg9Ijk4IiBoZWlnaHQ9IjE0NyIgcng9IjQ5IiBmaWxsPSIjZmZmIiBzdHJva2U9IiNiZmNmYzUiIHN0cm9rZS13aWR0aD0iNSIvPgogIDxwYXRoIGQ9Ik02ODQgOTF2NTNtLTQ2IDBoOTIiIHN0cm9rZT0iI2JmY2ZjNSIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHJlY3QgeD0iNjc4IiB5PSIxMDkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIyNCIgcng9IjYiIGZpbGw9IiM3OGE0ODciLz4KICA8cGF0aCBkPSJNNjAwIDE1NWgyNCIgc3Ryb2tlPSIjNzg5NzdlIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWRhc2hhcnJheT0iNCA3Ii8+CiAgPHBhdGggZD0iTTE0NiAyNTloNDEwbTgzIDBoODUiIHN0cm9rZT0iIzc2OTU3YyIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==" width="760" height="300" loading="lazy" alt="Vista de cima de um teclado com bloco numérico e mouse ao lado, ao alcance da mão."><h4>Deixe os dois ao alcance</h4><p>Posicione o mouse perto do teclado sem perder teclas úteis para sua rotina. No Blender, o bloco numérico facilita <a href="https://docs.blender.org/manual/en/latest/editors/3dview/navigate/align.html" target="_blank" rel="noopener noreferrer">atalhos de navegação</a>; em Godot e Krita, observe os comandos que você mais usa.</p></article>
+          <article><span>02 / TECLADO</span><h4>Formato antes de RGB</h4><p>Observe altura, tamanho e inclinação. Teclados divididos ou inclinados podem facilitar um punho mais neutro para algumas pessoas, mas exigem adaptação e não garantem prevenção de lesões.</p><small>Experimente digitar com ombros soltos e punhos sem dobrar para cima.</small></article>
+          <article><span>03 / MOUSE</span><h4>Conforto na sua mão</h4><p>Prefira tamanho e pegada confortáveis, com sensibilidade ajustável. Um mouse vertical ou trackball pode ser útil para alguns usuários; teste antes de pagar mais pelo rótulo “ergonômico”.</p><small>Mantenha-o perto do teclado; evite esticar o braço a cada clique.</small></article>
+          <article><span>04 / CADEIRA E MESA</span><h4>Ajuste vale mais que estilo</h4><p>Busque cadeira com altura e encosto ajustáveis. Uma mesa com regulagem permite alternar entre sentar e ficar em pé; em uma mesa fixa, ajuste cadeira e apoio para os pés conforme necessário.</p><small>Aparência “gamer” não substitui ajuste ao corpo.</small></article>
+          <article><span>05 / MONITOR</span><h4>Escolha para sua atividade</h4><p>Para ilustração, veja painel IPS, cobertura de cores e calibração. Para jogos rápidos, confira taxa de atualização e tempo de resposta; os quadros exibidos também dependem do PC.</p><small>Posicione a tela à frente e evite reflexos.</small></article>
+          <article><span>06 / PAUSAS</span><h4>Movimento também conta</h4><p>Levante-se, mude de posição e descanse os olhos ao longo da sessão. Atividade física regular favorece a saúde; as orientações variam conforme idade e condições pessoais.</p><small>Uma mesa regulável ajuda a variar a posição, não substitui pausas.</small></article>
+        </div>
+        <div class="lesson-check"><div><span class="lesson-label">TESTE DE 30 SEGUNDOS</span><h3>Olhe para sua bancada agora</h3></div><ul><li>Seu mouse fica perto do teclado?</li><li>Seus ombros relaxam ao digitar?</li><li>Você lê a tela sem inclinar o pescoço?</li></ul></div>
+        <p class="extras-sources">Fontes para aprofundar: <a href="https://www.osha.gov/etools/computer-workstations/components/keyboards" target="_blank" rel="noopener noreferrer">teclados</a> · <a href="https://www.osha.gov/etools/computer-workstations/components/pointer-mouse" target="_blank" rel="noopener noreferrer">mouse</a> · <a href="https://www.osha.gov/etools/computer-workstations/components/chairs" target="_blank" rel="noopener noreferrer">cadeira</a> · <a href="https://www.osha.gov/etools/computer-workstations/components/monitors" target="_blank" rel="noopener noreferrer">monitor</a> · <a href="https://www.cdc.gov/niosh/office-environment/about/" target="_blank" rel="noopener noreferrer">pausas</a> · <a href="https://www.who.int/initiatives/behealthy/physical-activity" target="_blank" rel="noopener noreferrer">atividade física</a>.</p>
+      </section>
+
+      <section class="principles"><div><span class="section-kicker">A IDEIA POR TRÁS DO LAB</span><h2>Escolher bem é entender o <em>porquê.</em></h2></div><p>Uma peça mais cara nem sempre resolve o desafio principal. Aqui você aprende a identificar gargalos, distinguir incompatibilidade de limitação e planejar melhorias futuras.</p></section>
+    </main>
+    <footer><span>◈ LABPC</span><p>Protótipo educativo • preços de referência, sem venda de peças</p><a href="../../index.html">Voltar aos recursos ←</a><a href="#inicio">Voltar ao início ↑</a></footer>
+  </div>
+<article id="purchase-report" aria-label="Relatório de compra do PC"></article>
+<script>
+// Amostras de preços à vista em reais, pesquisadas em 09/11/2026.
+const data={
+ cpu:{name:'Processador',icon:'▣',about:'É o cérebro do PC: executa programas, lógica, física e parte da exportação. Alguns modelos exibem imagem sem placa de vídeo; confira se a versão em caixa traz cooler.',tip:'Confira soquete, BIOS e se o anúncio é BOX (com cooler) ou avulso.',items:[
+  ['5500','Ryzen 5 5500','AM4',6,0,65,[510,540,560],'https://barracadobyte.com.br/processador/amd-ryzen-5-5500'],
+  ['5600gt','Ryzen 5 5600GT','AM4',6,1,65,[1000,1070,1100],'https://barracadobyte.com.br/processador/amd-ryzen-5-5600gt'],
+  ['5700g','Ryzen 7 5700G','AM4',8,1,65,[1170,1230,1300],'https://barracadobyte.com.br/processador/amd-ryzen-7-5700g'],
+  ['8500g','Ryzen 5 8500G','AM5',6,1,65,[750,800],'https://radarcpu.com.br/produto/amd-ryzen-5-ryzen-5-8500g/'],
+  ['8700g','Ryzen 7 8700G','AM5',8,1,65,[1377,1400,1585],'https://barracadobyte.com.br/processador/amd-ryzen-7-8700g'],
+  ['7700','Ryzen 7 7700 BOX','AM5',8,1,65,[1560,1600,1650],'https://barracadobyte.com.br/processador/amd-ryzen-7-7700'],
+  ['5700x','Ryzen 7 5700X · sem cooler','AM4',8,0,65,[1050,1150,1250],'https://barracadobyte.com.br/processador/amd-ryzen-7-5700x']].map(([id,name,socket,cores,igpu,power,sample,source])=>({id,name,socket,cores,igpu,power,sample,source,boxedCooler:id!=='5700x'}))},
+ board:{name:'Placa-mãe',icon:'▦',about:'Liga as peças e define soquete, tipo de RAM, conexões e expansão.',tip:'AM4/DDR4 e AM5/DDR5 não podem ser misturados.',items:[
+  ['a520','MSI A520M-A Pro · AM4 / DDR4','AM4','DDR4',[370,370,380],'https://barracadobyte.com.br/placa-mae/msi-a520m-a-pro'],
+  ['b550','Gigabyte B550M Aorus Elite · AM4 / DDR4','AM4','DDR4',[699,767,790],'https://precoprumo.com.br/p/gigabyte-b550m-aorus-elite'],
+  ['a620','MSI Pro A620M-E · AM5 / DDR5','AM5','DDR5',[540,551,560],'https://barracadobyte.com.br/placa-mae/msi-pro-a620m-e-911-7e28-001'],
+  ['b650','MSI B650M Gaming WiFi · AM5 / DDR5','AM5','DDR5',[959,1200,1736],'https://barracadobyte.com.br/placa-mae/msi-b650m-gaming-wifi']].map(([id,name,socket,type,sample,source])=>({id,name,socket,type,sample,source,form:'mATX'}))},
+ ram:{name:'Memória RAM',icon:'▥',about:'Área temporária para programas, cenas, camadas e prévias. Pouca RAM pode causar pausas.',tip:'Kits de referência: confirme marca, frequência e slots antes da compra.',items:[
+  ['8d4','8 GB DDR4 · 1 módulo','DDR4',8,1,[360,380],'https://barracadobyte.com.br/memoria-ram'],
+  ['16d4','16 GB DDR4 · 2 × 8 GB','DDR4',16,2,[720,760,800],'https://barracadobyte.com.br/memoria-ram'],
+  ['32d4','32 GB DDR4 · 2 × 16 GB','DDR4',32,2,[1600,1720,1900],'https://barracadobyte.com.br/melhor-preco/memoria-ram-ddr4-32gb'],
+  ['16d5','16 GB DDR5 · 1 módulo','DDR5',16,1,[1650,1750,1850],'https://barracadobyte.com.br/melhor-preco/memoria-ram-ddr5-16gb'],
+  ['32d5','32 GB DDR5 · 2 × 16 GB','DDR5',32,2,[3820,4130],'https://barracadobyte.com.br/melhor-preco/memoria-ram-ddr5-32gb']].map(([id,name,type,gb,channels,sample,source])=>({id,name,type,gb,channels,sample,source}))},
+ gpu:{name:'Placa de vídeo',icon:'◇',about:'Calcula e desenha as imagens que aparecem no monitor. Ajuda jogos, prévia 3D, efeitos e render compatível; VRAM guarda texturas e cenas.',tip:'Confira o motor de render, o comprimento da placa e os conectores da fonte.',items:[
+  ['none','Sem placa dedicada',0,0,0,[0],''],
+  ['rtx3050','RTX 3050 6 GB · entrada',2,70,6,[1345,1350,1399],'https://barracadobyte.com.br/placa-de-video/chip/rtx-3050-6gb'],
+  ['rx7600','RX 7600 8 GB · 1080p',3,165,8,[1900,1920,1960],'https://barracadobyte.com.br/placa-de-video/asrock-rx-7600-8gb'],
+  ['rtx4060','RTX 4060 8 GB · criação/1080p',3,115,8,[2440,2480,2600],'https://barracadobyte.com.br/placa-de-video/chip/rtx-4060-8gb'],
+  ['rtx5070ti','GALAX RTX 5070 Ti 16 GB · alto desempenho',4,285,16,[7757,8450,8600],'https://barracadobyte.com.br/melhor-preco/placa-de-video-rtx-5070-ti']].map(([id,name,tier,power,vram,sample,source])=>({id,name,tier,power,vram,sample,source,length:{none:0,rtx3050:189,rx7600:270,rtx4060:199,rtx5070ti:315}[id]}))},
+ storage:{name:'Armazenamento',icon:'▤',about:'Guarda programas, vídeos, texturas e cache. SSD ajuda na abertura; capacidade evita falta de espaço.',tip:'Confira interface e espaço M.2/SATA na placa-mãe.',items:[
+  ['256','SSD 256 GB · referência',256,[360,380,420],'https://barracadobyte.com.br/ssd'],
+  ['512','SSD Kingston NV3 500 GB',500,[600,612,700],'https://barracadobyte.com.br/ssd/kingston-nv3-snv3s-500g-500gb'],
+  ['1000','SSD Kingston NV3 1 TB',1000,[900,909,1150],'https://barracadobyte.com.br/ssd/kingston-nv3-snv3s-1000g-1tb'],
+  ['2000','SSD Kingston NV3 2 TB',2000,[1800,1870,1940],'https://barracadobyte.com.br/ssd/kingston-nv3-snv3s-2000g-2tb']].map(([id,name,gb,sample,source])=>({id,name,gb,sample,source}))},
+ psu:{name:'Fonte',icon:'ϟ',about:'Alimenta o conjunto. Potência, conectores e qualidade importam mais que watts isolados.',tip:'A estimativa de consumo é didática; confirme picos e conectores.',items:[
+  ['650','MSI MAG A650BN 650 W',650,[320,350,389],'https://precoprumo.com.br/p/msi-mag-a650bn-650w-80-plus-bronze'],
+  ['850','MSI MAG A850GN 850 W',850,[540,560],'https://radardogamer.com.br/produto/msi-fonte-msi-mag-a850gn-pcie5-850w-80-plus-gold-c7b545']].map(([id,name,watts,sample,source])=>({id,name,watts,sample,source}))},
+ case:{name:'Gabinete',icon:'▧',about:'É a casa das peças e guia o fluxo de ar. Verifique tamanho da placa-mãe, espaço da GPU e do cooler, e quantas ventoinhas já vêm instaladas.',tip:'Modelos baratos costumam vir sem ventoinhas; reserve verba para ventilação e confirme medidas e fonte antes de comprar.',items:[
+  ['duex','Duex DX255-10-1 · compacto, sem ventoinhas',[64],'https://www.duex.com.br/produtos/gabinete/gabinete-duex-full-black-dx255-10-1',0,220,null],
+  ['neo','Keytime Neo KYT00046 · sem ventoinhas',[70],'https://www.keytime.com.br/produtos/neo/kty046',0,250,137],
+  ['sc501','Fortrek SC501BK · sem ventoinhas',[85],'https://loja.fortrek.com.br/gabinete-atx-sc501bk-preto-fortrek?condition=N',0,220,154],
+  ['bare','ROUND5 Blast Black · sem ventoinhas',[319,319,319],'https://www.celinfor.com.br/gabinetes/gabinete-micro-atx-round5-blast-black-sem-fan-r5-blast-b-2187',0,400,165],
+  ['lite','Montech Air 100 Lite · 2 ventoinhas',[280,300,320],'https://www.montechpc.com/air-100-lite',2,330,161],
+  ['argb','Montech Air 100 ARGB · 4 ventoinhas',[390,422,450],'https://www.magazineluiza.com.br/busca/montech%2Bair%2B100%2Bargb/',4,330,161]].map(([id,name,sample,source,fans,maxGpu,maxCooler])=>({id,name,sample,source,fans,maxGpu,maxCooler,form:'mATX'}))},
+ cooler:{name:'Cooler do processador',icon:'❄',about:'Retira o calor do processador. Alguns modelos BOX já incluem um cooler; outros precisam de um comprado à parte.',tip:'Confira o conteúdo da caixa e a altura permitida pelo gabinete.',items:[
+  ['box','Cooler incluído na caixa · R$ 0',[0],0,'AM4 AM5',0,'https://www.amd.com/en/products/processors/ecosystem/cpu-cooler-solutions.html'],
+  ['ag400','DeepCool AG400 · separado',[150,170,190],150,'AM4 AM5',0,'https://www.deepcool.com/products/Cooling/cpuaircoolers/GAMMAXX-AG400-Single-Tower-CPU-Cooler-1851-1700-AM5/2024/15898.shtml'],
+  ['none','Sem cooler · escolha apenas para comparar',[0],0,'AM4 AM5',0,'']].map(([id,name,sample,height,sockets,unused,source])=>({id,name,sample,height,sockets,source}))}
+};
+const keys=Object.keys(data),base={cpu:'5600gt',board:'a520',ram:'8d4',gpu:'none',storage:'256',psu:'650',case:'neo',cooler:'box'};
+const presets=[
+ {id:'general',icon:'✦',name:'Estudos gerais',sub:'Aulas, navegador e projetos',focus:'general'},
+ {id:'godot2d',icon:'◈',name:'Godot 2D',sub:'Jogos e física básica',focus:'godot'},
+ {id:'godot3d',icon:'⬡',name:'Godot 3D',sub:'VFX, luzes e colisões',focus:'godot'},
+ {id:'blender',icon:'◫',name:'Blender',sub:'Modelagem e render',focus:'blender'},
+ {id:'krita',icon:'✺',name:'Krita',sub:'Pintura e animação',focus:'krita'},
+ {id:'video',icon:'▣',name:'Edição de vídeo',sub:'Timeline e efeitos',focus:'video'},
+ {id:'gamer',icon:'★',name:'Jogos',sub:'Leves, competitivos e exigentes',focus:'gamer'}
+];
+const tiers=[{id:'basic',name:'Básico',note:'Começar gastando menos; haverá limites claros.'},{id:'medium',name:'Médio',note:'Mais conforto em projetos do dia a dia.'},{id:'high',name:'Alto',note:'Mais folga para cenas, efeitos e jogos.'},{id:'end',name:'High-end',note:'Para cargas intensas; custo sobe bastante.'}];
+const common={basic:{...base},medium:{...base,ram:'16d4',storage:'512'},high:{...base,cpu:'5700g',board:'b550',ram:'32d4',gpu:'rtx4060',storage:'1000',case:'argb'},end:{...base,cpu:'7700',board:'b650',ram:'32d5',gpu:'rtx5070ti',storage:'2000',psu:'850',case:'argb'}};
+const overrides={general:{high:{gpu:'rtx3050'},end:{gpu:'rtx4060',psu:'650'}},godot2d:{high:{gpu:'rtx3050'},end:{gpu:'rtx4060',psu:'650'}},godot3d:{medium:{gpu:'rtx3050'},high:{gpu:'rx7600'}},blender:{medium:{gpu:'rtx3050'}},krita:{high:{gpu:'rtx3050'},end:{gpu:'rtx4060',psu:'650'}},video:{medium:{gpu:'rtx3050'}},gamer:{medium:{gpu:'rtx3050'},high:{gpu:'rx7600'}}};
+const presetParts=(id,tier)=>({...common[tier],...(overrides[id]?.[tier]||{})});
+const $=id=>document.getElementById(id),preset=id=>presets.find(p=>p.id===id)||presets[0],item=(k,id)=>data[k].items.find(o=>o.id===id),get=k=>item(k,state[k]);
+const money=n=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(n);
+const price=o=>o.sample.length===1?Math.round(o.sample[0]):Math.round(o.sample.reduce((a,b)=>a+b,0)/o.sample.length/10)*10;
+const total=s=>keys.reduce((n,k)=>n+price(item(k,s[k])),0);
+let state={preset:'general',tier:'basic',...base},open='cpu';
+try{let saved=JSON.parse(localStorage.getItem('labpc-build-v3')||'null');if(saved&&presets.some(p=>p.id===saved.preset)){state.preset=saved.preset;state.tier=tiers.some(t=>t.id===saved.tier)?saved.tier:'basic';for(const k of keys)if(item(k,saved[k]))state[k]=saved[k]}}catch{}
+function store(){try{localStorage.setItem('labpc-build-v3',JSON.stringify(state))}catch{}}
+function renderPresets(){
+ $('mission-grid').innerHTML=presets.map(p=>`<button class="mission" type="button" data-preset="${p.id}" aria-pressed="${state.preset===p.id}"><span class="mission-icon">${p.icon}</span><strong>${p.name}</strong><small>${p.sub}</small><span class="preset-price">Básico a partir de ~ ${money(total(presetParts(p.id,'basic')))}</span></button>`).join('');
+ $('tier-grid').innerHTML=tiers.map(t=>`<button class="tier" type="button" data-tier="${t.id}" aria-pressed="${state.tier===t.id}"><strong>${t.name}</strong><span>~ ${money(total(presetParts(state.preset,t.id)))}</span><small>${t.note}</small></button>`).join('');
+ const p=preset(state.preset),standard=presetParts(p.id,state.tier),changed=keys.filter(k=>state[k]!==standard[k]).length,delta=total(state)-total(standard);
+ $('preset-note').textContent=changed?`${changed} peça${changed>1?'s':''} personalizada${changed>1?'s':''} · ${delta>=0?'+':''}${money(delta)} frente a ${p.name} / ${tiers.find(t=>t.id===state.tier).name}.`:`${p.name} / ${tiers.find(t=>t.id===state.tier).name} aplicado. Troque qualquer peça para comparar custo e uso.`;
+}
+function renderParts(){
+ const issues=inspectIssues();
+ $('parts').innerHTML=keys.filter(k=>k!=='cooler').map(k=>{
+  const part=data[k],selected=get(k),expanded=open===k,related=issues.filter(i=>i.keys.includes(k));
+  const cool=get('cooler'),coolerFields=k==='cpu'?`<div class="cpu-cooler"><div class="cpu-cooler-title"><span aria-hidden="true">❄</span><strong>Refrigeração do processador</strong></div><p>${data.cooler.about}</p><label for="select-cooler">Cooler · média estimada</label><select id="select-cooler" data-select="cooler">${data.cooler.items.map(o=>`<option value="${o.id}" ${o.id===state.cooler?'selected':''}>${o.name} — ${money(price(o))}</option>`).join('')}</select><div class="part-tip">✦ ${data.cooler.tip}</div>${cool.source?`<a class="source-link" href="${cool.source}" target="_blank" rel="noopener noreferrer">Ver referência do cooler ↗</a>`:''}</div>`:'';
+  return `<div id="part-row-${k}" class="part ${expanded?'open':''} ${related.length?'problem':''}"><button class="part-toggle" type="button" data-part="${k}" aria-expanded="${expanded}" aria-controls="part-${k}"><span class="part-symbol">${part.icon}</span><span class="part-info"><strong>${part.name}</strong><small>${selected.name}${k==='cpu'?` · ${cool.name}`:''}</small></span><span class="part-cost">${money(price(selected)+(k==='cpu'?price(cool):0))}</span>${related.length?'<span class="part-alert" aria-label="Ponto a revisar">?</span>':''}<span class="part-chevron">⌄</span></button>${related.length?`<div class="part-problem-note">${related.map(i=>i.text).join(' ')}</div>`:''}<div id="part-${k}" class="part-body" ${expanded?'':'hidden'}><p>${part.about}</p><label for="select-${k}">Modelo ou configuração · média estimada</label><select id="select-${k}" data-select="${k}">${part.items.map(o=>`<option value="${o.id}" ${o.id===state[k]?'selected':''}>${o.name} — ${money(price(o))}</option>`).join('')}</select><div class="part-tip">✦ ${part.tip}</div>${selected.source?`<a class="source-link" href="${selected.source}" target="_blank" rel="noopener noreferrer">Ver referência de preço ou ficha ↗</a>`:''}${coolerFields}</div></div>`;
+ }).join('');
+}
+function inspectIssues(){
+ const c=get('cpu'),b=get('board'),r=get('ram'),g=get('gpu'),p=get('psu'),box=get('case'),cool=get('cooler'),issues=[];
+ if(c.socket!==b.socket)issues.push({keys:['cpu','board'],target:'board',text:`${c.name} usa ${c.socket}; escolha placa-mãe ${c.socket}.`});
+ if(r.type!==b.type)issues.push({keys:['ram','board'],target:'ram',text:`Memória ${r.type} não encaixa em placa ${b.type}.`});
+ if(!c.igpu&&g.tier===0)issues.push({keys:['cpu','gpu'],target:'gpu',text:`${c.name} não tem vídeo integrado; escolha uma placa de vídeo.`});
+ if(cool.id==='none'||cool.id==='box'&&!c.boxedCooler)issues.push({keys:['cpu'],target:'cpu',text:cool.id==='none'?'Processador sem cooler selecionado; escolha um modelo compatível.':`${c.name} não inclui cooler; escolha um separado.`});
+ if(cool.height&&box.maxCooler==null)issues.push({keys:['cpu','case'],target:'case',text:`A altura máxima de cooler do ${box.name} não foi confirmada; confira antes de escolher este cooler.`});
+ if(cool.height&&box.maxCooler!=null&&cool.height>box.maxCooler)issues.push({keys:['cpu','case'],target:'cpu',text:`Cooler de ${cool.height} mm excede o espaço de ${box.maxCooler} mm do gabinete.`});
+ if(g.length>box.maxGpu)issues.push({keys:['gpu','case'],target:'case',text:`Placa de vídeo de ${g.length} mm excede o espaço de ${box.maxGpu} mm do gabinete.`});
+ const watts=c.power+g.power+90,margin=Math.ceil(watts*1.3/50)*50;
+ if(p.watts<margin)issues.push({keys:['gpu','psu'],target:'psu',text:`Fonte com pouca margem: estimativa didática de ${margin} W.`});
+ if(g.id==='rtx5070ti'&&p.id!=='850')issues.push({keys:['gpu','psu'],target:'psu',text:'Esta RTX 5070 Ti pede fonte de pelo menos 750 W e conector adequado; confira a versão exata.'});
+ return issues;
+}
+const label=n=>n>=3?'Com folga para começar':n>=2?'Viável com ajustes':'Exige mais paciência',grade=n=>n>=3?'good':n>=2?'moderate':'limited';
+function scenario(title,n,copy){return `<div class="detail"><div class="detail-head"><strong>${title}</strong><span class="${grade(n)}">${label(n)}</span></div><p>${copy}</p></div>`}
+function details(f,c,r,g,s,v){
+ if(f==='godot')return [scenario('2D e scripts',r.gb>=16?3:2,'Muitos nós, scripts e abas abertas aumentam o uso de CPU e RAM.'),scenario('VFX e partículas 3D',v>=3?3:v>=2?2:1,'Partículas, transparência, luzes e shaders elevam o trabalho gráfico. Reduza emissão e complexidade.'),scenario('Colisões e física',c.cores>=8?3:2,'Muitos corpos e formas detalhadas podem limitar a simulação. Use formas simples e o profiler.')].join('');
+ if(f==='blender')return [scenario('Escultura de malha densa',r.gb>=32?3:r.gb>=16?2:1,'Milhões de polígonos elevam o uso de memória e tornam pinceladas mais lentas. Multires ajuda.'),scenario('Cena com muitos objetos',r.gb>=32&&v>=2?3:2,'Geometria, texturas e modificadores ocupam RAM e VRAM. Instâncias reduzem o peso.'),scenario('Render de animação',g.tier>=3&&c.cores>=8?3:g.tier>=2?2:1,'Cada quadro precisa ser renderizado. Aceleração depende do motor e da GPU compatível.')].join('');
+ if(f==='krita')return [scenario('Tela grande e camadas',r.gb>=32?3:r.gb>=16?2:1,'Resolução, cor e camadas elevam o uso de RAM; troca no SSD pode ficar lenta.'),scenario('Pincéis e filtros',c.cores>=8?3:2,'Pincéis grandes e filtros complexos podem atrasar a resposta do traço.'),scenario('Animação quadro a quadro',r.gb>=32&&s.gb>=1000?3:r.gb>=16?2:1,'O cache de quadros consome memória e disco. Reduzir resolução ajuda na prévia.')].join('');
+ if(f==='video')return [scenario('Timeline 1080p',r.gb>=16&&s.gb>=500?3:2,'Muitas trilhas, codecs pesados e efeitos podem pedir arquivos proxy.'),scenario('Cor e efeitos',v>=3&&g.vram>=8?3:v>=2?2:1,'Prévia em alta resolução exige GPU e VRAM; o programa e codec mudam o resultado.'),scenario('Exportação',c.cores>=8&&s.gb>=1000?3:2,'Exportar usa CPU/GPU conforme o codec; vídeos brutos e cache ocupam SSD.')].join('');
+ if(f==='gamer')return [scenario('Indies e jogos leves',v>=1?3:1,'Títulos leves em 1080p costumam ser mais acessíveis; otimização varia.'),scenario('Competitivos 1080p',v>=3&&r.gb>=16?3:v>=2?2:1,'Taxas altas dependem de CPU, GPU e ajustes. Reduza efeitos para comparar.'),scenario('Jogos exigentes',v>=3&&g.vram>=8?2:1,'Texturas, ray tracing e resolução pesam na GPU/VRAM. Sem promessa de FPS.')].join('');
+ return [scenario('Aulas e navegador',r.gb>=16?3:2,'Muitas abas, chamadas de vídeo e editores usam memória simultaneamente.'),scenario('Projetos criativos iniciais',v>=2?3:2,'Godot 2D, Krita e modelagem simples podem começar aqui.'),scenario('Arquivos e espaço',s.gb>=500?3:1,'Reserve SSD para sistema, programas, trabalhos e cópias de segurança.')].join('');
+}
+function evaluate(){
+ const c=get('cpu'),r=get('ram'),g=get('gpu'),s=get('storage'),p=get('psu'),focus=preset(state.preset).focus,issues=inspectIssues();
+ const watts=c.power+g.power+90,margin=Math.ceil(watts*1.3/50)*50;
+ const fanNote=get('case').fans===0?'<span>Este gabinete vem sem ventoinhas. Confira o espaço disponível e inclua o custo da ventilação necessária.</span>':'';
+ const sizeNote=get('case').maxCooler==null?'<span>A altura máxima do cooler não foi informada para este gabinete; confirme as medidas antes da compra.</span>':'';
+ $('build-status').className=`status-card ${issues.length?'danger':''}`;$('build-status').innerHTML=(issues.length?`<strong>${issues.length} ponto${issues.length>1?'s':''} para revisar</strong><span>Toque no ? para abrir a peça:</span><div class="issue-links">${issues.map(i=>`<button type="button" data-jump="${i.target}"><b>?</b> ${data[i.target].name}: ${i.text}</button>`).join('')}</div>`:'<strong>Sem conflitos detectados nesta simulação.</strong><span>Veja o que muda nas suas atividades.</span>')+fanNote+sizeNote;
+ const cost=total(state),baseline=total(presetParts(state.preset,state.tier));$('price-summary').innerHTML=`<div class="price-label">CUSTO ESTIMADO DAS PEÇAS</div><div class="price-total">${money(cost)}</div><div class="price-meta">Referências à vista • 09 e 13/11/2026</div><div class="price-delta">${cost===baseline?'Preço do nível selecionado':`${cost>baseline?'+':''}${money(cost-baseline)} vs. nível selecionado`}</div>`;
+ const v=g.tier||(c.igpu?(c.id==='8700g'?2:1):0),scores={godot:v>=2&&r.gb>=16?3:r.gb>=16?2:1,blender:v>=3&&r.gb>=32&&c.cores>=8?3:v>=2&&r.gb>=16?2:1,krita:r.gb>=32?3:r.gb>=16?2:1,video:v>=2&&r.gb>=32&&s.gb>=1000?3:r.gb>=16&&s.gb>=500?2:1,gamer:v>=3&&r.gb>=16?3:v>=2&&r.gb>=16?2:1,general:r.gb>=16&&s.gb>=500?3:2};
+ const names={godot:'Godot',blender:'Blender',krita:'Krita',video:'Edição de vídeo',gamer:'Jogos',general:'Estudos gerais'},order=[focus,...Object.keys(names).filter(k=>k!==focus)].slice(0,4);
+ $('app-results').innerHTML=order.map(k=>`<div class="app-result"><span class="app-icon">${names[k][0]}</span><strong>${names[k]} · <span class="${issues.length?'':grade(scores[k])}">${issues.length?'Aguardando correção':label(scores[k])}</span></strong><span>${issues.length?'Corrija as peças para avaliar o uso.':summary(k,scores[k])}</span></div>`).join('');
+ $('detail-list').innerHTML=issues.length?'<p class="detail-wait">Os desafios aparecem quando a montagem estiver coerente.</p>':details(focus,c,r,g,s,v);
+ const tips=issues.map(i=>({icon:'!',text:i.text,target:i.target}));if(r.gb<=8)tips.push({icon:'↗',text:'16 GB ajudam com multitarefa, camadas e cenas maiores.'});if(r.channels===1&&c.igpu)tips.push({icon:'↗',text:'Dois módulos podem ajudar o vídeo integrado; confira os slots.'});if(s.gb<500)tips.push({icon:'↗',text:'256 GB podem encher rápido com programas e arquivos.'});if(g.tier===0&&c.igpu)tips.push({icon:'◎',text:'Vídeo integrado reduz custo inicial, mas limita 3D, VFX e jogos pesados.'});if(c.socket==='AM5')tips.push({icon:'◎',text:'O custo da DDR5 pesa no total AM5 pesquisado.'});if(g.id==='rtx3050'&&focus==='gamer')tips.push({icon:'↗',text:`Compare a RX 7600: cerca de ${money(price(item('gpu','rx7600'))-price(g))} a mais nesta amostra.`});tips.push({icon:'ϟ',text:`Consumo didático: ~${watts} W; margem sugerida: ${margin} W. Confirme conectores e picos.`});
+ $('insight-list').innerHTML=tips.slice(0,5).map(t=>`<div class="insight ${t.target?'insight-problem':''}"><span class="insight-icon">${t.icon}</span><span>${t.text}</span>${t.target?`<button type="button" data-jump="${t.target}" aria-label="Abrir ${data[t.target].name}">?</button>`:''}</div>`).join('');
+}
+function summary(k,n){let copy={godot:['2D é um começo; 3D/VFX pedem ajustes.','2D e 3D simples; efeitos podem pesar.','Boa base para projetos moderados.'],blender:['Modelagem simples; render pede paciência.','Cuidado com malhas densas e render.','Boa base para cenas moderadas.'],krita:['Telas grandes e camadas podem pesar.','Bom para ilustrar; animação pede cuidado.','Mais folga para camadas e cache.'],video:['Timeline simples; 4K pesa.','1080p viável; use proxies quando preciso.','Boa base para 1080p moderado.'],gamer:['Jogos leves; reduza efeitos.','1080p leve/competitivo com ajustes.','1080p mais confortável; varia por jogo.'],general:['Aulas com atenção às abas.','Rotina geral viável.','Boa folga para estudos gerais.']};return copy[k][n>=3?2:n>=2?1:0]}
+function monitorAdvice(){
+ const focus=preset(state.preset).focus,g=get('gpu'),r=get('ram');
+ if(focus==='gamer')return g.tier>=2&&r.gb>=16
+  ?'Para jogos competitivos, compare monitores 1080p de 120/144 Hz ou mais, com tempo de resposta e sincronização adaptativa adequados. A taxa de quadros real depende do jogo, dos ajustes e do conjunto escolhido; confira testes antes de pagar por uma taxa maior.'
+  :'Para começar a jogar, procure um monitor 1080p confortável e compare opções de 60 a 100 Hz. Não pague por uma taxa muito alta sem conferir se o PC entrega quadros suficientes nos seus jogos.';
+ if(['blender','krita','video'].includes(focus))return 'Para arte e vídeo, priorize um painel IPS com boa cobertura sRGB, uniformidade e possibilidade de ajuste ou calibração de cor. Considere mais resolução e área útil se couberem no orçamento; confira as conexões do PC.';
+ if(focus==='godot')return 'Para criar jogos, um painel IPS com boa cor e espaço para o editor é um ponto de partida equilibrado. Se também for testar jogos rápidos, compare taxas de atualização mais altas de acordo com o desempenho real do PC.';
+ return 'Para estudos gerais, escolha um monitor com imagem confortável, ajuste de altura ou suporte compatível e conexões disponíveis no PC. Um painel IPS é uma opção versátil para leitura e criação inicial.';
+}
+function renderPurchaseReport(){
+ const mission=preset(state.preset),level=tiers.find(t=>t.id===state.tier),issues=inspectIssues();
+ const day=new Intl.DateTimeFormat('pt-BR',{dateStyle:'long'}).format(new Date());
+ const rows=keys.map(k=>{
+  const selected=get(k),reference=selected.source?`<br><a href="${selected.source}">Ficha ou preço de referência ↗</a>`:'';
+  return `<tr><td>${data[k].name}</td><td>${selected.name}${reference}</td><td>${money(price(selected))}</td></tr>`;
+ }).join('');
+ const issueNote=issues.length
+  ?`<div class="report-note report-warning"><strong>A montagem ainda tem ${issues.length} ponto${issues.length>1?'s':''} para revisar.</strong><ul class="report-list">${issues.map(i=>`<li>${i.text}</li>`).join('')}</ul>Não compre antes de resolver esses pontos.</div>`
+  :'<div class="report-note"><strong>Sem conflitos detectados nesta simulação.</strong> Ainda é necessário conferir os modelos e as fichas técnicas dos produtos reais.</div>';
+ $('purchase-report').innerHTML=`
+  <div class="report-head"><small>Laboratório do PC · Estúdio Pequeno Cavaleiro</small><h1>Minha lista para montar um PC</h1><p>Guia de compra baseado nas escolhas feitas na bancada.</p></div>
+  <div class="report-meta"><span><strong>Objetivo:</strong> ${mission.name} · ${level.name}</span><span><strong>Gerado em:</strong> ${day}</span></div>
+  <div class="report-total">Total estimado das peças: ${money(total(state))}<small>Referências à vista de 09 e 13/11/2026. Monitor, periféricos, mesa, cadeira, sistema, frete, montagem e ventoinhas extras não estão incluídos.</small></div>
+  <section class="report-section"><h2>Peças escolhidas</h2><table class="report-parts"><thead><tr><th>Categoria</th><th>Modelo ou configuração</th><th>Referência</th></tr></thead><tbody>${rows}</tbody></table></section>
+  <section class="report-section"><h2>Antes de comprar</h2>${issueNote}<ul class="report-list">
+   <li>Pesquise o código exato de cada modelo, versão e conteúdo da caixa. Nomes parecidos podem ter especificações diferentes.</li>
+   <li>Confira soquete e BIOS da placa-mãe, tipo e capacidade da RAM, slots e interface do SSD.</li>
+   <li>Confirme vídeo integrado ou placa dedicada, conectores e potência da fonte, espaço da GPU, altura do cooler e dimensões da fonte no gabinete.${get('case').maxCooler==null?' A altura máxima do cooler deste gabinete não foi informada na ficha consultada.':''}</li>
+   <li>Veja se o processador inclui cooler e se o gabinete inclui ventoinhas.${get('case').fans===0?' Este gabinete não inclui ventoinhas: pesquise modelos compatíveis e some esse custo antes de comprar.':''} Compare as fichas do fabricante e peça ajuda a uma loja ou profissional quando houver dúvida.</li>
+   <li>Abra os links de referência das peças e pesquise preços atuais, garantia, vendedor, frete e formas de pagamento antes de fechar a compra.</li>
+  </ul></section>
+  <section class="report-section"><h2>Monitor para o seu objetivo</h2><p>${monitorAdvice()}</p><p><strong>Na compra:</strong> confirme tamanho, resolução, entradas de vídeo, suporte/ajuste de altura e espaço disponível na mesa. O monitor não faz parte do total acima.</p></section>
+  <section class="report-section"><h2>Posto de estudo e periféricos</h2><ul class="report-list">
+   <li><strong>Cadeira:</strong> prefira um modelo ergonômico com ajustes de altura, encosto e braços que se adapte ao seu corpo.</li>
+   <li><strong>Mesa:</strong> se possível, escolha regulagem de altura, espaço para as pernas e profundidade suficiente para posicionar o monitor.</li>
+   <li><strong>Mouse:</strong> experimente um formato ergonômico que permita manter a mão confortável; tamanho e pegada variam de pessoa para pessoa.</li>
+   <li><strong>Teclado:</strong> um mecânico pode ser uma boa escolha para uso frequente; compare tamanho, toque e ruído. Posicione teclado e mouse próximos, sem forçar os punhos.</li>
+  </ul></section>
+  <p class="report-foot">Este relatório ajuda a planejar a compra, mas não garante compatibilidade nem desempenho. As avaliações são didáticas, os preços mudam e as recomendações de monitor não incluem um modelo específico. Fontes para ergonomia: <a href="https://www.osha.gov/etools/computer-workstations/components/">OSHA</a>; cor do monitor: <a href="https://helpx.adobe.com/photoshop/desktop/get-started/learn-the-basics/calibrate-and-profile-your-monitor.html">Adobe</a>; FPS e taxa de atualização: <a href="https://www.nvidia.com/en-sg/geforce/news/what-is-fps-and-how-it-helps-you-win-games/">NVIDIA</a>.</p>`;
+}
+function render(){renderPresets();renderParts();evaluate();store()}
+document.addEventListener('click',e=>{let jump=e.target.closest('[data-jump]');if(jump){open=jump.dataset.jump;renderParts();let row=$(`part-row-${open}`);row.scrollIntoView({behavior:'smooth',block:'center'});row.querySelector('.part-toggle').focus({preventScroll:true});return}let p=e.target.closest('[data-preset]');if(p){state={preset:p.dataset.preset,tier:'basic',...presetParts(p.dataset.preset,'basic')};open='cpu';render();return}let tier=e.target.closest('[data-tier]');if(tier){state={preset:state.preset,tier:tier.dataset.tier,...presetParts(state.preset,tier.dataset.tier)};open='cpu';render();return}let part=e.target.closest('[data-part]');if(part){open=open===part.dataset.part?'':part.dataset.part;renderParts()}});
+document.addEventListener('change',e=>{if(e.target.matches('[data-select]')){state[e.target.dataset.select]=e.target.value;render()}});
+$('reset-button').addEventListener('click',()=>{state={preset:'general',tier:'basic',...base};open='cpu';render();$('bancada').scrollIntoView({behavior:'smooth'})});
+$('report-button').addEventListener('click',()=>{renderPurchaseReport();window.print()});
+window.addEventListener('beforeprint',renderPurchaseReport);
+render();
+
+</script>
+</body>
+</html>

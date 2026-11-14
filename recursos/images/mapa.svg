@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="map-title">
+  <title id="map-title">Ilha isométrica com cinco lugares para explorar recursos criativos</title>
+  <defs>
+    <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#233b51"/><stop offset="1" stop-color="#132838"/></linearGradient>
+    <linearGradient id="land" x2="0" y2="1"><stop stop-color="#b3d28d"/><stop offset="1" stop-color="#84b87d"/></linearGradient>
+    <linearGradient id="forge" x2="0" y2="1"><stop stop-color="#f6a75f"/><stop offset="1" stop-color="#d97947"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="17"/></filter>
+    <g id="tree"><ellipse cx="0" cy="8" rx="23" ry="9" fill="#315e54" opacity=".28"/><path d="M-5-2 0 23 5-2" fill="#754e38"/><path d="M0-49 25-8 0-14-25-8Z" fill="#2b8b72"/><path d="M0-61 20-26 0-31-20-26Z" fill="#4aa984"/><path d="M0-69 15-42 0-45-15-42Z" fill="#74c499"/></g>
+    <g id="bush"><ellipse cx="0" cy="0" rx="19" ry="8" fill="#499e74"/><circle cx="-8" cy="-7" r="9" fill="#64b887"/><circle cx="5" cy="-10" r="11" fill="#4fa777"/></g>
+    <g id="spark"><path d="M0-8 2-2 8 0 2 2 0 8-2 2-8 0-2-2Z" fill="#fff0b9"/></g>
+  </defs>
+
+  <ellipse cx="595" cy="603" rx="480" ry="62" fill="#050f1a" opacity=".42" filter="url(#shadow)"/>
+  <path d="M98 425c62-13 99 12 149 0 56-14 63-35 119-26m499 93c55-12 87-6 135 3 44 9 74 4 112-8" fill="none" stroke="#6bc1d2" stroke-width="4" stroke-linecap="round" opacity=".38"/>
+  <path d="M130 564c20-7 31-7 50 0m806-113c23-8 43-8 66 0M63 354c24-7 41-7 65 0" fill="none" stroke="#96d7df" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+
+  <!-- Ilha e bordas isométricas -->
+  <path d="M118 356 470 148 1082 357 724 586 118 403Z" fill="#41645b"/>
+  <path d="M118 356 724 571 724 626 118 410Z" fill="#9a7754"/>
+  <path d="M724 571 1082 356 1082 410 724 626Z" fill="#795f4e"/>
+  <path d="M118 356 470 148 1082 356 724 571Z" fill="url(#land)" stroke="#d1e7ad" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M118 356 470 148 1082 356 724 571Z" fill="none" stroke="#3e8d75" stroke-width="3" opacity=".45"/>
+
+  <!-- Trilhas e rio -->
+  <path d="M281 357c88-15 155-42 226-70 82-33 150-30 222 6 70 36 151 49 254 66" fill="none" stroke="#e5cf9f" stroke-width="26" stroke-linecap="round" opacity=".9"/>
+  <path d="M349 399c69 40 118 53 194 43 73-10 137-3 204 33" fill="none" stroke="#ead6ab" stroke-width="22" stroke-linecap="round" opacity=".9"/>
+  <path d="M510 190c-20 57 3 86 23 118 24 39 22 66 12 95-12 37 8 63 53 89" fill="none" stroke="#77c8d5" stroke-width="40" stroke-linecap="round" opacity=".88"/>
+  <path d="M510 190c-20 57 3 86 23 118 24 39 22 66 12 95-12 37 8 63 53 89" fill="none" stroke="#b9edf0" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+
+  <!-- Vegetação espalhada -->
+  <use href="#tree" transform="translate(222 300) scale(.8)"/><use href="#tree" transform="translate(263 283) scale(1.1)"/><use href="#tree" transform="translate(304 255) scale(.75)"/>
+  <use href="#tree" transform="translate(196 375) scale(.72)"/><use href="#tree" transform="translate(853 265) scale(.72)"/><use href="#tree" transform="translate(945 340) scale(.82)"/>
+  <use href="#tree" transform="translate(805 510) scale(.58)"/><use href="#tree" transform="translate(926 437) scale(.65)"/>
+  <use href="#bush" transform="translate(335 475)"/><use href="#bush" transform="translate(699 535)"/><use href="#bush" transform="translate(1005 365)"/>
+  <use href="#spark" transform="translate(398 236)"/><use href="#spark" transform="translate(816 217) scale(.7)"/><use href="#spark" transform="translate(1017 426) scale(.6)"/>
+
+  <!-- Oficina 3D: galpão e forja -->
+  <ellipse cx="330" cy="352" rx="100" ry="32" fill="#376b5b" opacity=".35"/>
+  <path d="M255 322 334 280 418 320 338 363Z" fill="#f8c477"/>
+  <path d="M255 322 338 363 338 411 255 366Z" fill="#bc7553"/>
+  <path d="M338 363 418 320 418 367 338 411Z" fill="#8d5e50"/>
+  <path d="M255 322 334 280 418 320 338 363Z" fill="url(#forge)" stroke="#ffd69a" stroke-width="5"/>
+  <path d="M366 311 385 301 385 270 366 280Z" fill="#866c69"/><path d="M385 301 399 309 399 277 385 270Z" fill="#5b5d66"/>
+  <path d="M294 345 318 357 318 390 294 377Z" fill="#383f4a"/><path d="M352 379 381 364 381 386 352 401Z" fill="#ffd899"/>
+  <path d="M375 256c-7-10 9-12 2-24m11 22c-5-9 10-12 4-24" fill="none" stroke="#ddd8c9" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+
+  <!-- Biblioteca: torre de livros -->
+  <ellipse cx="611" cy="270" rx="103" ry="31" fill="#376b5b" opacity=".33"/>
+  <path d="M557 201 625 166 694 201 625 239Z" fill="#ecd9aa"/>
+  <path d="M557 201 625 239 625 318 557 280Z" fill="#bd9c7a"/>
+  <path d="M625 239 694 201 694 279 625 318Z" fill="#8e7769"/>
+  <path d="M544 192 625 149 707 192 625 236Z" fill="#705d78" stroke="#ac91a2" stroke-width="5"/>
+  <path d="M582 224 606 237v31l-24-13Zm54 13 25-13v32l-25 13Z" fill="#f5dca4"/>
+  <path d="M575 275 608 294m26 0 36-20" stroke="#f2d9a6" stroke-width="8" stroke-linecap="round"/>
+  <path d="M609 180v-29l16-10 16 10v29" fill="#7e6880" stroke="#d8bea0" stroke-width="4"/>
+  <path d="M617 160h16" stroke="#efcfaa" stroke-width="4"/>
+
+  <!-- Laboratório: estação técnica -->
+  <ellipse cx="862" cy="364" rx="102" ry="31" fill="#376b5b" opacity=".35"/>
+  <path d="M782 337 861 292 950 337 870 382Z" fill="#8fd5cf"/>
+  <path d="M782 337 870 382 870 427 782 381Z" fill="#4e8c91"/>
+  <path d="M870 382 950 337 950 382 870 427Z" fill="#426d81"/>
+  <path d="M782 337 861 292 950 337 870 382Z" fill="#81c8c4" stroke="#b5f0df" stroke-width="5"/>
+  <path d="M827 309v-31l33-18 32 18v31l-32 18Z" fill="#5d8298" stroke="#bef1df" stroke-width="4"/>
+  <path d="M827 278 860 297 892 278" fill="none" stroke="#b5e8d8" stroke-width="4"/>
+  <path d="M860 297v30" stroke="#b5e8d8" stroke-width="4"/>
+  <circle cx="861" cy="276" r="9" fill="#f6d275"/>
+  <path d="M811 351 830 360m65 9 27-15" stroke="#d2f5e4" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Arena: praça de desafios -->
+  <ellipse cx="444" cy="486" rx="114" ry="39" fill="#376b5b" opacity=".35"/>
+  <path d="M365 463 444 418 529 463 449 508Z" fill="#f1cb8a"/>
+  <path d="M365 463 449 508v24l-84-46Z" fill="#bd8668"/>
+  <path d="M449 508 529 463v23l-80 46Z" fill="#946d60"/>
+  <path d="M381 462 445 426 512 462 449 498Z" fill="#8daac2" stroke="#e9cfad" stroke-width="6"/>
+  <path d="M405 462 445 440 486 462 449 483Z" fill="#617b97"/>
+  <path d="M444 435v-31m-56 53-16-13m123 16 18-13" stroke="#f5dfae" stroke-width="5" stroke-linecap="round"/>
+  <path d="M439 399 445 386 451 399Z" fill="#ffb76a"/>
+
+  <!-- Cinema: pequena sala de projeção -->
+  <ellipse cx="762" cy="488" rx="103" ry="34" fill="#376b5b" opacity=".35"/>
+  <path d="M685 456 762 415 842 456 766 499Z" fill="#b7a2cc"/>
+  <path d="M685 456 766 499v45l-81-44Z" fill="#675d87"/>
+  <path d="M766 499 842 456v44l-76 44Z" fill="#4b5273"/>
+  <path d="M685 456 762 415 842 456 766 499Z" fill="#9b8aba" stroke="#d7c2dd" stroke-width="5"/>
+  <path d="M713 466 754 487v29l-41-21Z" fill="#28344f" stroke="#d8c7e6" stroke-width="3"/>
+  <path d="m732 477 12 7-12 7Z" fill="#f4b06e"/>
+  <circle cx="792" cy="441" r="12" fill="#d9d2ec"/><circle cx="819" cy="456" r="9" fill="#d9d2ec"/>
+  <path d="m801 434 24-13" stroke="#e9ddeb" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Pedras e detalhes finais -->
+  <path d="m167 341 17-17 22 7 7 21-24 13Z" fill="#75968b"/><path d="m1005 371 15-16 20 9-3 18-25 7Z" fill="#6f9a83"/>
+  <circle cx="282" cy="438" r="5" fill="#fff0b9"/><circle cx="642" cy="413" r="5" fill="#fff0b9"/><circle cx="927" cy="388" r="5" fill="#fff0b9"/>
+</svg>

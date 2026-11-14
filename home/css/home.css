@@ -1,0 +1,847 @@
+/* =========================================================
+   Home — Estúdio Pequeno Cavaleiro
+   home.css
+   =========================================================
+   Estrutura:
+     0. Tokens (paleta padronizada com o estúdio)
+     1. Reset & base
+     2. NAV
+     3. Botões utilitários (.btn)
+     4. Hero
+     5. Intro (3 pilares)
+     6. Projetos (6 cards)
+     7. Blog (2 posts)
+     8. Footer
+     9. Responsivo
+   ========================================================= */
+
+/* ---------- 0. Tokens ---------- */
+:root {
+    --bg:            #111111;
+    --bg-soft:       #1a1a1a;
+    --text:          #f5f5f5;
+    --text-muted:    rgba(245, 245, 245, 0.7);
+    --text-dim:      rgba(245, 245, 245, 0.55);
+    --text-faint:    rgba(245, 245, 245, 0.4);
+    --accent:        #ff5a24;
+    --accent-dark:   #e04a18;
+    --accent-soft:   rgba(255, 90, 36, 0.08);
+    --border:        rgba(245, 245, 245, 0.08);
+    --border-strong: rgba(245, 245, 245, 0.18);
+
+    --content-width: 1280px;
+
+    --font-display: 'Archivo Black', 'Helvetica Neue', Arial, sans-serif;
+    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ---------- 1. Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Glow laranja sutil no topo da página (atrás do grid, abaixo do menu) */
+body::before {
+    content: "";
+    position: absolute;
+    top: 85px; /* abaixo do menu */
+    left: 0;
+    right: 0;
+    height: 500px;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse at center top,
+                        rgba(255, 90, 36, 0.10) 0%,
+                        transparent 65%);
+    pointer-events: none;
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+    background: transparent; /* não pintar por cima do grid */
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.2; }
+
+/* ---------- 2. NAV ---------- */
+.nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    background: var(--bg);
+}
+
+.nav__logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: var(--text);
+}
+
+.nav__menu { display: flex; gap: clamp(12px, 2.4vw, 36px); }
+
+.nav__menu a {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--text-dim);
+    transition: color .25s ease;
+    text-transform: uppercase;
+}
+.nav__menu a:hover { color: var(--accent); }
+.nav__menu a.is-current { color: var(--accent); }
+
+.nav__actions {
+    display: flex;
+    gap: 18px;
+    color: var(--text-dim);
+    font-size: 14px;
+}
+
+@media (max-width: 640px) {
+    .nav { padding: 20px 24px; }
+    .nav__menu { display: none; }
+}
+
+/* ---------- 3. Botões ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border: 1px solid var(--text);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+}
+.btn--sm { padding: 10px 18px; font-size: 10px; }
+
+.btn--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+}
+.btn--primary:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+.btn--ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border-strong);
+}
+.btn--ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ---------- 4. Hero ---------- */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 120px 48px 100px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.hero__container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.intro__container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ---------- Grid Trail (mouse-follow) — quadradinhos individuais ---------- */
+.grid-trail {
+    --cell: 56px;
+    --cols: 1;
+    --rows: 1;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), var(--cell));
+    grid-template-rows: repeat(var(--rows), var(--cell));
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity .25s ease;
+    will-change: opacity;
+}
+
+.grid-trail.is-active {
+    opacity: 1;
+}
+
+/* Cada célula */
+.grid-trail__cell {
+    width: var(--cell);
+    height: var(--cell);
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    opacity: 0;
+}
+
+.grid-trail__cell.is-on {
+    opacity: var(--cell-alpha, 1);
+    border-color: rgba(255, 90, 36, 1);
+}
+
+/* Mobile / telas touch: grid estático suave */
+@media (hover: none) {
+    .grid-trail__cell {
+        opacity: 0.18;
+    }
+    .grid-trail__cell.is-on {
+        opacity: 0.18;
+    }
+}
+
+.hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 72px);
+    color: var(--text);
+    margin: 0 0 16px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.hero__title-line {
+    display: block;
+    font-size: 0.65em;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    margin-top: 8px;
+}
+
+.hero__subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    color: #7a7a7a;
+    margin: 0;
+    font-style: italic;
+}
+
+/* ---------- 5. Intro (3 pilares) ---------- */
+.intro {
+    padding: 60px 48px 80px;
+}
+
+.intro__container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.intro__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-bottom: 56px;
+}
+
+.intro-card {
+    text-align: center;
+    padding: 0 16px;
+}
+
+.intro-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    background: transparent;
+    border: 1px solid rgba(255, 90, 36, 0.45);
+    border-radius: 50%;
+    font-size: 36px;
+    color: var(--accent);
+    margin-bottom: 24px;
+}
+
+.intro-card__title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--text);
+    margin: 0 0 12px;
+}
+
+.intro-card__text {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.intro__actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.intro__actions .btn {
+    min-width: 200px;
+}
+
+/* ---------- 6. Projetos ---------- */
+.projects {
+    padding: 60px 48px 100px;
+    border-top: 1px solid var(--border);
+}
+
+.projects__container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.section-header__title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    color: var(--text);
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+
+/* Régua laranja curta + cinza, estilo Experimente em 3D */
+.section-header__title::before,
+.section-header__title::after {
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background: var(--text-dim);
+    vertical-align: middle;
+    margin: 0 16px;
+}
+.section-header__title::before {
+    background: var(--accent);
+}
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.project-card {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .3s ease, border-color .3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.project-card__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.project-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+.project-card:hover .project-card__image img {
+    transform: scale(1.05);
+}
+
+.project-card__title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--text);
+    margin: 20px 24px 12px;
+}
+
+.project-card__text {
+    font-size: 13px;
+    color: #7a7a7a;
+    margin: 0 24px 16px;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.project-card__link {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin: 0 24px 20px;
+    text-transform: uppercase;
+}
+.project-card__link:hover { color: var(--accent-dark); }
+
+/* ---------- 7. Blog ---------- */
+.blog {
+    padding: 60px 48px 100px;
+    border-top: 1px solid var(--border);
+}
+
+.blog__container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.blog__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.post-card {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.post-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+.post-card:hover .post-card__image img { transform: scale(1.05); }
+
+.post-card__meta {
+    display: block;
+    margin: 20px 24px 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.post-card__title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--text);
+    margin: 12px 24px 16px;
+}
+
+.post-card__text {
+    font-size: 14px;
+    color: #7a7a7a;
+    margin: 0 24px 20px;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.post-card__actions {
+    display: flex;
+    gap: 12px;
+    margin: 0 24px 24px;
+    flex-wrap: wrap;
+}
+
+/* ---------- 7.5. Experimente em 3D ---------- */
+.interactive-3d {
+    padding: 60px 48px 100px;
+    border-top: 1px solid var(--border);
+}
+
+.interactive-3d__container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.interactive-3d__header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.interactive-3d__title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    color: var(--text);
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+/* Régua laranja curta + cinza atrás do título (estilo referência) */
+.interactive-3d__title::before,
+.interactive-3d__title::after {
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background: var(--text-dim);
+    vertical-align: middle;
+    margin: 0 16px;
+}
+.interactive-3d__title::before {
+    background: var(--accent);
+}
+
+.interactive-3d__panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.interactive-3d__copy {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.interactive-3d__subtitle {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--text);
+    margin: 0;
+}
+
+.interactive-3d__text {
+    font-size: 14px;
+    color: #7a7a7a;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 380px;
+}
+
+.interactive-3d__copy .btn {
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+.interactive-3d__stage {
+    position: relative;
+    background:
+        linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.interactive-3d__stage model-viewer {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    --poster-color: transparent;
+}
+
+.interactive-3d__hint {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--text-faint);
+    margin: 0;
+    text-align: center;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+/* ---------- 8. Footer ---------- */
+.footer {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    padding: 80px 48px 48px;
+}
+
+.footer__container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+/* ----- Rodapé topo: Acontecendo + Sobre ----- */
+.footer__top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+}
+
+.footer__col {
+    min-width: 0;
+}
+
+.footer__col--wide { padding-right: 24px; }
+
+.footer__title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--text);
+    margin: 0 0 24px;
+}
+
+.footer__image {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    background: var(--bg);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.footer__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer__text {
+    font-size: 14px;
+    color: #7a7a7a;
+    margin: 0 0 16px;
+    line-height: 1.6;
+    text-align: center;
+}
+.footer__text a { color: var(--accent); }
+.footer__text a:hover { color: var(--accent-dark); }
+
+/* ----- Listas "Acontecendo" ----- */
+.updates {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.updates__item {
+    display: flex;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+.updates__item:first-child { padding-top: 0; }
+.updates__item:last-child  { border-bottom: none; }
+
+.updates__icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff5a24 0%, #ff7a3a 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    line-height: 1;
+    box-shadow: 0 4px 12px rgba(255, 90, 36, 0.25);
+}
+
+.updates__title {
+    font-size: 15px;
+    color: var(--text);
+    margin: 0 0 6px;
+}
+.updates__title a { color: inherit; }
+.updates__title a:hover { color: var(--accent); }
+
+.updates__text {
+    font-size: 13px;
+    color: #7a7a7a;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ----- Coluna "Sobre" (texto + botão) centralizados ----- */
+.footer__col:not(.footer__col--wide) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer__col:not(.footer__col--wide) .footer__title { text-align: center; }
+.footer__col:not(.footer__col--wide) .btn { align-self: center; }
+
+/* ----- Rodapé social (Onde encontrar + local/email) ----- */
+.footer__social-block {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer__title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--text);
+    margin: 0 0 32px;
+}
+
+.footer__title--center {
+    text-align: center;
+}
+
+/* Social — tiles coloridos estilo app icons, todos numa linha só */
+.social {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+.social li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    transition: transform .2s ease, box-shadow .2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.social li a svg {
+    width: 38px;
+    height: 38px;
+    fill: #ffffff;
+    display: block;
+}
+.social li a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Cores por plataforma — batendo com as marcas */
+.social li:nth-child(1) a { background: #181717; }                /* GitHub */
+.social li:nth-child(2) a { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); } /* Instagram */
+.social li:nth-child(3) a { background: #e60023; }                /* Pinterest */
+.social li:nth-child(4) a { background: #ff0000; }                /* YouTube */
+.social li:nth-child(5) a { background: #000000; }                /* X */
+.social li:nth-child(6) a { background: #5865f2; }                /* Discord */
+.social li:nth-child(7) a { background: #fa5c5c; }                /* itch.io */
+.social li:nth-child(8) a { background: #7b2cbf; }                /* Cults 3D */
+
+/* Contact — lista centralizada com label + valor */
+.contact {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    text-align: center;
+}
+.contact--center {
+    text-align: center;
+}
+.contact li {
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+}
+.contact__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+.contact__value {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+.contact a {
+    color: var(--accent);
+    transition: color .2s ease;
+}
+.contact a:hover { color: var(--accent-dark); }
+
+.footer__copy {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-faint);
+    margin: 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+}
+
+/* ---------- 9. Responsivo ---------- */
+@media (max-width: 980px) {
+    .intro__grid        { grid-template-columns: 1fr; gap: 40px; }
+    .projects__grid     { grid-template-columns: repeat(2, 1fr); }
+    .blog__grid         { grid-template-columns: 1fr; }
+    .footer__top        { grid-template-columns: 1fr; }
+    .interactive-3d__panel { grid-template-columns: 1fr; }
+    .interactive-3d__copy { padding: 32px; }
+    .interactive-3d__stage { min-height: 420px; }
+    .interactive-3d__stage model-viewer { min-height: 420px; }
+}
+
+@media (max-width: 640px) {
+    .hero { padding: 80px 24px 60px; }
+    .intro, .projects, .blog, .footer, .interactive-3d { padding-left: 24px; padding-right: 24px; }
+    .projects__grid { grid-template-columns: 1fr; }
+    .social { gap: 8px; }
+    .social li a { width: 52px; height: 52px; }
+    .social li a svg { width: 28px; height: 28px; }
+    .interactive-3d__title::before,
+    .interactive-3d__title::after { width: 30px; margin: 0 8px; }
+}

@@ -1,0 +1,123 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const pages = [
+    { file: 'home/index.html', root: '../', current: 'home' },
+    { file: 'projetos/index.html', root: '../', current: 'projetos' },
+    { file: 'aprender/index.html', root: '../', current: 'aprender' },
+    { file: 'conteudo/index.html', root: '../', current: 'conteudo' },
+    { file: 'conteudo/artigos/modelo/index.html', root: '../../../', current: 'conteudo' },
+    { file: 'recursos/index.html', root: '../', current: 'recursos' }
+];
+
+const sections = [
+    ['home', 'HOME', 'home/index.html'],
+    ['projetos', 'PROJETOS', 'projetos/index.html'],
+    ['aprender', 'APRENDER', 'aprender/index.html'],
+    ['conteudo', 'CONTEÚDO', 'conteudo/index.html'],
+    ['recursos', 'RECURSOS', 'recursos/index.html']
+];
+
+function navLinks(root, current, indent) {
+    return sections.map(([key, label, target]) =>
+        `${indent}<a href="${root}${target}"${key === current ? ' class="is-current" aria-current="page"' : ''}>${label}</a>`
+    ).join('\n');
+}
+
+function header(root, current) {
+    return `<header class="nav">
+    <a href="${root}home/index.html" class="nav__logo">ESTÚDIO.</a>
+    <nav class="nav__menu" aria-label="Navegação principal">
+${navLinks(root, current, '        ')}
+        <a href="#sobre">SOBRE</a>
+    </nav>
+    <div class="nav__actions">
+        <span class="nav__icon" aria-hidden="true">⌕</span>
+        <details class="nav__mobile">
+            <summary class="nav__icon" aria-label="Abrir menu de navegação">☰</summary>
+            <nav class="nav__mobile-menu" aria-label="Navegação móvel">
+${navLinks(root, current, '                ')}
+                <a href="#sobre">SOBRE</a>
+            </nav>
+        </details>
+    </div>
+</header>`;
+}
+
+const social = [
+    ['GitHub', 'https://github.com/estudiopequenocavaleiro', '<path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.07c-3.2.7-3.88-1.37-3.88-1.37-.52-1.34-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>'],
+    ['Instagram', 'https://instagram.com/estudiopequenocavaleiro', '<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.5" r="1.2"/>'],
+    ['Pinterest', 'https://pinterest.com/estudiopequenocavaleiro', '<path d="M12 1a11 11 0 0 0-3 21c-.1-1.2 0-2.7.3-4l1.5-6.2s-.4-.8-.4-1.9c0-1.8 1-3.1 2.3-3.1 1.1 0 1.6.8 1.6 1.8 0 1.1-.7 2.8-1.1 4.3-.3 1.3.7 2.4 2 2.4 2.4 0 4.1-2.5 4.1-5.9 0-3.1-2.2-5.2-5.4-5.2-3.7 0-5.9 2.8-5.9 5.6 0 1.1.4 2.3 1 3-.1.4-.3 1.1-.5 1.7-1.6-.8-2.6-3.1-2.6-5 0-4.1 3-7.9 8.6-7.9 4.5 0 8 3.2 8 7.5 0 4.5-2.8 8.1-6.8 8.1-1.3 0-2.5-.7-3-1.5l-.8 3.1a13 13 0 0 1-1.6 3.4A11 11 0 1 0 12 1z"/>'],
+    ['YouTube', 'https://youtube.com/@estudiopequenocavaleiro', '<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/>'],
+    ['X', 'https://x.com/smallknightstd', '<path d="M18.2 2h3.3l-7.2 8.3L22.8 22h-6.6l-5.2-6.8L5 22H1.7l7.7-8.9L1.2 2h6.8l4.7 6.3zm-1.1 18h1.8L7.1 4.1H5.1z"/>'],
+    ['Discord', 'https://discord.gg/XewHVRmMsZ', '<path d="M19.8 5.1A18 18 0 0 0 15.5 3.8l-.6 1.3a16 16 0 0 0-5.8 0l-.6-1.3A18 18 0 0 0 4.2 5C1.5 9 .8 13 .9 17.2a18 18 0 0 0 5.4 2.8l1.2-1.9-1.9-.9.5-.4a12.4 12.4 0 0 0 11.8 0l.5.4-1.9.9 1.2 1.9a18 18 0 0 0 5.4-2.8c.2-4.6-.9-8.5-3.3-12.1zM8.5 14.8c-1 0-1.9-1-1.9-2.2s.8-2.2 1.9-2.2 1.9 1 1.9 2.2-.8 2.2-1.9 2.2zm7 0c-1 0-1.9-1-1.9-2.2s.8-2.2 1.9-2.2 1.9 1 1.9 2.2-.8 2.2-1.9 2.2z"/>'],
+    ['itch.io', 'https://estudiopequenocavaleiro.itch.io/', '<path d="M5 7h14a4 4 0 0 1 4 4v2a4 4 0 0 1-4 4h-1l-2-3H8l-2 3H5a4 4 0 0 1-4-4v-2a4 4 0 0 1 4-4zm3 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm8 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4 1-2-2h4z"/>'],
+    ['Cults 3D', 'https://cults3d.com/en/users/estudiopequenocavaleiro', '<path d="M12 2 3 7v10l9 5 9-5V7zm0 2.5L18.5 8 12 11.5 5.5 8zM5 9.3l6 3.4v6.8L5 16zm14 0V16l-6 3.5v-6.8z"/>']
+];
+
+function footer(root) {
+    const socialLinks = social.map(([name, href, icon]) =>
+        `                    <li><a href="${href}" aria-label="${name}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${icon}</svg></a></li>`
+    ).join('\n');
+
+    return `<footer class="footer" id="sobre">
+    <div class="footer__container">
+        <section class="footer__top">
+            <section class="footer__col footer__col--wide">
+                <h2 class="footer__title">Acontecendo por aqui</h2>
+                <ul class="updates">
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">📂</span><div><h3 class="updates__title"><a href="${root}recursos/index.html">Biblioteca de recursos</a></h3><p class="updates__text">Um mapa em construção para encontrar referências, arquivos e ferramentas de criação em um só lugar.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🎲</span><div><h3 class="updates__title"><a href="${root}projetos/index.html">Jogo em desenvolvimento</a></h3><p class="updates__text">Projeto autoral em andamento de um jogo físico-digital no estilo DIY, explorando regras, sistemas e interações com eletrônica e programação.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🎓</span><div><h3 class="updates__title"><a href="${root}aprender/index.html">Aulas e treinamentos</a></h3><p class="updates__text">Cursos, oficinas e treinamentos presenciais e online voltados para 3D, tecnologia e criação digital, com foco em prática e processo.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🎥</span><div><h3 class="updates__title"><a href="${root}conteudo/index.html">Conteúdo publicado</a></h3><p class="updates__text">Textos, vídeos e bastidores compartilhados nas redes, mostrando o processo criativo, reflexões e aprendizados do dia a dia.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🧪</span><div><h3 class="updates__title"><a href="${root}projetos/index.html">Projetos e experimentos em andamento</a></h3><p class="updates__text">Testes e explorações criativas utilizando ferramentas open source como Blender, Godot e Arduino IDE.</p></div></li>
+                </ul>
+            </section>
+            <section class="footer__col">
+                <h2 class="footer__title">Sobre o que é tudo isso?</h2>
+                <div class="footer__image"><img src="${root}home/images/pic10.jpg" alt="Estúdio Pequeno Cavaleiro" loading="lazy"></div>
+                <p class="footer__text">Esse é o <strong>Estúdio Pequeno Cavaleiro</strong>, um espaço de criação, experimentação e aprendizado. Aqui projetos nascem da curiosidade, passam por tentativa e erro, e evoluem entre arte, tecnologia e experiências criativas. Parte do processo vira conteúdo no <a href="https://www.youtube.com/@estudiopequenocavaleiro/streams">YouTube</a>, parte vira produto, e tudo vira aprendizado compartilhado. Além dos projetos autorais, o estúdio está aberto a trabalhos freelance, parcerias e participação em eventos, atuando com 3D, animação, impressão 3D, jogos, programação criativa e projetos experimentais.</p>
+                <a href="mailto:estudiopequenocavaleiro@gmail.com" class="btn btn--primary btn--sm">Fale com a gente</a>
+            </section>
+        </section>
+        <section class="footer__social-block">
+            <h2 class="footer__title footer__title--center">Onde encontrar</h2>
+            <ul class="social">
+${socialLinks}
+            </ul>
+            <ul class="contact contact--center">
+                <li><span class="contact__label">Local</span><span class="contact__value">Brasil — Fazenda Rio Grande, PR</span></li>
+                <li><span class="contact__label">Email</span><span class="contact__value"><a href="mailto:estudiopequenocavaleiro@gmail.com">estudiopequenocavaleiro@gmail.com</a></span></li>
+            </ul>
+        </section>
+        <p class="footer__copy">© Estúdio Pequeno Cavaleiro. Todos os direitos reservados.</p>
+    </div>
+</footer>`;
+}
+
+const headerPattern = /<header class="(?:nav|site-header|site-shell-header)"[^>]*>[\s\S]*?<\/header>/;
+const footerPattern = /<footer class="(?:footer|site-footer|site-shell-footer)"[^>]*>[\s\S]*?<\/footer>/;
+
+for (const page of pages) {
+    const filename = path.join(projectRoot, page.file);
+    let html = fs.readFileSync(filename, 'utf8');
+    const newline = html.includes('\r\n') ? '\r\n' : '\n';
+    const format = value => value.replace(/\n/g, newline);
+
+    if (!headerPattern.test(html) || !footerPattern.test(html)) {
+        throw new Error(`Cabeçalho ou rodapé não encontrado em ${page.file}`);
+    }
+
+    html = html.replace(headerPattern, format(header(page.root, page.current)));
+    html = html.replace(footerPattern, format(footer(page.root)));
+
+    const buttons = `<link rel="stylesheet" href="${page.root}css/buttons.css">`;
+    if (!html.includes(buttons)) html = html.replace('</head>', `    ${buttons}${newline}</head>`);
+    const stylesheet = `<link rel="stylesheet" href="${page.root}css/site-shell.css">`;
+    if (!html.includes(stylesheet)) html = html.replace('</head>', `    ${stylesheet}${newline}</head>`);
+
+    fs.writeFileSync(filename, html);
+    process.stdout.write(`Atualizado: ${page.file}\n`);
+}

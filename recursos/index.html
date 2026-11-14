@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore os recursos do Estúdio Pequeno Cavaleiro: arquivos 3D, referências, materiais, vídeos e ferramentas de criação.">
+    <title>Recursos | Estúdio Pequeno Cavaleiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="css/recursos.css">
+    <script src="js/recursos.js" defer></script>
+    <link rel="stylesheet" href="../css/site-shell.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+</head>
+<body>
+    <header class="nav">
+    <a href="../home/index.html" class="nav__logo" aria-label="Estúdio Pequeno Cavaleiro — início"><img src="../conteudo/images/LogoEstudioSFBranco.png" alt=""></a>
+    <nav class="nav__menu" aria-label="Navegação principal">
+        <a href="../home/index.html">HOME</a>
+        <a href="../projetos/index.html">PROJETOS</a>
+        <a href="../aprender/index.html">APRENDER</a>
+        <a href="../conteudo/index.html">CONTEÚDO</a>
+        <a href="../recursos/index.html" class="is-current" aria-current="page">RECURSOS</a>
+        <a href="#sobre">SOBRE</a>
+    </nav>
+    <div class="nav__actions">
+        <span class="nav__icon" aria-hidden="true">⌕</span>
+        <details class="nav__mobile">
+            <summary class="nav__icon" aria-label="Abrir menu de navegação">☰</summary>
+            <nav class="nav__mobile-menu" aria-label="Navegação móvel">
+                <a href="../home/index.html">HOME</a>
+                <a href="../projetos/index.html">PROJETOS</a>
+                <a href="../aprender/index.html">APRENDER</a>
+                <a href="../conteudo/index.html">CONTEÚDO</a>
+                <a href="../recursos/index.html" class="is-current" aria-current="page">RECURSOS</a>
+                <a href="#sobre">SOBRE</a>
+            </nav>
+        </details>
+    </div>
+</header>
+
+    <main>
+        <section class="intro" aria-labelledby="page-title">
+            <p class="eyebrow">Um mapa para explorar</p>
+            <h1 id="page-title">RECURSOS PARA<br><span>CRIAR E EXPERIMENTAR.</span></h1>
+            <p>Guias de estudo, produções do estúdio, referências, atividades e recomendações reunidos em lugares fáceis de encontrar. Escolha uma área do mapa para explorar.</p>
+        </section>
+
+        <section class="map-section" aria-labelledby="map-title">
+            <div class="section-heading">
+                <div><p class="eyebrow">Explore a ilha</p><h2 id="map-title">Cada lugar, uma descoberta</h2></div>
+                <p>Clique nas construções para explorar os recursos de cada lugar.</p>
+            </div>
+
+            <div class="map-layout">
+                <div class="map-stage">
+                    <img class="map-art" src="images/Mapa_Isometrico_V2.png" alt="" aria-hidden="true">
+                    <button class="map-location is-active" type="button" style="--x: 19%; --y: 40%; --w: 23%; --h: 34%; --art-width: 120%" data-category="forja" data-label="Forja" aria-label="Explorar Forja" aria-controls="resource-carousel" aria-pressed="true">
+                        <img src="images/forja_com_bigorna.png" alt="" aria-hidden="true">
+                    </button>
+                    <button class="map-location" type="button" style="--x: 45%; --y: 43%; --w: 18%; --h: 18%; --art-width: 104%" data-category="praca" data-label="Praça" aria-label="Explorar Praça" aria-controls="resource-carousel" aria-pressed="false">
+                        <img src="images/placa_avisos.png" alt="" aria-hidden="true">
+                    </button>
+                    <button class="map-location" type="button" style="--x: 51%; --y: 17%; --w: 27%; --h: 27%; --art-width: 145%" data-category="observatorio" data-label="Observatório" aria-label="Explorar Observatório" aria-controls="resource-carousel" aria-pressed="false">
+                        <img src="images/Observatorio.png" alt="" aria-hidden="true">
+                    </button>
+                    <button class="map-location" type="button" style="--x: 82%; --y: 33%; --w: 18%; --h: 34%; --art-width: 244%" data-category="alquimia" data-label="Torre do Alquimista" aria-label="Explorar Torre do Alquimista" aria-controls="resource-carousel" aria-pressed="false">
+                        <img src="images/Torre_Alquimista.png" alt="" aria-hidden="true">
+                    </button>
+                    <button class="map-location" type="button" style="--x: 53%; --y: 73%; --w: 25%; --h: 20%; --art-width: 115%" data-category="sabio" data-label="Sábio da Floresta" aria-label="Explorar Sábio da Floresta" aria-controls="resource-carousel" aria-pressed="false">
+                        <img src="images/sabio_da_floresta.png" alt="" aria-hidden="true">
+                    </button>
+                </div>
+
+                <aside class="map-guide" aria-label="Lugar e subcategorias selecionados">
+                    <div class="map-guide__details">
+                        <div class="map-guide__place">
+                            <p class="eyebrow" id="resource-kicker">Lugar selecionado · 5 tipos de recurso</p>
+                            <h2 id="resource-title" aria-live="polite">Forja</h2>
+                            <p id="resource-description">Produções do estúdio para abrir, adaptar e usar nos seus próprios projetos.</p>
+                        </div>
+                        <section class="filter-panel" aria-labelledby="filter-title">
+                            <p class="eyebrow">Subcategorias</p>
+                            <h3 id="filter-title">Modelos 3D</h3>
+                            <p class="filter-panel__description" id="filter-description">Arquivos .blend de personagens, objetos e cenas para explorar e adaptar.</p>
+                            <div class="filter-options" id="filter-options" role="group" aria-label="Subfiltros"></div>
+                            <a class="filter-panel__jump" href="#explorar">Explorar recursos ↓</a>
+                        </section>
+                    </div>
+                    <section class="resource-index" aria-labelledby="selected-filter-title">
+                        <p class="eyebrow">Itens do filtro</p>
+                        <h3 id="selected-filter-title">Modelagem</h3>
+                        <div class="resource-index__scroll" id="filter-result" aria-live="polite"></div>
+                    </section>
+                </aside>
+
+                <section class="resource-section" id="explorar" aria-labelledby="resource-list-title">
+                    <div class="resource-heading">
+                        <h2 id="resource-list-title">Recursos</h2>
+                        <div class="carousel-controls" aria-label="Controles dos recursos">
+                            <button id="previous-card" type="button" aria-label="Ver recursos anteriores" disabled>←</button>
+                            <button id="next-card" type="button" aria-label="Ver próximos recursos">→</button>
+                        </div>
+                    </div>
+                    <div class="resource-carousel" id="resource-carousel" tabindex="0" role="region" aria-label="Recursos: Forja"></div>
+                    <noscript><p class="resource-note">Ative o JavaScript para explorar os lugares do mapa e seus recursos.</p></noscript>
+                    <p class="resource-note">Os cards marcados “Em preparação” receberão arquivos ou links quando os materiais estiverem prontos.</p>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="sobre">
+    <div class="footer__container">
+        <section class="footer__top">
+            <section class="footer__col footer__col--wide">
+                <h2 class="footer__title">Acontecendo por aqui</h2>
+                <ul class="updates">
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">📂</span><div><h3 class="updates__title"><a href="../recursos/index.html">Biblioteca de recursos</a></h3><p class="updates__text">Um mapa em construção para encontrar referências, arquivos e ferramentas de criação em um só lugar.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🎲</span><div><h3 class="updates__title"><a href="../projetos/index.html">Jogo em desenvolvimento</a></h3><p class="updates__text">Projeto autoral em andamento de um jogo físico-digital no estilo DIY, explorando regras, sistemas e interações com eletrônica e programação.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🎓</span><div><h3 class="updates__title"><a href="../aprender/index.html">Aulas e treinamentos</a></h3><p class="updates__text">Cursos, oficinas e treinamentos presenciais e online voltados para 3D, tecnologia e criação digital, com foco em prática e processo.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🎥</span><div><h3 class="updates__title"><a href="../conteudo/index.html">Conteúdo publicado</a></h3><p class="updates__text">Textos, vídeos e bastidores compartilhados nas redes, mostrando o processo criativo, reflexões e aprendizados do dia a dia.</p></div></li>
+                    <li class="updates__item"><span class="updates__icon" aria-hidden="true">🧪</span><div><h3 class="updates__title"><a href="../projetos/index.html">Projetos e experimentos em andamento</a></h3><p class="updates__text">Testes e explorações criativas utilizando ferramentas open source como Blender, Godot e Arduino IDE.</p></div></li>
+                </ul>
+            </section>
+            <section class="footer__col">
+                <h2 class="footer__title">Sobre o que é tudo isso?</h2>
+                <div class="footer__image"><img src="../home/images/pic10.jpg" alt="Estúdio Pequeno Cavaleiro" loading="lazy"></div>
+                <p class="footer__text">Esse é o <strong>Estúdio Pequeno Cavaleiro</strong>, um espaço de criação, experimentação e aprendizado. Aqui projetos nascem da curiosidade, passam por tentativa e erro, e evoluem entre arte, tecnologia e experiências criativas. Parte do processo vira conteúdo no <a href="https://www.youtube.com/@estudiopequenocavaleiro/streams">YouTube</a>, parte vira produto, e tudo vira aprendizado compartilhado. Além dos projetos autorais, o estúdio está aberto a trabalhos freelance, parcerias e participação em eventos, atuando com 3D, animação, impressão 3D, jogos, programação criativa e projetos experimentais.</p>
+                <a href="mailto:estudiopequenocavaleiro@gmail.com" class="btn btn--primary btn--sm">Fale com a gente</a>
+            </section>
+        </section>
+        <section class="footer__social-block">
+            <h2 class="footer__title footer__title--center">Onde encontrar</h2>
+            <ul class="social">
+                    <li><a href="https://github.com/estudiopequenocavaleiro" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.07c-3.2.7-3.88-1.37-3.88-1.37-.52-1.34-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a></li>
+                    <li><a href="https://instagram.com/estudiopequenocavaleiro" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.5" r="1.2"/></svg></a></li>
+                    <li><a href="https://pinterest.com/estudiopequenocavaleiro" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a11 11 0 0 0-3 21c-.1-1.2 0-2.7.3-4l1.5-6.2s-.4-.8-.4-1.9c0-1.8 1-3.1 2.3-3.1 1.1 0 1.6.8 1.6 1.8 0 1.1-.7 2.8-1.1 4.3-.3 1.3.7 2.4 2 2.4 2.4 0 4.1-2.5 4.1-5.9 0-3.1-2.2-5.2-5.4-5.2-3.7 0-5.9 2.8-5.9 5.6 0 1.1.4 2.3 1 3-.1.4-.3 1.1-.5 1.7-1.6-.8-2.6-3.1-2.6-5 0-4.1 3-7.9 8.6-7.9 4.5 0 8 3.2 8 7.5 0 4.5-2.8 8.1-6.8 8.1-1.3 0-2.5-.7-3-1.5l-.8 3.1a13 13 0 0 1-1.6 3.4A11 11 0 1 0 12 1z"/></svg></a></li>
+                    <li><a href="https://youtube.com/@estudiopequenocavaleiro" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></a></li>
+                    <li><a href="https://x.com/smallknightstd" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.2 2h3.3l-7.2 8.3L22.8 22h-6.6l-5.2-6.8L5 22H1.7l7.7-8.9L1.2 2h6.8l4.7 6.3zm-1.1 18h1.8L7.1 4.1H5.1z"/></svg></a></li>
+                    <li><a href="https://discord.gg/XewHVRmMsZ" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.8 5.1A18 18 0 0 0 15.5 3.8l-.6 1.3a16 16 0 0 0-5.8 0l-.6-1.3A18 18 0 0 0 4.2 5C1.5 9 .8 13 .9 17.2a18 18 0 0 0 5.4 2.8l1.2-1.9-1.9-.9.5-.4a12.4 12.4 0 0 0 11.8 0l.5.4-1.9.9 1.2 1.9a18 18 0 0 0 5.4-2.8c.2-4.6-.9-8.5-3.3-12.1zM8.5 14.8c-1 0-1.9-1-1.9-2.2s.8-2.2 1.9-2.2 1.9 1 1.9 2.2-.8 2.2-1.9 2.2zm7 0c-1 0-1.9-1-1.9-2.2s.8-2.2 1.9-2.2 1.9 1 1.9 2.2-.8 2.2-1.9 2.2z"/></svg></a></li>
+                    <li><a href="https://estudiopequenocavaleiro.itch.io/" aria-label="itch.io"><img src="../images/brands/itchio-textless-white.svg" alt="" aria-hidden="true"></a></li>
+                    <li><a href="https://cults3d.com/en/users/estudiopequenocavaleiro" aria-label="Cults 3D"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 3 7v10l9 5 9-5V7zm0 2.5L18.5 8 12 11.5 5.5 8zM5 9.3l6 3.4v6.8L5 16zm14 0V16l-6 3.5v-6.8z"/></svg></a></li>
+            </ul>
+            <ul class="contact contact--center">
+                <li><span class="contact__label">Local</span><span class="contact__value">Brasil — Fazenda Rio Grande, PR</span></li>
+                <li><span class="contact__label">Email</span><span class="contact__value"><a href="mailto:estudiopequenocavaleiro@gmail.com">estudiopequenocavaleiro@gmail.com</a></span></li>
+            </ul>
+        </section>
+        <p class="footer__copy">© Estúdio Pequeno Cavaleiro. Todos os direitos reservados.</p>
+    </div>
+</footer>
+<script src="../js/footer.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+/* ============================================
+   VITRINE INTERATIVA DE PROJETOS
+   ============================================
+
+   CONFIGURAÇÕES PRINCIPAIS (customize aqui):
+   - --vitrine-primary: cor de destaque/botões
+   - --vitrine-text-light: texto claro sobre imagem
+   - --vitrine-text-muted: texto secundário
+   - --vitrine-border-radius: arredondamento geral
+   - --vitrine-highlight-height: altura do destaque principal (limite máximo dos cards)
+   - --vitrine-card-width: largura dos cards
+   - --vitrine-card-height: altura dos cards (máximo: altura do destaque - 20px)
+   - --vitrine-card-gap: espaçamento entre cards
+   - --vitrine-card-hover-opacity: opacidade da imagem no hover (0 a 1)
+   - --vitrine-animation-duration: duração das animações
+   ============================================ */
+
+:root {
+    /* Cores */
+    --vitrine-primary: #3b82f6;
+    --vitrine-primary-dark: #2563eb;
+    --vitrine-text-light: #ffffff;
+    --vitrine-text-muted: rgba(255, 255, 255, 0.8);
+    --vitrine-text-dim: rgba(255, 255, 255, 0.6);
+    --vitrine-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.2) 100%);
+    --vitrine-bg: #0f172a;
+    --vitrine-card-bg: #1e293b;
+    --vitrine-card-border: rgba(255, 255, 255, 0.1);
+    --vitrine-card-active-border: rgba(255, 255, 255, 0.4);
+
+    /* Dimensões do destaque - EDITE AQUI */
+    --vitrine-border-radius: 16px;
+    --vitrine-highlight-height: 480px;
+
+    /* Dimensões dos cards - EDITE AQUI
+       Obs: cards nunca ultrapassam a largura do highlight */
+    --vitrine-card-width: 180px;
+    --vitrine-card-height: 250px;
+    --vitrine-card-gap: 12px;
+    --vitrine-card-border-radius: 12px;
+
+    /* Efeito hover dos cards - EDITE AQUI */
+    --vitrine-card-hover-opacity: 0.5;
+    --vitrine-card-hover-scale: 1.08;
+
+    /* Animações - EDITE AQUI PARA AJUSTAR VELOCIDADE */
+    --vitrine-animation-duration: 0.3s;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--vitrine-bg);
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================================
+   CONTAINER PRINCIPAL
+   ============================================ */
+.vitrine {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ============================================
+   DESTAQUE PRINCIPAL
+   ============================================ */
+.vitrine__highlight {
+    position: relative;
+    width: 100%;
+    height: var(--vitrine-highlight-height);
+    border-radius: var(--vitrine-border-radius);
+    overflow: hidden;
+    background: var(--vitrine-card-bg);
+}
+
+/* Imagem de fundo do destaque */
+.highlight__image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.highlight__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity var(--vitrine-animation-duration) ease;
+}
+
+/* Overlay escuro sobre a imagem */
+.highlight__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--vitrine-overlay);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Conteúdo textual posicionado no canto inferior esquerdo */
+.highlight__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Categoria/tag opcional */
+.highlight__category {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--vitrine-primary);
+    background: rgba(59, 130, 246, 0.15);
+    padding: 6px 12px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+/* Título do projeto em destaque */
+.highlight__title {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    color: var(--vitrine-text-light);
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* Resumo curto do projeto */
+.highlight__description {
+    font-size: 16px;
+    color: var(--vitrine-text-muted);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0;
+}
+
+/* Botão Ver mais */
+.highlight__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--vitrine-text-light);
+    background: var(--vitrine-primary);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    width: fit-content;
+    margin-top: 8px;
+    transition: all var(--vitrine-animation-duration) ease;
+}
+
+.highlight__button:hover {
+    background: var(--vitrine-primary-dark);
+    transform: translateY(-2px);
+}
+
+.highlight__arrow {
+    transition: transform var(--vitrine-animation-duration) ease;
+}
+
+.highlight__button:hover .highlight__arrow {
+    transform: translateX(4px);
+}
+
+/* Animação de transição do destaque */
+.highlight__image.transitioning {
+    opacity: 0;
+}
+
+.highlight__content.transitioning {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.highlight__content {
+    transition: opacity var(--vitrine-animation-duration) ease, transform var(--vitrine-animation-duration) ease;
+}
+
+/* ============================================
+   CARDS DE NAVEGAÇÃO
+   ============================================ */
+.vitrine__cards {
+    display: flex;
+    gap: var(--vitrine-card-gap);
+    overflow-x: auto;
+    padding: 8px 4px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    /* Esconder scrollbar mas manter funcionalidade */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.vitrine__cards::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Card individual */
+.vitrine__card {
+    flex: 0 0 var(--vitrine-card-width);
+    height: var(--vitrine-card-height);
+    border-radius: var(--vitrine-card-border-radius);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    scroll-snap-align: start;
+    border: 2px solid transparent;
+    transition:
+        transform var(--vitrine-animation-duration) ease,
+        border-color var(--vitrine-animation-duration) ease,
+        box-shadow var(--vitrine-animation-duration) ease;
+    background: var(--vitrine-card-bg);
+}
+
+/* Hover: leve elevação + escurecimento da imagem */
+.vitrine__card:hover {
+    transform: translateY(-4px);
+}
+
+/* Estado ativo: card selecionado */
+.vitrine__card--active {
+    border-color: var(--vitrine-card-active-border);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
+
+.vitrine__card--active:hover {
+    transform: scale(1.02);
+}
+
+/* Imagem do card */
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform var(--vitrine-animation-duration) ease,
+        opacity var(--vitrine-animation-duration) ease;
+}
+
+.vitrine__card:hover .card__image {
+    transform: scale(var(--vitrine-card-hover-scale));
+    opacity: var(--vitrine-card-hover-opacity);
+}
+
+/* Overlay escuro no card */
+.card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+    padding: 30px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Categoria no card */
+.card__category {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--vitrine-primary);
+}
+
+/* Título no card */
+.card__title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--vitrine-text-light);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+/* Desktop grande - 6 cards visíveis */
+@media (min-width: 1100px) {
+    :root {
+        --vitrine-card-width: 180px;
+        --vitrine-card-height: 250px;
+        --vitrine-highlight-height: 480px;
+    }
+}
+
+/* Desktop médio - 5 cards visíveis */
+@media (min-width: 900px) and (max-width: 1099px) {
+    :root {
+        --vitrine-card-width: 160px;
+        --vitrine-card-height: 250px;
+        --vitrine-highlight-height: 420px;
+    }
+}
+
+/* Desktop pequeno - 4 cards visíveis */
+@media (min-width: 700px) and (max-width: 899px) {
+    :root {
+        --vitrine-card-width: 150px;
+        --vitrine-card-height: 250px;
+        --vitrine-highlight-height: 380px;
+    }
+
+    .highlight__content {
+        padding: 30px;
+    }
+}
+
+/* Tablet - 3 cards visíveis */
+@media (min-width: 500px) and (max-width: 699px) {
+    :root {
+        --vitrine-card-width: 140px;
+        --vitrine-card-height: 250px;
+        --vitrine-highlight-height: 340px;
+        --vitrine-card-gap: 10px;
+    }
+
+    .highlight__content {
+        padding: 24px;
+    }
+
+    .highlight__description {
+        display: none;
+    }
+
+    .highlight__title {
+        font-size: 24px;
+    }
+}
+
+/* Mobile - ~2 cards visíveis */
+@media (max-width: 499px) {
+    :root {
+        --vitrine-card-width: 140px;
+        --vitrine-card-height: 250px;
+        --vitrine-highlight-height: 280px;
+        --vitrine-card-gap: 10px;
+        --vitrine-border-radius: 12px;
+        --vitrine-card-border-radius: 10px;
+    }
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .highlight__content {
+        padding: 20px;
+    }
+
+    .highlight__category {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+
+    .highlight__title {
+        font-size: 20px;
+    }
+
+    .highlight__description {
+        display: none;
+    }
+
+    .highlight__button {
+        font-size: 13px;
+        padding: 10px 18px;
+    }
+
+    .card__title {
+        font-size: 12px;
+    }
+}
+
+/* ============================================
+   ANIMAÇÃO DE ENTRADA
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vitrine {
+    animation: fadeIn 0.5s ease forwards;
+}

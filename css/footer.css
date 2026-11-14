@@ -1,0 +1,255 @@
+/* ---------- 8. Footer ---------- */
+.footer {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    padding: 80px 48px 48px;
+}
+
+.footer__container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+/* ----- Rodapé topo: Acontecendo + Sobre ----- */
+.footer__top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+}
+
+.footer__col {
+    min-width: 0;
+}
+
+.footer__col--wide { padding-right: 24px; }
+
+.footer__title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--text);
+    margin: 0 0 24px;
+}
+
+.footer__image {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    background: var(--bg);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.footer__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer__text {
+    font-size: 14px;
+    color: #7a7a7a;
+    margin: 0 0 16px;
+    line-height: 1.6;
+    text-align: center;
+}
+.footer__text a { color: var(--accent); }
+.footer__text a:hover { color: var(--accent-dark); }
+
+/* ----- Listas "Acontecendo" ----- */
+.updates {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.updates__item {
+    display: flex;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+.updates__item:first-child { padding-top: 0; }
+.updates__item:last-child  { border-bottom: none; }
+
+.updates__icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff5a24 0%, #ff7a3a 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    line-height: 1;
+    box-shadow: 0 4px 12px rgba(255, 90, 36, 0.25);
+}
+
+.updates__title {
+    font-size: 15px;
+    color: var(--text);
+    margin: 0 0 6px;
+}
+.updates__title a { color: inherit; }
+.updates__title a:hover { color: var(--accent); }
+
+.updates__text {
+    font-size: 13px;
+    color: #7a7a7a;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ----- Coluna "Sobre" (texto + botão) centralizados ----- */
+.footer__col:not(.footer__col--wide) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer__col:not(.footer__col--wide) .footer__title { text-align: center; }
+.footer__col:not(.footer__col--wide) .btn { align-self: center; }
+
+/* ----- Rodapé social (Onde encontrar + local/email) ----- */
+.footer__social-block {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer__title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--text);
+    margin: 0 0 32px;
+}
+
+.footer__title--center {
+    text-align: center;
+}
+
+/* Social — tiles coloridos estilo app icons, todos numa linha só */
+.social {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+.social li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    transition: transform .2s ease, box-shadow .2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.social li a svg,
+.social li a img {
+    width: 38px;
+    height: 38px;
+    fill: #ffffff;
+    display: block;
+    display: block;
+}
+.social li a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.footer__social-block.is-invited .social li a { animation: social-hop 0.3s ease both; }
+.footer__social-block.is-invited .social li:nth-child(2) a { animation-delay: 0.07s; }
+.footer__social-block.is-invited .social li:nth-child(3) a { animation-delay: 0.14s; }
+.footer__social-block.is-invited .social li:nth-child(4) a { animation-delay: 0.21s; }
+.footer__social-block.is-invited .social li:nth-child(5) a { animation-delay: 0.28s; }
+.footer__social-block.is-invited .social li:nth-child(6) a { animation-delay: 0.35s; }
+.footer__social-block.is-invited .social li:nth-child(7) a { animation-delay: 0.42s; }
+.footer__social-block.is-invited .social li:nth-child(8) a { animation-delay: 0.49s; }
+
+@keyframes social-hop {
+    0%, 100% { transform: translateY(0); }
+    45% { transform: translateY(-12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer__social-block.is-invited .social li a { animation: none; }
+}
+
+/* Cores por plataforma — batendo com as marcas */
+.social li:nth-child(1) a { background: #181717; }                /* GitHub */
+.social li:nth-child(2) a { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); } /* Instagram */
+.social li:nth-child(3) a { background: #e60023; }                /* Pinterest */
+.social li:nth-child(4) a { background: #ff0000; }                /* YouTube */
+.social li:nth-child(5) a { background: #000000; }                /* X */
+.social li:nth-child(6) a { background: #5865f2; }                /* Discord */
+.social li:nth-child(7) a { background: #fa5c5c; }                /* itch.io */
+.social li:nth-child(8) a { background: #7b2cbf; }                /* Cults 3D */
+
+/* Contact — lista centralizada com label + valor */
+.contact {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    text-align: center;
+}
+.contact--center {
+    text-align: center;
+}
+.contact li {
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+}
+.contact__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+.contact__value {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+.contact a {
+    color: var(--accent);
+    transition: color .2s ease;
+}
+.contact a:hover { color: var(--accent-dark); }
+
+.footer__copy {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-faint);
+    margin: 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+}
+
+
+
+/* Responsivo do footer e redes (compartilhado) */
+@media (max-width: 980px) {
+    .footer__top { grid-template-columns: 1fr; }
+    .footer__col--wide { padding-right: 0; }
+}
+
+@media (max-width: 640px) {
+    .footer { padding: 60px 24px 36px; }
+    .footer__top { gap: 48px; margin-bottom: 48px; }
+    .social { gap: 8px; }
+    .social li a { width: 52px; height: 52px; }
+    .social li a svg,
+    .social li a img { width: 28px; height: 28px; }
+    .contact li { flex-wrap: wrap; }
+}
