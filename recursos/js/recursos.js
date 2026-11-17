@@ -75,7 +75,7 @@ const filterGroups = {
     'Guia de PCs': ['Montagem', 'Peças', 'Orçamento', 'Manutenção'],
     'Impressoras 3D': ['FDM', 'Resina', 'Manutenção', 'Materiais'],
     'Periféricos': ['Mesas digitalizadoras', 'Monitores', 'Áudio', 'Acessórios'],
-    'Softwares': ['3D', 'Jogos', 'Edição', 'Código'],
+    'Softwares': ['3D', 'Jogos', 'Arte', 'Edição', 'Código'],
     'Configurações': ['Blender', 'Godot', 'Impressão 3D', 'Sistema'],
     'Add-ons': ['Blender', 'Godot', 'Produtividade'],
     'Dúvidas frequentes': ['Equipamentos', 'Programas', 'Processos'],
@@ -91,16 +91,35 @@ const filterGroups = {
     'Livros': ['Arte', 'Design', 'Tecnologia'],
     'Vídeos de processos': ['Modelagem', 'Animação', 'Jogos', 'Bastidores'],
     'Desafios': ['3D', 'Desenho', 'Código'],
-    'Eventos': ['Oficinas', 'Encontros', 'Palestras'],
+    'Eventos': ['Feiras e mostras', 'Oficinas', 'Encontros', 'Palestras'],
     'Game Jams': ['Próximas', 'Em andamento', 'Projetos concluídos'],
     'Exposições': ['Digitais', 'Presenciais', 'Galerias'],
     'Oportunidades': ['Editais', 'Parcerias', 'Trabalhos'],
-    'Comunidades': ['Discord', 'Grupos', 'Colaborações']
+    'Comunidades': ['Grupos', 'Discord', 'Colaborações']
 };
 
 // Adicione href a cada item quando o arquivo ou a página estiver pronto.
 // Caminhos locais partem de recursos/index.html.
 const resourceEntries = {
+    'Softwares': {
+        '3D': [{ title: 'Blender', href: 'https://www.blender.org/' }],
+        Jogos: [{ title: 'Godot', href: 'https://godotengine.org/' }],
+        Arte: [{ title: 'Krita', href: 'https://krita.org/' }],
+        'Edição': [{ title: 'GIMP', href: 'https://www.gimp.org/' }]
+    },
+    'Add-ons': {
+        Blender: [{ title: 'RetopoFlow', href: 'https://github.com/CGCookie/retopoflow', note: 'Retopologia' }]
+    },
+    'Eventos': {
+        'Feiras e mostras': [
+            { title: 'PUCPR Game Show', href: 'https://blogs.pucpr.br/jogosdigitais/pucpr-show/' },
+            { title: 'Maker Faire Curitiba', href: 'https://www.makerfairecuritiba.com.br/' }
+        ]
+    },
+    'Comunidades': {
+        Grupos: [{ title: 'Comunidade do estúdio no app', href: 'https://aster-luna-8787d.web.app/' }],
+        Discord: [{ title: 'Discord do estúdio', href: 'https://discord.gg/XewHVRmMsZ' }]
+    },
     'Tutoriais': {
         '3D': [
             { title: 'Escultura digital com o mouse', href: 'https://www.youtube.com/watch?v=y43gmJWIulE', note: 'YouTube' }
