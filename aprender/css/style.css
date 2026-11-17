@@ -490,10 +490,11 @@ button.m-tile {
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 12px;
     background-color: #171717;
-    background-image: linear-gradient(rgba(17, 17, 17, .48), rgba(17, 17, 17, .48)),
+    background-image: linear-gradient(rgba(17, 17, 17, .72), rgba(17, 17, 17, .72)),
+        url('../images/Fundo PC para fotos.png'),
         url('../images/Fundo PC para fotos.png');
-    background-position: center;
-    background-size: auto, clamp(280px, 30vw, 360px);
+    background-position: center, center, calc(50% + 160px) calc(50% + 160px);
+    background-size: auto, 320px, 320px;
     background-repeat: repeat;
     color: var(--text);
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
