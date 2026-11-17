@@ -46,7 +46,7 @@ const places = {
         items: [
             { type: 'Guia de estudo', title: 'Documentos', description: 'Apostilas, PDFs e materiais para consultar durante a prática.', icon: '▤' },
             { type: 'Guia de estudo', title: 'Tutoriais', description: 'Passos guiados para aprender uma técnica ou resolver uma tarefa.', icon: '✎' },
-            { type: 'Guia de estudo', title: 'Cursos', description: 'Trilhas e aulas do estúdio para estudar com mais profundidade.', icon: '✦', href: '../aprender/index.html', action: 'Ver cursos →' },
+            { type: 'Guia de estudo', title: 'Cursos', description: 'Cursos do estúdio e formações indicadas para estudar com mais profundidade.', icon: '✦', href: '../aprender/index.html', action: 'Ver cursos →' },
             { type: 'Guia de estudo', title: 'Livros', description: 'Leituras para ampliar repertório e fundamentar os estudos.', icon: '▣' },
             { type: 'Guia de estudo', title: 'Vídeos de processos', description: 'Gravações e bastidores para acompanhar como as ideias ganham forma.', icon: '▶', href: 'https://youtube.com/@estudiopequenocavaleiro', action: 'Ver vídeos →' }
         ]
@@ -101,6 +101,21 @@ const filterGroups = {
 // Adicione href a cada item quando o arquivo ou a página estiver pronto.
 // Caminhos locais partem de recursos/index.html.
 const resourceEntries = {
+    'Tutoriais': {
+        '3D': [
+            { title: 'Escultura digital com o mouse', href: 'https://www.youtube.com/watch?v=y43gmJWIulE', note: 'YouTube' }
+        ]
+    },
+    'Cursos': {
+        Online: [
+            { title: 'Cursos do estúdio', href: '../aprender/index.html' },
+            { title: 'Animação da Sony', href: 'https://www.yellowbrick.co/sony', note: 'Em inglês' },
+            { title: 'Criação de robôs para iniciantes', href: 'https://www.cgboost.com/courses/blender-robot-creation-for-beginners', note: 'Em inglês' },
+            { title: 'Blender para iniciantes', href: 'https://www.cgboost.com/courses/free-blender-beginners-course', note: 'Em inglês' },
+            { title: 'Escultura para iniciantes', href: 'https://www.cgboost.com/courses/blender-sculpting-for-beginners', note: 'Em inglês' },
+            { title: 'Game Design', href: 'https://www.eucapacito.com.br/cursos/game-design/' }
+        ]
+    },
     'Modelos 3D': {
         Modelagem: [
             { title: 'Modelo 01' },
@@ -224,11 +239,17 @@ function selectFilter(item, label) {
         const row = document.createElement('li');
         const content = document.createElement(entry.href ? 'a' : 'span');
         content.className = 'resource-index__item';
-        if (entry.href) content.href = entry.href;
+        if (entry.href) {
+            content.href = entry.href;
+            if (/^https?:\/\//.test(entry.href)) {
+                content.target = '_blank';
+                content.rel = 'noopener noreferrer';
+            }
+        }
         const name = document.createElement('strong');
         name.textContent = entry.title;
         const state = document.createElement('small');
-        state.textContent = entry.href ? 'Abrir →' : 'Em preparação';
+        state.textContent = entry.href ? [entry.note, 'Abrir →'].filter(Boolean).join(' · ') : 'Em preparação';
         content.append(name, state);
         row.append(content);
         list.append(row);
