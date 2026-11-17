@@ -16,16 +16,19 @@
        Trabalhos dos alunos e registros de aulas e eventos.
        Para vídeos, usamos um quadro do próprio arquivo como prévia. */
     const projects = [
-        { title: 'FOXY',             category: 'ALUNO · VINICIUS VIDAL',      image: 'images/Alunos/Foxy_Vinicius_Vidal.png',                              url: '#' },
+        { title: 'FOXY',             category: 'ALUNO · VINICIUS VIDAL',      image: 'images/Alunos/Foxy_Vinicius_Vidal.png', portfolio: 'https://x.com/SnakeTeeth12' },
         { title: 'LAGARTO ARQUEIRO', category: 'ALUNA · SILVIA SUGIURA',      image: 'images/Alunos/Lagarto_Arqueiro_Silvia_Sugiura.png',                 url: '#' },
         { title: 'INCUBADORA',       category: 'ALUNO · RAFAEL CANI',         video: 'images/Alunos/Videos/Incubadora_Rafael_Cani.mp4',                  url: '#' },
-        { title: 'PICKETT',          category: 'ALUNA · GABRIELLE FERNANDES', image: 'images/Alunos/Pickett_Render_Gabrielle_Fernandes.jpg',             url: '#' },
+        { title: 'PICKETT',          category: 'ALUNA · GABRIELLE FERNANDES', image: 'images/Alunos/Pickett_Render_Gabrielle_Fernandes.jpg', portfolio: 'https://www.instagram.com/gabzzart/' },
         { title: 'COMIC FAROESTE',   category: 'ALUNO · GABRIEL ABRÃO',       image: 'images/Alunos/Comic_Faroeste_Gabriel_Abrao.png',                   url: '#' },
-        { title: 'VASO ANTIGO',      category: 'ALUNO · GABRIEL APOLINÁRIO',  image: 'images/Alunos/Vaso_Antigo_Gabriel_Apolinario.png',                url: '#' },
-        { title: 'SAMURAI',          category: 'ALUNO · CASSIANO NETO',       video: 'images/Alunos/Videos/Samurai_Cassiano_Neto.mp4',                   url: '#' },
-        { title: 'TEMPLO OBSIDIANA', category: 'ALUNO · RAPHAEL SETS',       image: 'images/Alunos/Templo-Obsidiana_Raphael_Sets.png',                  url: '#' },
-        { title: 'CARRO DOCE',       category: 'ALUNA · GABRIELLE JACCOMO',  image: 'images/Alunos/Carro_Doce_Gabrielle_Jaccomo.jpg',                   url: '#' },
-        { title: 'PC',               category: 'ALUNO · GABRIEL APOLINÁRIO',  image: 'images/Alunos/PC_Gabriel_Apolinario.png',                          url: '#' },
+        { title: 'VASO ANTIGO',      category: 'ALUNO · GABRIEL APOLINÁRIO',  image: 'images/Alunos/Vaso_Antigo_Gabriel_Apolinario.png', portfolio: 'https://www.instagram.com/apolinario_3d/' },
+        { title: 'SAMURAI',          category: 'ALUNO · CASSIANO NETO',       video: 'images/Alunos/Videos/Samurai_Cassiano_Neto.mp4', portfolio: 'https://www.instagram.com/cassianoneto3d/' },
+        { title: 'TEMPLO OBSIDIANA', category: 'ALUNO · RAPHAEL SETS',       image: 'images/Alunos/Templo-Obsidiana_Raphael_Sets.png', portfolio: 'https://www.instagram.com/unydimension.studio/' },
+        { title: 'CARRO DOCE',       category: 'ALUNA · GABI PAIVA',         image: 'images/Alunos/Carro_Doce_Gabrielle_Jaccomo.jpg', portfolio: 'https://www.instagram.com/gabi.paiva3d/' },
+        { title: 'PC',               category: 'ALUNO · GABRIEL APOLINÁRIO',  image: 'images/Alunos/PC_Gabriel_Apolinario.png', portfolio: 'https://www.instagram.com/apolinario_3d/' },
+        { title: 'VARINHA HP',       category: 'ALUNO · SÉRGIO KETES',        image: 'images/Alunos/Varinha_HP_Sergio_Ketes.png', portfolio: 'https://www.instagram.com/sgk3d/' },
+        { title: 'AFROFUTURISTA',    category: 'ALUNO · WELISON SANTOS',      image: 'images/Alunos/Mulher_Afrofuturista_Welison_Santos.png', portfolio: 'https://www.instagram.com/anima.studiodesign/' },
+        { title: 'DE OLHO NA NATUREZA', category: 'ALUNO · LEANDRO JHEISON', video: 'images/Alunos/Videos/De_Olho_Na_Natureza_Leandro_Jheison.mp4', portfolio: 'https://www.instagram.com/23jheison/' },
         { title: 'AULAS E EVENTOS',  category: 'ESTÚDIO PEQUENO CAVALEIRO',  image: 'images/Eventos/1783432056153.jpg',                              url: '#' },
         { title: 'AULAS E EVENTOS',  category: 'ESTÚDIO PEQUENO CAVALEIRO',  image: 'images/Eventos/1785351310893.jpg',                              url: '#' },
         { title: 'AULAS E EVENTOS',  category: 'ESTÚDIO PEQUENO CAVALEIRO',  image: 'images/Eventos/IMG_20240406_155919 (1).jpg',                    url: '#' },
@@ -127,19 +130,22 @@
             const featuredPosition = events.indexOf(featureProjectIndex);
             if (featuredPosition !== -1) events.unshift(events.splice(featuredPosition, 1)[0]);
         }
-        const landscapeWorks = shuffled([0, 3, 4, 7, 8]);
-        const compactWorks = shuffled([1, 5, 9]);
-        const smallTiles = shuffled([compactWorks[1], compactWorks[2], 2, 6]);
-        const photoBlocks = events.slice(0, landscapeWorks.length).map((event, index) =>
+        const studentImages = shuffled(projects.map((project, index) =>
+            project.image?.startsWith('images/Alunos/') ? index : -1).filter(index => index !== -1));
+        const studentVideos = shuffled(projects.map((project, index) =>
+            project.video ? index : -1).filter(index => index !== -1));
+        const pairedCount = Math.min(events.length, studentImages.length);
+        const photoBlocks = events.slice(0, pairedCount).map((event, index) =>
             Math.random() < 0.5
-                ? ['landscape', event, landscapeWorks[index]]
-                : ['landscape', landscapeWorks[index], event]);
-        photoBlocks.push(...events.slice(landscapeWorks.length).map(event => ['wide-photo', event]));
-        const otherBlocks = shuffled([
-            ['single', compactWorks[0]],
-            ['double', smallTiles[0], smallTiles[1]],
-            ['double', smallTiles[2], smallTiles[3]]
-        ]);
+                ? ['landscape', event, studentImages[index]]
+                : ['landscape', studentImages[index], event]);
+        photoBlocks.push(...events.slice(pairedCount).map(event => ['wide-photo', event]));
+        const remainingWorks = shuffled([...studentImages.slice(pairedCount), ...studentVideos]);
+        const otherBlocks = [];
+        while (remainingWorks.length > 1) {
+            otherBlocks.push(['double', remainingWorks.pop(), remainingWorks.pop()]);
+        }
+        if (remainingWorks.length) otherBlocks.push(['single', remainingWorks.pop()]);
         const photos = shuffled(photoBlocks);
         if (featureProjectIndex !== null) {
             const featuredPosition = photos.findIndex(block => block.includes(featureProjectIndex));
@@ -148,8 +154,9 @@
         const layout = [];
         photos.forEach((photo, index) => {
             layout.push(photo);
-            if (index % 3 === 1 && otherBlocks.length) layout.push(otherBlocks.shift());
+            if (index % 2 === 1 && otherBlocks.length) layout.push(otherBlocks.shift());
         });
+        layout.push(...otherBlocks);
 
         layout.forEach(([type, first, second], index) => {
             sequence.appendChild(type === 'single' || type === 'wide-photo'
@@ -193,6 +200,14 @@
         }
         lightboxMedia.appendChild(media);
         lightboxCaption.textContent = `${project.title} · ${project.category}`;
+        if (project.portfolio) {
+            const link = document.createElement('a');
+            link.href = project.portfolio;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = 'Ver portfólio ↗';
+            lightboxCaption.appendChild(link);
+        }
         lightbox.showModal();
         if (project.video) media.play().catch(() => {});
     });

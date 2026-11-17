@@ -20,7 +20,7 @@
     /* Mosaico */
     --marquee-height:    51vh;
     --marquee-gap:       6px;
-    --marquee-speed:     101s;
+    --marquee-speed:     120s;
     --tile-w-single:     260px;
     --tile-w-double-a:   220px;
     --tile-w-double-b:   220px;
@@ -525,6 +525,21 @@ button.m-tile {
     font-size: 12px;
     letter-spacing: 0.08em;
     text-align: center;
+}
+
+.m-lightbox__caption a {
+    display: inline-block;
+    margin-left: 1.2em;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.m-lightbox__caption a:hover,
+.m-lightbox__caption a:focus-visible {
+    color: var(--text);
 }
 
 .m-tile__title {
