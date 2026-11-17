@@ -546,6 +546,7 @@ a {
 
 .wip-progress__bar--20 { width: 20%; }
 .wip-progress__bar--25 { width: 25%; }
+.wip-progress__bar--50 { width: 50%; }
 .wip-progress__bar--40 { width: 40%; }
 .wip-progress__bar--60 { width: 60%; }
 .wip-progress__bar--70 { width: 70%; }
