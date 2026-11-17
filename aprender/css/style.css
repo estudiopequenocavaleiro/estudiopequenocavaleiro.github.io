@@ -489,7 +489,12 @@ button.m-tile {
     padding: 18px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 12px;
-    background: var(--background);
+    background-color: #171717;
+    background-image: linear-gradient(rgba(17, 17, 17, .48), rgba(17, 17, 17, .48)),
+        url('../images/Fundo PC para fotos.png');
+    background-position: center;
+    background-size: auto, clamp(280px, 30vw, 360px);
+    background-repeat: repeat;
     color: var(--text);
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
 }
@@ -502,11 +507,15 @@ button.m-tile {
 .m-lightbox::backdrop { background: rgba(0, 0, 0, 0.88); }
 
 .m-lightbox__close {
-    display: block;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
     margin: 0 0 12px auto;
-    padding: 0 8px;
-    border: 0;
-    background: transparent;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(17, 17, 17, .9);
     color: var(--text);
     font: inherit;
     font-size: 32px;
@@ -519,22 +528,9 @@ button.m-tile {
 
 .m-lightbox__media {
     position: relative;
-    display: grid;
-    place-items: center;
     flex: 1;
     min-height: 0;
     overflow: hidden;
-    isolation: isolate;
-    background: #171717;
-}
-
-.m-lightbox__media::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url('../images/Fundo PC para fotos.png') center / clamp(340px, 45vw, 600px) repeat;
-    opacity: .55;
-    pointer-events: none;
 }
 
 .m-lightbox__media img,
@@ -549,7 +545,14 @@ button.m-tile {
 }
 
 .m-lightbox__caption {
-    margin-top: 14px;
+    align-self: center;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 12px;
+    padding: 7px 12px;
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 6px;
+    background: rgba(17, 17, 17, .9);
     color: var(--text-muted);
     font-size: 12px;
     letter-spacing: 0.08em;
