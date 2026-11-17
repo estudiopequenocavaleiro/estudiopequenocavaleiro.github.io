@@ -481,7 +481,7 @@ button.m-tile {
 }
 
 .m-lightbox {
-    position: relative;
+    position: fixed;
     isolation: isolate;
     overflow: hidden;
     width: min(1100px, 94vw);
