@@ -24,48 +24,48 @@ const projects = [
         title: 'Modelagem & Escultura 3D',
         category: 'Arte',
         description: 'Criação de modelos 3D como ponto de partida para ideias, personagens e mundos. Estudos de forma, estilo e identidade visual, explorando desde o low poly estilizado até peças mais detalhadas.',
-        image: 'images/Modelagem_G.png',
-        thumbnail: 'images/Modelagem_P.png',
+        image: 'images/otimizadas/Modelagem_G.jpg',
+        thumbnail: 'images/otimizadas/Modelagem_P.jpg',
         link: '#'
     },
     {
         title: 'Rigging, animação e VFX',
         category: 'Cinema',
         description: 'Animação como ferramenta de narrativa e expressão. Testes de movimento, loops, acting e experimentos visuais que buscam dar vida aos personagens e ideias, mesmo em projetos pequenos e estudos rápidos.',
-        image: 'images/Rig_G.png',
-        thumbnail: 'images/Rig_P.png',
+        image: 'images/otimizadas/Rig_G.jpg',
+        thumbnail: 'images/otimizadas/Rig_P.jpg',
         link: '#'
     },
     {
         title: 'Impressão 3D',
         category: 'Arte',
         description: 'Do digital para o físico. Projetos pensados para impressão 3D, prototipagem, testes de peças funcionais ou decorativas. Aqui a ideia é entender limites, com erros, ajustes e aprendizados no caminho.',
-        image: 'images/3DPrint_G.jpg',
-        thumbnail: 'images/3DPrint_P.png',
+        image: 'images/otimizadas/3DPrint_G.jpg',
+        thumbnail: 'images/otimizadas/3DPrint_P.jpg',
         link: '#'
     },
     {
         title: 'Jogos',
         category: 'Games',
         description: 'Exploração de jogos como sistemas interativos. Protótipos, ideias, mecânicas e experimentos que misturam arte, design e programação.',
-        image: 'images/Games_G.jpg',
-        thumbnail: 'images/Games_P.png',
+        image: 'images/otimizadas/Games_G.jpg',
+        thumbnail: 'images/otimizadas/Games_P.jpg',
         link: '#'
     },
     {
         title: 'Programação/Projetos Maker',
         category: 'Tecnologia',
         description: 'A parte invisível que faz tudo funcionar. Um espaço para testar ideias, criar soluções e entender como unir tecnologia e criação de forma prática.',
-        image: 'images/Programacao_G.JPG',
-        thumbnail: 'images/Programacao_P.jpg',
+        image: 'images/otimizadas/Programacao_G.jpg',
+        thumbnail: 'images/otimizadas/Programacao_P.jpg',
         link: '#'
     },
     {
         title: 'Ensino e Conteúdos',
         category: 'Educação',
         description: 'Cursos, oficinas, workshops e materiais gratuitos voltados para quem quer aprender 3D, tecnologia e criação digital de forma prática.',
-        image: 'images/Ensino_G.png',
-        thumbnail: 'images/Ensino_P.png',
+        image: 'images/otimizadas/Ensino_G.jpg',
+        thumbnail: 'images/otimizadas/Ensino_P.jpg',
         link: '#'
     }
 ];
